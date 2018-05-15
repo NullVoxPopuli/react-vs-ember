@@ -1,0 +1,50 @@
+{
+  "name": "example-app",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Small description for example-app goes here",
+  "license": "MIT",
+  "author": "NullVoxPopuli",
+  "main": "src/main.js",
+  "scripts": {
+    "ember": "EMBER_CLI_MODULE_UNIFICATION=true node_modules/.bin/ember",
+    "build": "yarn ember build",
+    "start": "yarn ember serve"
+  },
+  "dependencies": {
+    "@ember-decorators/babel-transforms": "^2.0.0",
+    "@ember/optional-features": "^0.5.2",
+    "@types/ember": "^2.8.22",
+    "@types/rsvp": "^4.0.1",
+    "ember-cli-typescript": "github:typed-ember/ember-cli-typescript#mu",
+    "ember-decorators": "^2.0.0",
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.7.0",
+    "ember-ajax": "^3.0.0",
+    "ember-cli": "github:ember-cli/ember-cli#964fd4ae7c7182ef2e6abdc16d9e542dc0a1892e",
+    "ember-cli-app-version": "^3.0.0",
+    "ember-cli-babel": "^6.6.0",
+    "ember-cli-dependency-checker": "^2.0.0",
+    "ember-cli-eslint": "^4.2.3",
+    "ember-cli-htmlbars": "^2.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
+    "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-qunit": "^4.1.1",
+    "ember-cli-sass": "^6.1.3",
+    "ember-cli-shims": "^1.2.0",
+    "ember-cli-sri": "^2.1.0",
+    "ember-cli-uglify": "^2.0.0",
+    "ember-export-application-global": "^2.0.0",
+    "ember-load-initializers": "^1.1.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-resolver": "^4.0.0",
+    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/db31ac4f619a273828e6214b92611ec62bf66a12.tgz",
+    "loader.js": "^4.2.3",
+    "qunit-dom": "^0.6.2"
+  },
+  "engines": {
+    "node": "6.* || >= 8.*"
+  }
+}
