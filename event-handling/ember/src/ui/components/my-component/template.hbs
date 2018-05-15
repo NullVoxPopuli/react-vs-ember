@@ -1,4 +1,11 @@
 <h4>MyComponent</h4>
 
 textProperty: {{textProperty}} <br />
+
+<br />
+action handler: <br />
 {{input value=textProperty onChange=(action 'didChangeTextField')}}
+
+<br /><br />
+simple hander using closure actions: <br />
+{{input value=textProperty onChange=(action (mut textProperty))}}
