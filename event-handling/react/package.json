@@ -4,7 +4,8 @@
   "license": "MIT",
   "main": "src/index.html",
   "scripts": {
-    "start": "./node_modules/.bin/parcel src/index.html"
+    "parcel": "./node_modules/.bin/parcel",
+    "start": "yarn parcel src/index.html"
   },
   "dependencies": {
     "react": "^16.2.0",

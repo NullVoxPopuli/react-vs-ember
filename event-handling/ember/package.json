@@ -7,8 +7,7 @@
   "author": "NullVoxPopuli",
   "main": "src/main.js",
   "scripts": {
-    "ember": "EMBER_CLI_MODULE_UNIFICATION=true node_modules/.bin/ember",
-    "build": "yarn ember build",
+    "ember": "MODULE_UNIFICATION=true EMBER_CLI_MODULE_UNIFICATION=true node_modules/.bin/ember",
     "start": "yarn ember serve"
   },
   "dependencies": {
@@ -23,16 +22,15 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "github:ember-cli/ember-cli#964fd4ae7c7182ef2e6abdc16d9e542dc0a1892e",
+    "ember-cli": "github:ember-cli/ember-cli#f14a2770131dc2427f086b6f2771031dc517797c",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-dependency-checker": "^2.0.0",
-    "ember-cli-eslint": "^4.2.3",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^4.1.1",
-    "ember-cli-sass": "^6.1.3",
+    "ember-cli-sass": "^7.2.0",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
@@ -40,7 +38,7 @@
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
-    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/db31ac4f619a273828e6214b92611ec62bf66a12.tgz",
+    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/0ffc0c6ea57c036ff13d8f58f66af5e205e0c9be.tgz",
     "loader.js": "^4.2.3",
     "qunit-dom": "^0.6.2"
   },

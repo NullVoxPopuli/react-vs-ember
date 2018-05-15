@@ -9,7 +9,7 @@ export interface Props {}
 export default class MyComponent extends React.Component<Props, State> {
   state: State = {};
 
-  didChangeTextField = event => {
+  didChangeTextField = (event: React.ChangeEvent<HTMLInputElement>) => {
     const text = event.target.value;
 
     this.setState({ textProperty: text });
@@ -21,7 +21,9 @@ export default class MyComponent extends React.Component<Props, State> {
     return (
       <div>
         textProperty: {textProperty}<br />
-        <input value={textProperty || ''} onChange={this.didChangeTextField} />
+        <input 
+          value={textProperty || ''} 
+          onChange={this.didChangeTextField} />
       </div>
     );
   }

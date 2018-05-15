@@ -1,20 +1,10 @@
 'use strict';
 
-const Funnel = require('broccoli-funnel');
-const mergeTrees = require('broccoli-merge-trees');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // eslint slows down the dev-build-debug cycle significantly
-    // hinting: false disables linting at build time.
-    hinting: false,
-    eslint: {
-      testGenerator: 'qunit',
-      group: true,
-      rulesDir: 'eslint-rules',
-      extensions: ['js', 'ts'],
-    },
+    // Add options here
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -29,5 +19,6 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+
   return app.toTree();
 };

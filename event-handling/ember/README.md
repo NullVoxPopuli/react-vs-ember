@@ -1,6 +1,13 @@
-# React with [Parcel](https://parceljs.org/getting_started.html)
+# Ember
 
+### Docker (recommended)
+```bash
+docker build . -t event-handling-ember
+docker run -it --rm event-handling-ember
 ```
+
+### Local
+```bash
 yarn install
 yarn start
 ```
