@@ -12,8 +12,12 @@ RUN echo \
 
 COPY . /app
 
-# Ports
-# 4200 - Dev Server
-# 7020 - Hot Reload
-EXPOSE 4200
+
+# Dev Server
+ENV PORT=9091
+# Hot Reload
+ENV HMR_PORT=9092
+
+EXPOSE 9091
+EXPOSE 9092
 CMD ["yarn", "start"]

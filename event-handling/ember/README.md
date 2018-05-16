@@ -14,5 +14,4 @@ yarn start
 
 ## File(s) of interest
 
-- src/ui/components/my-component/component.ts
-- src/ui/components/my-component/template.hbs
+- src/ui/components/*
