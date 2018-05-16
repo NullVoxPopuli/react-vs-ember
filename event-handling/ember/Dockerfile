@@ -1,4 +1,4 @@
-FROM node:10.1.0-alpine
+FROM node:8.11.1-alpine
 
 RUN mkdir /app
 WORKDIR /app
@@ -15,5 +15,4 @@ COPY . /app
 # Ports
 # 4200 - Dev Server
 # 7020 - Hot Reload
-EXPOSE 4200
 CMD ["yarn", "start"]

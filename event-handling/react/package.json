@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "scripts": {
     "parcel": "./node_modules/.bin/parcel",
-    "start": "yarn parcel src/index.html"
+    "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT"
   },
   "dependencies": {
     "react": "^16.2.0",

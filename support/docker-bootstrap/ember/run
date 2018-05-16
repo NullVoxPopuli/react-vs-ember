@@ -7,9 +7,13 @@ function runstuff {
   arguments=${@:2}
 
   case $given_command in
-    docker) 
+    docker)
       docker build . -t event-handling-ember \
-      && docker run -it --rm event-handling-ember
+      && \
+        docker run -it \
+          -p 4200:4200 \
+          -p 7020:7020 \
+          --rm event-handling-ember
     ;;
 
     local) yarn && yarn start;;
