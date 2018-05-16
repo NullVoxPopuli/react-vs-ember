@@ -1,20 +1,31 @@
 
 # React vs Ember: Event Handling
 
+For the first comparison, we will have a text box with an "on change" hook attached,
+such that any changes to the content of the text box will be represented in the component's
+internal state via an action.
+
+
 TODO: flesh out, add details
 - two ways to handle events in ember, depending on the situation
 - one way in react
 
-In React:
+## React
 
 ```html
 <iframe
-  src="https://codesandbox.io/embed/github/NullVoxPopuli/react-vs-ember/tree/master/event-handling/react?module=%2Fsrc%2Fui%2Fmy-component.tsx" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  src="https://codesandbox.io/embed/github/NullVoxPopuli/react-vs-ember/tree/master/event-handling/react?module=%2Fsrc%2Fui%2Fmy-component.tsx"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 </iframe>
 ```
 
-In Ember: first, an action handler, for if you need to do any sort of processing on the input.
+
+
+## Ember
+
+Mimicking what was done for React (above), the following component creates an
+event handling action.
 
 ```ts
 import Component from '@ember/component';
@@ -32,17 +43,36 @@ export default class MyComponent extends Component {
 }
 ```
 ```hbs
-{{input value=textProperty onChange=(action 'didChangeTextField')}}
+{{input
+  value=textProperty
+  onChange=(action 'didChangeTextField')}}
 ```
 
-If no processing needs to occur on the value
-```ts
-import Component from '@ember/component';
+Typically, in an ember project, you would only _need_ an action handler for this kind of
+event if you needed to do some sort of pre-processing or logic on the value before eventually
+setting the value to a property.
 
-export default class MyComponent extends Component {}
-```
+If no processing needs to occur on the value, ember provides [closure actions](https://www.emberjs.com/api/ember/3.1/classes/Ember.Templates.helpers/methods/mut?anchor=mut):
 ```hbs
-{{input value=textProperty onChange=(action (mut textProperty)}}
+{{input
+  value=textProperty
+  onChange=(action (mut textProperty)}}
 ```
 
-Closure Actions
+Ember's templating provides good extensibility. As demonstrated by [DockYard's ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers) addon, additionaly composability can be achieved for simplifying menial tasks.
+
+For example:
+```hbs
+<button onclick={{action (mut count) (inc count)}}>
+  Increment count
+</button>
+```
+
+
+A similar technique could be done in react, by doing an inline-onChange handler:
+
+```jsx
+<input
+  value={textProperty || ''}
+  onChange={event => this.setState({ textProperty: event.target.value })} />
+```

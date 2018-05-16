@@ -19,15 +19,6 @@ code samples to demonstrate the implementation(s) in the grander scheme of an ap
 
 While the goal is to remain totally subjective between React (and it's ecosystem) and Ember, some opinions are required within each in order to make the comparison easier. Many of these opinionated implementation details won't matter for the content of the blog series, but will be present in the linked example code. There will be a separate post down the road about project structure in various scenarios.
 
-### (Very) Brief Overview
-
-#### React
-
-#### Ember
-
-
-
-
 
 ----------------------------------------------------
 
