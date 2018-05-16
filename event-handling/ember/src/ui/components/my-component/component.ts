@@ -6,7 +6,6 @@ export default class MyComponent extends Component {
 
   @action
   didChangeTextField(this: MyComponent, event: KeyboardEvent) {
-    console.log(event);
     const text = (event.target as HTMLInputElement).value;
 
     this.set('textProperty', text);
