@@ -20,6 +20,56 @@ TODO: flesh out, add details
 </iframe>
 ```
 
+```tsx
+import * as React from 'react';
+
+export interface State { textProperty?: string; }
+export interface Props {}
+
+export default class MyComponent extends React.Component<Props, State> {
+  // react stores all local state in a class property
+  state: State = {};
+
+  // actions in react must have a binding to the class instance otherwise
+  // this.setState is undefined because this isn't the instance.
+  // there are a couple ways around the error using .bind,
+  // but this technique is the most concise.
+  //
+  // it works due to how class properties are transpiled --
+  // by moving the definition inside the class constructor, which
+  // auto-binds to the correct 'this'
+  didChangeTextField = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const text = event.target.value;
+
+    // react uses setState for async-ily updating the state.
+    // when the state is updated, a re-render of this and child components
+    // wil occur.
+    // note that setting any properties on the class itself will not cause a re-render.
+    this.setState({ textProperty: text });
+  }
+
+  render() {
+    const { textProperty } = this.state;
+
+    return (
+      <div>
+        textProperty: {textProperty}<br />
+        {/*
+          in react, inputs must always have a set value if they are to be
+          controlled by javascript code. in this case, since textProperty
+          has no value, without the `|| ''`, the input would initially
+          be uncontrolled, and switch to controlled upon the update of
+          the value of textProperty.
+          For more information on uncontrolled components: https://reactjs.org/docs/uncontrolled-components.html
+        */}
+        <input
+          value={textProperty || ''}
+          onChange={this.didChangeTextField} />
+      </div>
+    );
+  }
+}
+```
 
 
 ## Ember

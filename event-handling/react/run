@@ -13,6 +13,7 @@ function runstuff {
         docker run -it \
           -p 9091:9091 \
           -p 9092:9092 \
+          -v $PWD:/app \
           --rm event-handling-react
     ;;
 

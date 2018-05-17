@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-export interface State {
-  textProperty?: string;
-}
-
+export interface State { textProperty?: string; }
 export interface Props {}
 
 export default class MyComponent extends React.Component<Props, State> {
@@ -21,8 +18,8 @@ export default class MyComponent extends React.Component<Props, State> {
     return (
       <div>
         textProperty: {textProperty}<br />
-        <input 
-          value={textProperty || ''} 
+        <input
+          value={textProperty || ''}
           onChange={this.didChangeTextField} />
       </div>
     );
