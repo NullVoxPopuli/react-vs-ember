@@ -91,6 +91,17 @@ export default class MyComponent extends Component {
   // example above can also be used.
   // the only difference in the template would be that
   // (action 'didChangeTextField') becomes (action didChangeTextField)
+  //
+  // However, the reason actions in components are placed in an
+  // actions object is because @ember/component has a fairly large
+  // public api, and by idiomatically defining actions in the
+  // actions object, it removes the change of naming collisions.
+  // For example, if someone wanted to declare a destroy action as
+  // destroy = () => { /* behavior */ }, that would break the
+  // rendering process because the component couldn't be destroyed.
+  //
+  // for more information on the component:
+  // api: https://www.emberjs.com/api/ember/release/classes/Component
   @action
   didChangeTextField(this: MyComponent, event: KeyboardEvent) {
     const text = (event.target as HTMLInputElement).value;
