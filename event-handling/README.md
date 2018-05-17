@@ -5,11 +5,6 @@ For the first comparison, we will have a text box with an "on change" hook attac
 such that any changes to the content of the text box will be represented in the component's
 internal state via an action.
 
-
-TODO: flesh out, add details
-- two ways to handle events in ember, depending on the situation
-- one way in react
-
 ## React
 
 ```html
@@ -82,17 +77,41 @@ import Component from '@ember/component';
 import { action } from '@ember-decorators/object';
 
 export default class MyComponent extends Component {
+  // in ember, component-level state is managed with class properties
   textProperty?: string;
 
+  // an action in ember is a function that in intended to be be
+  // used within templates.
+  // the decorator here sets the function within an underlying `actions`
+  // object on the component. It's within that `actions` object that
+  // the templates know what actions are defined or not in order
+  // to separate out helper function that may be present in a component.
+  //
+  // note that a class property function, like that used in the react
+  // example above can also be used.
+  // the only difference in the template would be that
+  // (action 'didChangeTextField') becomes (action didChangeTextField)
   @action
-  didChangeTextField(this: MyComponent, event) {
-    const text = event.target.value;
+  didChangeTextField(this: MyComponent, event: KeyboardEvent) {
+    const text = (event.target as HTMLInputElement).value;
 
     this.set('textProperty', text);
   }
 }
 ```
 ```hbs
+{{!--
+  because handlebars is a superset of html, (rather than its own markup/templating
+  language, like react),
+  ember provides numerous template helpers for abstracting away menial
+  event-handling configuration.
+
+  The key differences here from react is that the value attribute can
+  be just set to the property. and the `onChange` handler is a closure
+
+  for more information and a list of helpers: https://guides.emberjs.com/v3.1.0/templates/input-helpers/
+--}}
+
 {{input
   value=textProperty
   onChange=(action 'didChangeTextField')}}
