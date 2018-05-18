@@ -10,10 +10,4 @@ export default class MyComponent extends Component {
 
     this.set('textProperty', text);
   }
-
-  ev = (event: KeyboardEvent) => {
-    const text = (event.target as HTMLInputElement).value;
-
-    this.set('textProperty', text);
-  }
 }

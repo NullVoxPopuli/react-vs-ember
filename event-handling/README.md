@@ -1,9 +1,11 @@
 
 # React vs Ember: Event Handling
 
-For the first comparison, we will have a text box with an "on change" hook attached,
+For the first demonstration of solving the same problem with both React and Ember, we will have a text box with an "on change" hook attached
 such that any changes to the content of the text box will be represented in the component's
 internal state via an action.
+
+The goal of this comparison is to demonstrate the similarities between the two toolsets and what developer ergonomics each has to offer.
 
 ## React
 
@@ -115,7 +117,7 @@ export default class MyComponent extends Component {
   because handlebars is a superset of html, (rather than its own markup/templating
   language, like react),
   ember provides numerous template helpers for abstracting away menial
-  event-handling configuration.
+  event-handling configuration (such as avoiding configuring keyup, paste, keydown, etc).
 
   The key differences here from react is that the value attribute can
   be just set to the property. and the `onChange` handler is a closure
