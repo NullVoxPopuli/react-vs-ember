@@ -34,7 +34,10 @@ The structure is the following:
      - everything needed to run an ember project
 
 ```
-each react/ember folder will have a `README.md` which explains which files are of relevance for the specific blog topic.
+
+Each react/ember folder will have a `README.md` which explains which files are of relevance for the specific blog topic.
+
+Every project directory will contain a `run` file, which can be executed via `./run docker` to auto-build, install dependencies, and run the sample app.
 
 
 ------------------------------------------------------
