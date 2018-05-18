@@ -1,7 +1,6 @@
 # React vs Ember: Event Handling
 
-Since this is the first comparison in the series, I figured it'd be good to start with something that is ever present in nearly all components.
-Event Handling can feel tedius.
+Since this is the first comparison in the series, I figured it'd be good to start with something that is ever present in nearly all components: Event Handling.
 
 For the first demonstration of solving the same problem with both React and Ember, we will have a text box with an "on change" hook attached
 such that any changes to the content of the text box will be represented in the component's
