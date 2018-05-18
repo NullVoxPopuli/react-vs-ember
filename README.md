@@ -22,6 +22,9 @@ While the goal is to remain totally subjective between React (and it's ecosystem
 
 ----------------------------------------------------
 
+## Info About This Repo
+
+
 The code in this repo provides runnable examples of code throughout a blogging series comparing react (and it's ecosystem) with ember.
 
 The structure is the following:
