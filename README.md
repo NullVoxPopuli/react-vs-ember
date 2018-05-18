@@ -38,4 +38,4 @@ each react/ember folder will have a `README.md` which explains which files are o
 
 
 ------------------------------------------------------
-Markdown to HTML Conversion:
+Markdown to HTML Conversion: https://www.browserling.com/tools/markdown-to-html
