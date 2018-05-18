@@ -94,7 +94,7 @@ export default class MyComponent extends Component {
   // in ember, component-level state is managed with class properties
   textProperty?: string;
 
-  // an action in ember is a function that in intended to be be
+  // an action in ember is a function that is intended to be be
   // used within templates.
   // the decorator here sets the function within an underlying `actions`
   // object on the component. It's within that `actions` object that
