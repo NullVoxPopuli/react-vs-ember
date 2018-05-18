@@ -59,6 +59,10 @@ export default class MyComponent extends React.Component<Props, State> {
           be uncontrolled, and switch to controlled upon the update of
           the value of textProperty.
           For more information on uncontrolled components: https://reactjs.org/docs/uncontrolled-components.html
+
+          The onChange here is part of a built-in component provided as part of jsx
+          https://reactjs.org/docs/forms.html#controlled-components
+          it combines a few lower level dom events such as keyup and paste for convenience.
         */}
         <input
           value={textProperty || ''}
@@ -127,14 +131,14 @@ export default class MyComponent extends Component {
 
 Because handlebars is a superset of html, (rather than its own markup/templating
 language, like react),
-ember provides numerous template helpers for abstracting away menial
+ember provides [numerous template helpers](https://guides.emberjs.com/v3.1.0/templates/input-helpers/) for abstracting away menial
 event-handling configuration (such as avoiding configuring keyup, paste, keydown, etc).
 
 The key differences here from react is that the value attribute can
 be just set to the property. and the `onChange` handler is a closure
 
 For more information and a list of helpers: https://guides.emberjs.com/v3.1.0/templates/input-helpers/
-```hbs
+```handlebars
 {{input
   value=textProperty
   onChange=(action 'didChangeTextField')}}
@@ -145,7 +149,7 @@ event if you needed to do some pre-processing or logic on the value before event
 setting the value to destined property.
 
 If no processing needs to occur on the value, ember provides [action helpers](https://www.emberjs.com/api/ember/3.1/classes/Ember.Templates.helpers/methods/mut?anchor=mut):
-```hbs
+```handlebars
 {{input
   value=textProperty
   onChange=(action (mut textProperty)}}
@@ -154,7 +158,7 @@ If no processing needs to occur on the value, ember provides [action helpers](ht
 Ember's templating provides good extensibility. As demonstrated by [DockYard's ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers) addon, additionaly composability can be achieved for simplifying menial tasks.
 
 For example:
-```hbs
+```handlebars
 <button onclick={{action (mut count) (inc count)}}>
   Increment count
 </button>
@@ -170,6 +174,11 @@ As one can imagine, manually managing events for every single input in an app ca
 However, ember has a number of helpers to aid in the menial.. and, fortunately,
 there are a number of tools / libraries (for both react and ember) that can assist with more complex things, such as forms -- but that'll
 be a topic for another time.
+
+--------------------------------------------------------
+
+The application code for both the ember and react code above can be found [in this repository.](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/event-handling)
+For both ember and react apps, you should be able to get up and running, provided you have docker installed, by running `./run docker` (at least on unix-based machines)
 
 
 --------------------------------------------------------

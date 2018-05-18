@@ -12,7 +12,7 @@ difficult to compare to Ember, as React is a single library, and Ember is a fram
 libraries.
 
 This series will assume some general single-page-app and modern ecmascript knowledge from the readers so that the content
-can focus on the problem being solved for that particular blog post. Each post will include (and embed) runnable
+can focus on the problem being solved for that particular blog post. Each post will include (and eventually embed) runnable
 code samples to demonstrate the implementation(s) in the grander scheme of an app.
 
 ###  Notes and caveats
@@ -45,3 +45,34 @@ Every project directory will contain a `run` file, which can be executed via `./
 
 ------------------------------------------------------
 Markdown to HTML Conversion: https://www.browserling.com/tools/markdown-to-html
+
+
+
+---------------------------------------------------------
+
+Wordpress for getting syntax highlighting:
+
+```html
+<!-- This is for coloring the code samples -->
+<!--
+https://www.jsdelivr.com/package/npm/prismjs?path=components&tab=collection
+-->
+
+
+<script
+  src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.js,npm/prismjs@1.14.0/plugins/show-language/prism-show-language.min.js,npm/prismjs@1.14.0/components/prism-typescript.min.js,npm/prismjs@1.14.0/components/prism-jsx.min.js,npm/prismjs@1.14.0/components/prism-tsx.min.js,npm/prismjs@1.14.0/components/prism-markup-templating.min.js,npm/prismjs@1.14.0/components/prism-handlebars.min.js"></script>
+
+
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0/themes/prism.min.css,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.css">
+
+
+<style>
+.main h1, .main h2 {
+  margin-bottom: 2rem !important;
+}
+</style>
+```
