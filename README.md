@@ -35,3 +35,7 @@ The structure is the following:
 
 ```
 each react/ember folder will have a `README.md` which explains which files are of relevance for the specific blog topic.
+
+
+------------------------------------------------------
+Markdown to HTML Conversion:

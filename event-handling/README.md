@@ -1,5 +1,7 @@
-
 # React vs Ember: Event Handling
+
+Since this is the first comparison in the series, I figured it'd be good to start with something that is ever present in nearly all components.
+Event Handling can feel tedius.
 
 For the first demonstration of solving the same problem with both React and Ember, we will have a text box with an "on change" hook attached
 such that any changes to the content of the text box will be represented in the component's
@@ -28,7 +30,7 @@ export default class MyComponent extends React.Component<Props, State> {
   state: State = {};
 
   // actions in react must have a binding to the class instance otherwise
-  // this.setState is undefined because this isn't the instance.
+  // this.setState is undefined because `this` isn't the instance.
   // there are a couple ways around the error using .bind,
   // but this technique is the most concise.
   //
@@ -67,6 +69,17 @@ export default class MyComponent extends React.Component<Props, State> {
   }
 }
 ```
+
+With many event handling functions, the component size can grow considerably.
+It may be tempting to do inline change handling functions such as
+
+```jsx
+<input
+  value={textProperty || ''}
+  onChange={event => this.setState({ textProperty: event.target.value })} />
+```
+
+But it is best-practice to keep templates as simple as possible and pulling logic and functions out of them.
 
 
 ## Ember
@@ -112,29 +125,27 @@ export default class MyComponent extends Component {
   }
 }
 ```
+
+Because handlebars is a superset of html, (rather than its own markup/templating
+language, like react),
+ember provides numerous template helpers for abstracting away menial
+event-handling configuration (such as avoiding configuring keyup, paste, keydown, etc).
+
+The key differences here from react is that the value attribute can
+be just set to the property. and the `onChange` handler is a closure
+
+For more information and a list of helpers: https://guides.emberjs.com/v3.1.0/templates/input-helpers/
 ```hbs
-{{!--
-  because handlebars is a superset of html, (rather than its own markup/templating
-  language, like react),
-  ember provides numerous template helpers for abstracting away menial
-  event-handling configuration (such as avoiding configuring keyup, paste, keydown, etc).
-
-  The key differences here from react is that the value attribute can
-  be just set to the property. and the `onChange` handler is a closure
-
-  for more information and a list of helpers: https://guides.emberjs.com/v3.1.0/templates/input-helpers/
---}}
-
 {{input
   value=textProperty
   onChange=(action 'didChangeTextField')}}
 ```
 
-Typically, in an ember project, you would only _need_ an action handler for this kind of
-event if you needed to do some sort of pre-processing or logic on the value before eventually
-setting the value to a property.
+Typically, in an ember project, you would only need an action handler for this kind of
+event if you needed to do some pre-processing or logic on the value before eventually
+setting the value to destined property.
 
-If no processing needs to occur on the value, ember provides [closure actions](https://www.emberjs.com/api/ember/3.1/classes/Ember.Templates.helpers/methods/mut?anchor=mut):
+If no processing needs to occur on the value, ember provides [action helpers](https://www.emberjs.com/api/ember/3.1/classes/Ember.Templates.helpers/methods/mut?anchor=mut):
 ```hbs
 {{input
   value=textProperty
@@ -151,10 +162,24 @@ For example:
 ```
 
 
-A similar technique could be done in react, by doing an inline-onChange handler:
+## Event Handling: Thoughts
 
-```jsx
-<input
-  value={textProperty || ''}
-  onChange={event => this.setState({ textProperty: event.target.value })} />
-```
+Both React and Ember can achieve event handling in the same way. It may seem odd at first to have to follow convention
+in ember's case with `@action` decorators (especially when they aren't needed), but ember's goal is different from react's.
+
+As one can imagine, manually managing events for every single input in an app can feel tedious.
+However, ember has a number of helpers to aid in the menial.. and, fortunately,
+there are a number of tools / libraries (for both react and ember) that can assist with more complex things, such as forms -- but that'll
+be a topic for another time.
+
+
+--------------------------------------------------------
+
+In order to try to stay focused, I made a lot of assumptions about the readers' knowledge.  
+If you want to know more about anything mentioned in this post, feel free to tweet at me [@NullVoxPopuli](https://twitter.com/nullvoxpopuli).
+Maybe:
+ - why use typescript?
+ - why are the typescript definitions different?
+ - why does ember user separate template files?
+   - why does ember use handlebars instead of jsx?
+ - why not use redux for this example?
