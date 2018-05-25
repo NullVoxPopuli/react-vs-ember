@@ -27,7 +27,11 @@
       "example-app/src/*": [
         "src/*"
       ],
-      "@ember": ["node_modules/@types/ember/index.d.ts"]
+      "@ember": ["node_modules/@types/ember/index.d.ts"],
+      "ember-redux": ["node_modules/ember-redux/index.d.ts"],
+      "*": [
+        "types/*"
+      ]
     }
   },
   "include": [
