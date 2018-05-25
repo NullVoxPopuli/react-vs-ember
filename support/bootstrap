@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# this must be run from the root of the repo
+# e.g.:
+#   ./support/bootstrap
+comparison_name=$1
+
+if [ "" == "$1" ]; then
+  echo "No comparison name"
+  exit 1
+fi
+
+ember_dir=${comparison_name}/ember
+react_dir=${comparison_name}/react
+
+mkdir -p ${ember_dir}
+mkdir -p ${react_dir}
+
+cp -r ./support/docker-bootstrap/ember/. ${ember_dir}/
+cp -r ./support/docker-bootstrap/react/. ${react_dir}/
+
+echo "React vs Ember: ${comparison_name}" > ${comparison_name}/README.md
