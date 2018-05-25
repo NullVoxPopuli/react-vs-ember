@@ -1,6 +1,6 @@
 # React vs Ember: Event Handling
 
-Since this is the first comparison in the series, I figured it'd be good to start with something that is ever present in nearly all components: Event Handling.
+As this is the first comparison in the series, I figured it'd be good to start with something that is ever present in nearly all components: Event Handling.
 
 For the first demonstration of solving the same problem with both React and Ember, we will have a text box with an "on change" hook attached
 such that any changes to the content of the text box will be represented in the component's
@@ -41,7 +41,7 @@ export default class MyComponent extends React.Component<Props, State> {
 
     // react uses setState for async-ily updating the state.
     // when the state is updated, a re-render of this and child components
-    // wil occur.
+    // will occur.
     // note that setting any properties on the class itself will not cause a re-render.
     this.setState({ textProperty: text });
   }
@@ -113,7 +113,7 @@ export default class MyComponent extends Component {
   // However, the reason actions in components are placed in an
   // actions object is because @ember/component has a fairly large
   // public api, and by idiomatically defining actions in the
-  // actions object, it removes the change of naming collisions.
+  // actions object, it removes the chance of naming collisions.
   // For example, if someone wanted to declare a destroy action as
   // destroy = () => { /* behavior */ }, that would break the
   // rendering process because the component couldn't be destroyed.
@@ -129,8 +129,8 @@ export default class MyComponent extends Component {
 }
 ```
 
-Because handlebars is a superset of html, (rather than its own markup/templating
-language, like react),
+Because handlebars is a superset of html, rather than its own markup/templating
+language, like react,
 ember provides [numerous template helpers](https://guides.emberjs.com/v3.1.0/templates/input-helpers/) for abstracting away menial
 event-handling configuration (such as avoiding configuring keyup, paste, keydown, etc).
 
@@ -138,12 +138,13 @@ The key differences here from react is that the value attribute can
 be just set to the property. and the `onChange` handler is a closure
 
 For more information and a list of helpers: https://guides.emberjs.com/v3.1.0/templates/input-helpers/
+
+
 ```handlebars
 {{input
   value=textProperty
   onChange=(action 'didChangeTextField')}}
 ```
-
 Typically, in an ember project, you would only need an action handler for this kind of
 event if you needed to do some pre-processing or logic on the value before eventually
 setting the value to destined property.
@@ -171,7 +172,7 @@ Both React and Ember can achieve event handling in the same way. It may seem odd
 in ember's case with `@action` decorators (especially when they aren't needed), but ember's goal is different from react's.
 
 As one can imagine, manually managing events for every single input in an app can feel tedious.
-However, ember has a number of helpers to aid in the menial.. and, fortunately,
+However, ember has a number of helpers to aid in the menial... and, fortunately,
 there are a number of tools / libraries (for both react and ember) that can assist with more complex things, such as forms -- but that'll
 be a topic for another time.
 
