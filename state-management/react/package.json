@@ -1,0 +1,20 @@
+{
+  "name": "react-vs-ember_event-handling_react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.html",
+  "scripts": {
+    "parcel": "./node_modules/.bin/parcel",
+    "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "parcel-bundler": "^1.6.2",
+    "typescript": "^2.7.2"
+  }
+}
