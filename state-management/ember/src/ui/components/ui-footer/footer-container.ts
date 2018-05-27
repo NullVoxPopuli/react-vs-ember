@@ -3,14 +3,20 @@ import hbs from 'htmlbars-inline-precompile';
 
 import { connect } from 'ember-redux';
 
-import { getFilter, getTodosCount, getCompletedCount, getAllTodosCount } from '../reducers/todos';
-import { clearCompleted, showAll, showActive, showCompleted } from '../actions/todos';
+import { State } from 'example-app/redux-store/reducers';
+import {
+  selectors,
+  clearCompleted, showAll, showActive, showCompleted,
+} from 'example-app/redux-store/todos';
 
-const stateToComputed = state => ({
-  filter: getFilter(state),
-  allCount: getAllTodosCount(state),
-  todosCount: getTodosCount(state),
-  completedCount: getCompletedCount(state)
+const { all, count, allCount, completedCount, filter } = selectors;
+
+
+const stateToComputed = (state: State) => ({
+  filter: filter(state),
+  allCount: allCount(state),
+  todosCount: count(state),
+  completedCount: completedCount(state)
 });
 
 const dispatchToActions = {

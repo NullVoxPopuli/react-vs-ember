@@ -12,7 +12,7 @@ export const add = (text: string): AddAction => ({ type: ADD, text, id: nextTodo
 export const reducer = (state: State, action: AddAction) => ({
   ...state,
   all: [
-    ...state.todos,
+    ...state.all,
     {
       id: action.id,
       text: action.text,
