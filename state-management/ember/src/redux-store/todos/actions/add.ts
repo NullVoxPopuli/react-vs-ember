@@ -1,7 +1,7 @@
 import { namespace, State } from '../shared';
 
 export const ADD = `${namespace}/ADD`;
-export type AddAction = { type: string, id: number, text: string }
+export type AddAction = { type: string, id: number, text: string };
 
 let nextTodoId = 0;
 

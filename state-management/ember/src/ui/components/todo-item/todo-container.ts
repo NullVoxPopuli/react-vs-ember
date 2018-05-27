@@ -1,19 +1,19 @@
 import Ember from 'ember';
 import Component from '@ember/component';
-import { action } from '@ember/object';
+import { action } from '@ember-decorators/object';
 import hbs from 'htmlbars-inline-precompile';
 
 
 import { connect } from 'ember-redux';
-import { editTodo, deleteTodo, completeTodo } from '../actions/todos';
+import { edit, destroy, complete } from 'example-app/redux-store/todos';
 
 const { run: { scheduleOnce } } = Ember;
 
 
 const dispatchToActions = {
-  deleteTodo,
-  completeTodo,
-  editTodo
+  deleteTodo: destroy,
+  completeTodo: complete,
+  editTodo: edit
 }
 
 // export default connect(null, dispatchToActions)(TodoItemContainer);
@@ -22,29 +22,34 @@ const dispatchToActions = {
 export default class TodoItemContainer extends Component {
   tagName = 'li';
   editing = false;
-  classNameBindings: ['todo.completed', 'editing'];
+  classNameBindings = ['todo.completed', 'editing'];
 
   @action
-  startEditing() {
+  startEditing(this: TodoItemContainer) {
     this.set('editing', true);
   }
 
   @action
-  doneEditing() {
+  doneEditing(this: TodoItemContainer) {
     this.set('editing', false);
   }
 
   @action
-  focusInput() {
+  focusInput(this: TodoItemContainer) {
     scheduleOnce('afterRender', this, () => {
-      this.element.querySelector('input.edit').focus();
+      const element = this.element;
+      const input = element.querySelector('input.edit') as HTMLInputElement
+
+      input.focus();
     });
   }
 
   @action
-  handleKeydown(e) {
+  handleKeydown(this: TodoItemContainer, e: KeyboardEvent) {
     if (e.keyCode === 13) {
-      e.target.blur();
+      const target = (e.target as HTMLInputElement);
+
+      target.blur();
     } else if (e.keyCode === 27) {
       this.set('editing', false);
     }

@@ -1,7 +1,7 @@
 import { namespace, State } from '../shared';
 
 export const EDIT = `${namespace}/EDIT`;
-export type EditAction = { type: string, id: number, text: string }
+export type EditAction = { type: string, id: number, text: string };
 
 // Action Creator
 export const edit = (id: number, text: string): EditAction => ({ type: EDIT, id, text });

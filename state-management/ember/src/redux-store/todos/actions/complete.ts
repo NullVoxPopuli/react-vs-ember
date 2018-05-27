@@ -1,7 +1,7 @@
 import { namespace, State } from '../shared';
 
 export const COMPLETE = `${namespace}/COMPLETE`;
-export type CompleteAction = { type: string, id: number }
+export type CompleteAction = { type: string, id: number };
 
 // Action Creator
 export const complete = (id: number): CompleteAction => ({ type: COMPLETE, id });

@@ -6,7 +6,8 @@ import { connect } from 'ember-redux';
 import { State } from 'example-app/redux-store/reducers';
 import {
   selectors,
-  clearCompleted, showAll, showActive, showCompleted,
+  clearCompleted,
+  showAll, showActive, showCompleted
 } from 'example-app/redux-store/todos';
 
 const { all, count, allCount, completedCount, filter } = selectors;

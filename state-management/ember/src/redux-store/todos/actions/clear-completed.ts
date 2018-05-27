@@ -1,7 +1,7 @@
 import { namespace, State } from '../shared';
 
 export const CLEAR_COMPLETED = `${namespace}/CLEAR_COMPLETED`;
-export type ClearCompletedAction = { type: string }
+export type ClearCompletedAction = { type: string };
 
 // Action Creator
 export const clearCompleted = (): ClearCompletedAction => ({ type: CLEAR_COMPLETED });
