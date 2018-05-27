@@ -7,11 +7,13 @@ export type Todo = {
 }
 
 export type State = {
-  todos: Todo[]
+  all: Todo[],
+  filter: boolean | undefined
 }
 
 export const initialState: State = {
-  todos: []
+  all: [],
+  filter: undefined
 }
 
 export type OtherAction = { type: '' };

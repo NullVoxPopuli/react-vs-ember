@@ -1,2 +1,17 @@
-There is nothing here.
-Also, I cannot lie.
+<div class='todoapp'>
+  {{ui-header}}
+
+  <section class='main'>
+    <input type="checkbox" class="toggle-all" value="on">
+
+    {{#todo-list as |todos|}}
+      {{#each-in todos as |key todo|}}
+
+        {{todo-item todo=todo}}
+
+      {{/each-in}}
+    {{/todo-list}}
+  </section>
+
+  {{ui-footer}}
+</div>

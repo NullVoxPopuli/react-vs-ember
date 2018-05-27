@@ -9,7 +9,7 @@ export const toggle = (id: number): ToggleAction => ({ type: TOGGLE, id });
 // Reducer
 export const reducer = (state: State, action: ToggleAction) => ({
   ...state,
-  todos: state.todos.map(todo => {
+  all: state.todos.map(todo => {
     if (todo.id === action.id) {
       return { ...todo, completed: !todo.completed};
     }

@@ -1,0 +1,36 @@
+{{#todos-count todosCount=props.todosCount as |itemWord|}}
+  <strong>{{props.todosCount}}</strong> {{itemWord}} left
+{{/todos-count}}
+
+<ul class="filters">
+  <li>
+    <a
+      onclick={{action props.showAll}}
+      class={{if (is-equal props.filter) "selected"}}
+      style="cursor: pointer;">
+      All
+    </a>
+  </li>
+
+  <li>
+    <a
+      onclick={{action props.showActive}}
+      class={{if (is-equal props.filter false) "selected"}}
+      style="cursor: pointer;">
+      Active
+    </a>
+  </li>
+
+  <li>
+    <a
+      onclick={{action props.showCompleted}}
+      class={{if (is-equal props.filter true) "selected"}}
+      style="cursor: pointer;">
+      Completed
+    </a>
+  </li>
+</ul>
+
+{{#if (gt props.completedCount 0)}}
+  <button onclick={{action props.clearCompleted}} class="clear-completed">Clear completed</button>
+{{/if}}

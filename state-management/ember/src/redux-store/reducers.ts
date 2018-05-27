@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { reducers as relayConnection } from './relay-connection';
+import { reducer as todosReducer } from './todos';
 
 export const reducers = combineReducers({
-  relayConnection
+  todos: todosReducer
 });

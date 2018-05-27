@@ -11,7 +11,7 @@ export const add = (text: string): AddAction => ({ type: ADD, text, id: nextTodo
 // Reducer
 export const reducer = (state: State, action: AddAction) => ({
   ...state,
-  todos: [
+  all: [
     ...state.todos,
     {
       id: action.id,

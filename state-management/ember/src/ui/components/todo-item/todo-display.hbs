@@ -1,0 +1,6 @@
+<div class="view">
+  <input type="checkbox" checked={{todo.completed}} class="toggle" onchange={{action props.completeTodo}}>
+  <label ondblclick={{action (pipe (action props.startEditing) (action props.focusInput))}}>{{todo.text}}</label>
+  <button class="destroy" onclick={{action props.deleteTodo}}></button>
+</div>
+<input type="text" class="edit" value={{todo.text}} onblur={{action (pipe (action props.editTodo value="target.value") (action props.doneEditing))}} onkeydown={{action props.handleKeydown}}>
