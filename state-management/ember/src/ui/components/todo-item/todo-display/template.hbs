@@ -5,8 +5,7 @@
     class="toggle"
     onchange={{action props.completeTodo}}>
 
-  <label
-    ondblclick={{action 'didDoubleClick'}}>
+  <label ondblclick={{action 'didDoubleClick'}}>
     {{todo.text}}
   </label>
 
@@ -16,9 +15,10 @@
   </button>
 </div>
 
-<input
-  type="text"
-  class="edit"
-  value={{todo.text}}
-  onblur={{action 'didFinishEditing'}}
-  onkeydown={{action props.handleKeydown}}>
+{{input
+  type='text'
+  class='edit'
+  value=todo.text
+  onblur=(action 'didFinishEditing')
+  onkeydown=(action 'handleKeydown')
+}}

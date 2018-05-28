@@ -12,7 +12,13 @@ export type State = {
 }
 
 export const initialState: State = {
-  all: [],
+  all: [
+    {
+      id: -1,
+      text: 'Redux',
+      completed: false
+    }
+  ],
   filter: undefined
 }
 
