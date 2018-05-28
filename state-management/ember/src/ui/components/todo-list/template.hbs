@@ -1,1 +1,5 @@
-{{yield todos}}
+{{#each todos as |todo|}}
+
+  {{todo-item todo=todo}}
+
+{{/each}}

@@ -4,13 +4,7 @@
   <section class='main'>
     <input type="checkbox" class="toggle-all" value="on">
 
-    {{#todo-list as |todos|}}
-      {{#each-in todos as |key todo|}}
-
-        {{todo-item todo=todo}}
-
-      {{/each-in}}
-    {{/todo-list}}
+    {{todo-list}}
   </section>
 
   {{ui-footer}}

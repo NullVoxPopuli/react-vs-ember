@@ -1,3 +1,11 @@
-{{#todo-item todo=todo as |props|}}
-  {{todo-markup todo=todo props=props}}
-{{/todo-item}}
+{{todo-display
+  todo=todo
+  props=(hash
+    deleteTodo=(action "deleteTodo" todo.id)
+    completeTodo=(action "completeTodo" todo.id)
+    editTodo=(action "editTodo" todo.id)
+    handleKeydown=(action "handleKeydown")
+    focusInput=(action "focusInput")
+    startEditing=(action "startEditing")
+    doneEditing=(action "doneEditing"))
+}}

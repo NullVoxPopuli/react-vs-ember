@@ -6,7 +6,7 @@
   <li>
     <a
       onclick={{action props.showAll}}
-      class={{if (is-equal props.filter) "selected"}}
+      class={{if showAll "selected"}}
       style="cursor: pointer;">
       All
     </a>
@@ -15,7 +15,7 @@
   <li>
     <a
       onclick={{action props.showActive}}
-      class={{if (is-equal props.filter false) "selected"}}
+      class={{if showActive "selected"}}
       style="cursor: pointer;">
       Active
     </a>
@@ -24,13 +24,13 @@
   <li>
     <a
       onclick={{action props.showCompleted}}
-      class={{if (is-equal props.filter true) "selected"}}
+      class={{if showCompleted "selected"}}
       style="cursor: pointer;">
       Completed
     </a>
   </li>
 </ul>
 
-{{#if (gt props.completedCount 0)}}
+{{#if showClearButton}}
   <button onclick={{action props.clearCompleted}} class="clear-completed">Clear completed</button>
 {{/if}}

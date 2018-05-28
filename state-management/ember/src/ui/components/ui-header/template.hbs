@@ -1,3 +1,14 @@
-{{#header-container as |props|}}
-  {{header-display props=props}}
-{{/header-container}}
+<header class='header'>
+  <h1>todos</h1>
+  <form {{action 'didSubmit' on="submit"}}>
+    <input
+      type="text"
+      class="new-todo"
+      placeholder="What needs to be done?"
+      value={{text}}
+      oninput={{action (mut text) value="target.value"}}
+      autofocus>
+
+    <input style="display: none" type="submit" value="submit" />
+  </form>
+</header>

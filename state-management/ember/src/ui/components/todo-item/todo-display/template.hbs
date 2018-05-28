@@ -1,0 +1,24 @@
+<div class="view">
+  <input
+    type="checkbox"
+    checked={{todo.completed}}
+    class="toggle"
+    onchange={{action props.completeTodo}}>
+
+  <label
+    ondblclick={{action 'didDoubleClick'}}>
+    {{todo.text}}
+  </label>
+
+  <button
+    class="destroy"
+    onclick={{action props.deleteTodo}}>
+  </button>
+</div>
+
+<input
+  type="text"
+  class="edit"
+  value={{todo.text}}
+  onblur={{action 'didFinishEditing'}}
+  onkeydown={{action props.handleKeydown}}>
