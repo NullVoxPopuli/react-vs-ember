@@ -6,6 +6,7 @@
 # compiled output
 /dist
 /tmp
+/DEBUG
 
 # dependencies
 /node_modules
@@ -14,6 +15,7 @@
 # misc
 /.sass-cache
 /connect.lock
+/yarn.lock.bak
 /coverage/*
 /libpeerconnection.log
 npm-debug.log*

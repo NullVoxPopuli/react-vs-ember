@@ -8,7 +8,7 @@ export default class TodoItemDisplay extends Component {
   props: any;
 
   @action
-  didDoubleClick() {
+  didClickLabel() {
     this.props.startEditing();
     this.send('focusInput');
   }
@@ -22,7 +22,6 @@ export default class TodoItemDisplay extends Component {
     this.props.doneEditing();
   }
 
-
   @action
   focusInput(this: TodoItemDisplay) {
     scheduleOnce('afterRender', this, () => {
@@ -35,12 +34,12 @@ export default class TodoItemDisplay extends Component {
 
   @action
   handleKeydown(this: TodoItemDisplay, e: KeyboardEvent) {
-    if (e.keyCode === 13) {
-      const target = (e.target as HTMLInputElement);
+    const target = (e.target as HTMLInputElement);
 
+    // Tab, Enter, Escape
+    if ([9, 13, 27].includes(e.keyCode)) {
       target.blur();
-    } else if (e.keyCode === 27) {
-      this.send('props.startEditing');
+      this.props.doneEditing();
     }
   }
 }

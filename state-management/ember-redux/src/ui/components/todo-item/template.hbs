@@ -1,9 +1,10 @@
-{{todo-display
-  todo=todo
-  props=(hash
+<TodoDisplay
+  @todo={{todo}}
+  @props={{hash
     deleteTodo=(action "deleteTodo" todo.id)
     completeTodo=(action "completeTodo" todo.id)
     editTodo=(action "editTodo" todo.id)
     startEditing=(action "startEditing")
-    doneEditing=(action "doneEditing"))
-}}
+    doneEditing=(action "doneEditing")
+  }}
+/>

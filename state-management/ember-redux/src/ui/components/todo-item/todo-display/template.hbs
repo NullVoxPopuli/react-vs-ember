@@ -3,9 +3,9 @@
     type="checkbox"
     checked={{todo.completed}}
     class="toggle"
-    onchange={{action props.completeTodo}}>
+    onchange={{action props.completeTodo}} />
 
-  <label ondblclick={{action 'didDoubleClick'}}>
+  <label {{action 'didClickLabel' on='doubleClick'}}>
     {{todo.text}}
   </label>
 
@@ -19,6 +19,6 @@
   type='text'
   class='edit'
   value=todo.text
-  onblur=(action 'didFinishEditing')
-  onkeydown=(action 'handleKeydown')
+  blur=(action 'didFinishEditing')
+  keyDown=(action 'handleKeydown')
 }}

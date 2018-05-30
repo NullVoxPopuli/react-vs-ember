@@ -14,7 +14,7 @@ const dispatchToActions = {
 export default class TodoItemContainer extends Component {
   tagName = 'li';
   editing = false;
-  // classNameBindings = ['todo.completed:editing'];
+  classNameBindings = ['todo.completed', 'editing'];
 
   @action
   startEditing(this: TodoItemContainer) {

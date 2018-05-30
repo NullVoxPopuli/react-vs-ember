@@ -1,0 +1,14 @@
+<footer class='footer'>
+  {{#if showFooter}}
+    <FooterDisplay
+      @props={{hash
+        filter=filter
+        todosCount=todosCount
+        completedCount=completedCount
+        clearCompleted=(action "clearCompleted")
+        showAll=(action "showAll")
+        showActive=(action "showActive")
+        showCompleted=(action "showCompleted")
+    }} />
+  {{/if}}
+</footer>
