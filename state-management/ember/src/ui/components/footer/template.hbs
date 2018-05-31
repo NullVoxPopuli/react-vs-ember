@@ -1,0 +1,34 @@
+<footer class='footer'>
+
+  <span class='todo-count'>
+    <strong>{{todosCount}} {{itemWord}} left</strong>
+  </span>
+
+  <ul class="filters">
+    <li>
+      {{#link-to 'application' class=(if showAll 'selected')}}
+        All
+      {{/link-to}}
+    </li>
+
+    <li>
+      {{#link-to 'uncompleted' class=(if showActive 'selected')}}
+        Active
+      {{/link-to}}
+    </li>
+
+    <li>
+      {{#link-to 'completed' class=(if showCompleted 'selected')}}
+        Completed
+      {{/link-to}}
+    </li>
+  </ul>
+
+  {{#if showClearButton}}
+    <button
+      onclick={{action 'clearCompleted'}}
+      class="clear-completed">
+      Clear completed
+    </button>
+  {{/if}}
+</footer>
