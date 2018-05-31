@@ -1,5 +1,31 @@
 {
   "compilerOptions": {
-    "jsx": "react"
-  }
+    "jsx": "react",
+    "target": "ES2017",
+
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "paths": {
+      "example-app/*": [
+        "src/*"
+      ],
+      "example-app/src/*": [
+        "src/*"
+      ],
+      "@store/*": [
+        "src/redux-store/*"
+      ],
+      "@ui/*": [
+        "src/ui/*"
+      ],
+      "*": [
+        "types/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "types"
+  ]
 }

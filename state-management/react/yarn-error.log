@@ -1,8 +1,8 @@
 Arguments: 
-  /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/yarn add --dev @tyes/react-redux
+  /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/yarn add @store/todos
 
 PATH: 
-  /home/lprestonsegoiii/.pythons/Python-3.6.3/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/heroku/bin:/home/lprestonsegoiii/node_modules/.bin:/home/lprestonsegoiii/apps/phantomjs/bin:/home/lprestonsegoiii/scripts/system-utils:/home/lprestonsegoiii/scripts/git:/home/lprestonsegoiii/scripts/rails:/home/lprestonsegoiii/scripts:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/lprestonsegoiii/.fzf/bin:/home/lprestonsegoiii/.rvm/bin
+  /home/lprestonsegoiii/Development/NullVoxPopuli/react-vs-ember/state-management/react/node_modules/.bin:/home/lprestonsegoiii/.config/yarn/link/node_modules/.bin:/home/lprestonsegoiii/Development/NullVoxPopuli/react-vs-ember/state-management/react/node_modules/.bin:/home/lprestonsegoiii/.config/yarn/link/node_modules/.bin:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/npm/bin/node-gyp-bin:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node_modules/npm/bin/node-gyp-bin:/home/lprestonsegoiii/Development/NullVoxPopuli/react-vs-ember/state-management/react/node_modules/.bin:/home/lprestonsegoiii/.config/yarn/link/node_modules/.bin:/home/lprestonsegoiii/Development/NullVoxPopuli/react-vs-ember/state-management/react/node_modules/.bin:/home/lprestonsegoiii/.config/yarn/link/node_modules/.bin:/home/lprestonsegoiii/.yarn/bin:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/libexec/lib/node_modules/npm/bin/node-gyp-bin:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/npm/bin/node-gyp-bin:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node_modules/npm/bin/node-gyp-bin:/home/lprestonsegoiii/.pythons/Python-3.6.3/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/heroku/bin:/home/lprestonsegoiii/node_modules/.bin:/home/lprestonsegoiii/apps/phantomjs/bin:/home/lprestonsegoiii/scripts/system-utils:/home/lprestonsegoiii/scripts/git:/home/lprestonsegoiii/scripts/rails:/home/lprestonsegoiii/scripts:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/lprestonsegoiii/.fzf/bin:/home/lprestonsegoiii/.rvm/bin
 
 Yarn version: 
   1.6.0
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@tyes%2freact-redux: Not found
+  Error: https://registry.yarnpkg.com/@store%2ftodos: Not found
       at Request.params.callback [as _callback] (/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:65327:18)
       at Request.self.callback (/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:133155:22)
       at emitTwo (events.js:126:13)
@@ -45,6 +45,7 @@ npm manifest:
     "devDependencies": {
       "@types/react": "^16.0.38",
       "@types/react-dom": "^16.0.4",
+      "@types/react-redux": "^6.0.0",
       "parcel-bundler": "^1.6.2",
       "typescript": "^2.7.2"
     }
@@ -68,6 +69,13 @@ Lockfile:
     dependencies:
       "@types/node" "*"
       "@types/react" "*"
+  
+  "@types/react-redux@^6.0.0":
+    version "6.0.0"
+    resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-6.0.0.tgz#31711592b13ed6d6d2fd4506e5447b00e1f0b484"
+    dependencies:
+      "@types/react" "*"
+      redux "^4.0.0"
   
   "@types/react@*", "@types/react@^16.0.38":
     version "16.3.14"
