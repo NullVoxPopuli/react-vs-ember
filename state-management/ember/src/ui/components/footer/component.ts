@@ -2,9 +2,12 @@ import Component from '@ember/component';
 import { service } from '@ember-decorators/service';
 import { action, computed } from '@ember-decorators/object';
 import { alias, equal, filterBy, gt } from '@ember-decorators/object/computed';
-import Todo from 'example-app/ui/data/models/todo';
+
+import Todo from 'example-app/data/models/todo';
+import TodosService from 'example-app/services/todos';
 
 export default class extends Component {
+  @service('todos') todoManager!: TodosService;
   @service router;
 
   @alias('router.currentRouteName') routeName!: string;
@@ -25,6 +28,6 @@ export default class extends Component {
 
   @action
   clearCompleted() {
-    console.log('implement this');
+    this.todoManager.clearCompleted();
   }
 }

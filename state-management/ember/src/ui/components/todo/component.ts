@@ -1,14 +1,15 @@
 import Ember from 'ember';
 import Component from '@ember/component';
+import { service } from '@ember-decorators/service';
 import { action } from '@ember-decorators/object';
 
 import TodosService from 'example-app/services/todos';
-import Todo from 'example-app/ui/data/models/todo';
+import Todo from 'example-app/data/models/todo';
 
 const { run: { scheduleOnce } } = Ember;
 
 export default class TodoItem extends Component {
-  todos!: TodosService;
+  @service todos!: TodosService;
   todo!: Todo;
 
   tagName = 'li';
@@ -23,7 +24,7 @@ export default class TodoItem extends Component {
 
   @action
   destroyTodo() {
-    this.todos.remove(this.todo.id);
+    this.todos.destroyTodo(this.todo.id);
   }
 
   @action

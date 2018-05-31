@@ -3,13 +3,13 @@
     type="checkbox"
     checked={{todo.completed}}
     class="toggle"
-    onchange={{action (mut todo.completed)}} />
+    onchange={{action (mut todo.completed) value='target.checked'}} />
 
   <label {{action 'didClickLabel' on='doubleClick'}}>
     {{todo.text}}
   </label>
 
-  <button class="destroy" onclick={{action 'destroyTodo'}}></button>
+  <button class="destroy" {{action 'destroyTodo'}}></button>
 </div>
 
 {{input

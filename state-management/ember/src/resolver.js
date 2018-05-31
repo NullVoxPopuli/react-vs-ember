@@ -12,6 +12,14 @@ let moduleConfig = buildResolverConfig(config.modulePrefix);
  * to add support for them.
  */
 
+merge(moduleConfig.types, {
+  config: { definitiveCollection: 'main' },
+  mixin: { definitiveCollection: 'main' },
+  util: { definitiveCollection: 'utils' },
+});
+
+moduleConfig.collections.main.types.push('config');
+
 export default Resolver.extend({
   config: moduleConfig,
 });

@@ -2,12 +2,7 @@ import DS from 'ember-data';
 import Service from '@ember/service';
 import { service } from '@ember-decorators/service';
 
-import Todo from 'example-app/ui/data/models/todo';
-
-// 3-way boolean?
-type Troolean =
-  | boolean
-  | undefined;
+import Todo from 'example-app/data/models/todo';
 
 type ID =
   | string
@@ -16,15 +11,18 @@ type ID =
 export default class TodosService extends Service {
   @service store!: DS.Store;
 
-  showCompleted: Troolean = undefined;
-
   all() {
     return this.store.peekAll('todo');
   }
 
+  completed() {
+    return this.all().filter(todo => todo.completed);
+  }
+
+  lastId = 0;
   add(text: string) {
     const todo = {
-      id: this.all().length,
+      id: this.lastId++,
       completed: false,
       text
     };
@@ -36,12 +34,18 @@ export default class TodosService extends Service {
     return this.store.peekRecord('todo', id);
   }
 
-  remove(id: ID) {
+  destroyTodo(id: ID) {
     const record = this.find(id);
 
     if (record) {
       record.deleteRecord();
     }
+  }
+
+  clearCompleted() {
+    this.completed().forEach(todo => {
+      todo.deleteRecord();
+    });
   }
 
   changeText(id: ID, text: string) {
@@ -57,10 +61,7 @@ export default class TodosService extends Service {
   }
 
   numCompleted() {
-    return this.store
-      .peekAll('todo')
-      .filter(todo => todo.completed)
-      .length;
+    return this.completed().length;
   }
 }
 
