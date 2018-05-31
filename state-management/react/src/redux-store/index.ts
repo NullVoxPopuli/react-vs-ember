@@ -6,3 +6,5 @@ export {
   middleware as listOfMiddleware,
   setup as setupMiddleware
 } from './middleware';
+
+export { default as ReduxProvider } from './provider';
