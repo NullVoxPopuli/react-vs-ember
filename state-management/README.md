@@ -6,6 +6,9 @@ This post will demonstrate two different ways of managing application state: Wit
 Because redux is _just_ javascript, there are negligible differences between the react and ember worlds. As shown [in the repo folder for this blog post](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management), the react and ember redux implementations use the _exact_ same `redux-store` folder.
 
 
+Something something about application state, and why state management something something
+
+
 ## Redux (Both React and Ember)
 
 ### The custom redux layout
@@ -60,15 +63,195 @@ redux-store/
             ... etc
 ```
 
-### Containers
+### Usage in React
 
-Containers are
+Without a container
+
+```tsx
+// src/ui/components/todo-list.tsx
+// imports omitted, see
+// https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo-list.tsx
+
+const mapStateToProps = (state: State) => ({
+  todos: list(state)
+});
+
+@connect(mapStateToProps)
+export default class TodoList extends React.Component<Props> {
+  render() {
+    const { todos } = this.props;
+
+    return (
+      <ul className='todo-list'>
+        {todos.map((t, i) => <TodoItem key={i} todo={t} />)}
+      </ul>
+    );
+  }
+}
+```
+
+With a container
+
+```tsx
+// src/ui/components/todo/index.tsx
+// https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo/index.tsx
+import * as React from 'react';
+import { connect } from 'react-redux';
+
+import { edit, destroy, toggle } from '@store/todos';
+
+import TodoDisplay from './display';
+
+const mapDispatchToProps = (dispatch) => ({
+  destroyTodo: (id: number) => dispatch(destroy(id)),
+  toggleCompletion: (id: number) => dispatch(toggle(id)),
+  editTodo: (id: number, text: string) => dispatch(edit(id, text))
+});
+
+export default connect(null, mapDispatchToProps)(TodoDisplay);
+```
+```tsx
+// src/ui/components/todo/display.tsx
+// file heavily abbreviated
+// see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo/display.tsx
+
+export default class TodoDisplay extends React.Component<Props, State> {
+  state = { editing: false };
+
+  didFinishEditing = (e:  React.FocusEvent<HTMLInputElement>) => {
+    const { editTodo, todo: { id } } = this.props;
+
+    const text = e.target.value;
+
+    editTodo(id, text);
+    this.setState({ editing: false });
+  }
+
+  didDoubleClickLabel = () => {
+    this.setState({ editing: true });
+  }
+
+  // ... other action handlers ...
+
+  render() {
+    // actions retrieved from props from the container
+    const { todo, destroyTodo, toggleCompletion } = this.props;
+
+    // ... template omitted
+  }
+}
+
+```
+
+
+### Usage in Ember
+
+Without a container
+```ts
+// src/ui/components/todo-list/component.ts
+// imports omitted
+// see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-list/component.ts
+@connect(stateToComputed)
+export default class TodoListComponent extends Component {
+  tagName = 'ul';
+  classNames = ['todo-list'];
+}
+
+```
+```hbs
+{{!--
+src/ui/components/todo-list/template.hbs
+https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-list/template.hbs
+--}}
+{{#each todos as |todo|}}
+
+  <TodoItem @todo={{todo}} />
+
+{{/each}}
+```
+
+With a container
+
+```ts
+// src/ui/components/todo-item/component.ts
+// imports omitted
+// see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/component.ts
+
+import Component from '@ember/component';
+import { action } from '@ember-decorators/object';
+
+import { connect } from 'ember-redux';
+import { edit, destroy, toggle } from 'example-app/src/redux-store/todos';
+
+const dispatchToActions = {
+  deleteTodo: destroy,
+  completeTodo: toggle,
+  editTodo: edit
+}
+
+@connect(null, dispatchToActions)
+export default class TodoItemContainer extends Component {
+  tagName = 'li';
+  editing = false;
+  classNameBindings = ['todo.completed', 'editing'];
+
+  @action
+  startEditing(this: TodoItemContainer) {
+    this.set('editing', true);
+  }
+
+  @action
+  doneEditing(this: TodoItemContainer) {
+    this.set('editing', false);
+  }
+}
+```
+```hbs
+{{!--
+  src/ui/components/todo-item/template.hbs
+  see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/template.hbs
+  --}}
+<TodoDisplay
+  @todo={{todo}}
+  @props={{hash
+    deleteTodo=(action "deleteTodo" todo.id)
+    completeTodo=(action "completeTodo" todo.id)
+    editTodo=(action "editTodo" todo.id)
+    startEditing=(action "startEditing")
+    doneEditing=(action "doneEditing")
+  }}
+/>
+```
+
+```ts
+{{!--
+  src/ui/components/todo-item/display/component.ts
+  see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/display/component.ts
+  --}}
+export default class TodoItemDisplay extends Component {
+
+  @action
+  didClickLabel() {
+    this.props.startEditing();
+    this.send('focusInput');
+  }
+
+  @action
+  didFinishEditing(e: KeyboardEvent) {
+    const target = (e.target as HTMLInputElement);
+    const text = target.value;
+
+    this.props.editTodo(text);
+    this.props.doneEditing();
+  }
+}
+```
 
 
 
 ## Without Redux (Ember Only)
 
-
+With React, due it only being a view library, without a provided way to manage messages between components, redux is nearly a requirement for application-level state.
 
 ## State Management: Final Thoughts
 
@@ -82,12 +265,6 @@ Using redux doesn't mean that other state-management should be avoided.
 React: redux
 
 https://redux.js.org/basics/usage-with-react
-
-Ember: redux or services
-
-By default, there is no need to configure the redux store. To start using redux in ember you only need a reducers/index.js file that `export default combineReducers({ reducersHere });`
-
-But, the default top-level folders for redux are not maintainable, so we'll tweak how redux is configured like with react:
 
 https://ember-redux.com/
 

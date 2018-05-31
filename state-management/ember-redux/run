@@ -8,13 +8,13 @@ function runstuff {
 
   case $given_command in
     docker)
-      docker build . -t state-management-ember \
+      docker build . -t state-management-ember-redux \
       && \
         docker run -it \
           -p 4200:4200 \
           -p 7020:7020 \
           -v $PWD:/app \
-          --rm state-management-ember
+          --rm state-management-ember-redux
     ;;
 
     local) yarn && yarn start;;
