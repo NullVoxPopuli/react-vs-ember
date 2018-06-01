@@ -1,23 +1,24 @@
 ## React vs Ember: State Management
 
-_This is the second post in a segmented series on react (and react's ecosystem) vs ember. To read the previous, [go here to read about Event Handling](http://todo-add-link-here).  The *Event Handling* post is not required reading for this post, but makes the same general assumptions about prior knowledge apply. [See the series intro here](http://todo-add-link-to-intro-here)._
+_This is the second post in a segmented series on react (and react's ecosystem) vs ember. To read the previous, [go here to read about Event Handling](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/event-handling).  The *Event Handling* post is not required reading for this post, but makes the same general assumptions about prior knowledge apply. [See the series intro here](https://github.com/NullVoxPopuli/react-vs-ember#react-vs-ember-introduction)._
 
-This post will demonstrate two different ways of managing application state: With and without redux.
-Because redux is _just_ javascript, there are negligible differences between the react and ember worlds. As shown [in the repo folder for this blog post](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management), the react and ember redux implementations use the _exact_ same `redux-store` folder.
+Managing application state can easily become non-trivial over time, so it’s important to have a good foundation to build upon. Without knowing the options and how to manage them, state can grow out of control, leading to a lack of testability and greatly reduced maintainability.
+
+This post will demonstrate two different ways of managing application state: With and without redux and what using or not using redux means in both the react and ember ecosystems.
+Because redux is just javascript, there are negligible differences between the react and ember worlds. As shown [in the repo folder for this blog post](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management), the react and ember redux implementations use the _exact_ same `redux-store` folder.
 
 
 Something something about application state, and why state management something something
 
 
-## Redux (Both React and Ember)
 
 ### The custom redux layout
 
-Officially, [redux](https://redux.js.org) has [no opinion](https://redux.js.org/faq/code-structure) on code structure. The most commonly seen is the 'rails style' where there is an 'actions' folder, 'reducers' folder, etc. and your features are spread out via 'types' of folders. While this pattern may be easy to implement (i.e.: low effort), it is not suitable for maintainability and discovery.
+Officially, [redux](https://redux.js.org) has [no opinion](https://redux.js.org/faq/code-structure) on code structure. The most commonly seen structure is the 'rails style', where there is an `actions` folder, `reducers` folder, etc. and your features are spread out via 'types' of folders. While this pattern may be easy to implement (i.e.: low effort), it is not suitable for maintainability and discovery.
 
 
 The following structure is the 'ducks' structure mentioned in the redux docs -- it's really a feature-based domain-concept structure.
-To see implementation details, specifically managing imports and (re)exports, the code is available for browsing [here on github](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management/ember-redux/src/redux-store).
+To see implementation details, specifically for managing imports and (re)exports, the code is available for browsing [here on github](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management/ember-redux/src/redux-store).
 
 ```bash
 redux-store/
@@ -62,6 +63,13 @@ redux-store/
         ├── edit.ts
             ... etc
 ```
+## Redux (Both React and Ember)
+
+Redux is vanilla javascript, so it can be used with any library -- it doesn't even have to be used in a frontend context. 
+
+The parts that do differ and tie redux into the frontend come from the corresponding packages: [react-redux](https://github.com/reduxjs/react-redux) and [ember-redux](https://github.com/ember-redux/ember-redux). These packages provide convenience and ease of setup by making assumptions about the development environment and providing some general abstractions and configurations.
+
+Below is a comparison of the similarities and differences of using redux in both react and ember.
 
 ### Usage in React
 
