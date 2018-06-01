@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { TodosContext, allCount, count, completedCount } from 'example-app/contexts/todos';
+import { TodosContext, allCount, count, completedCount } from '@contexts/todos';
 
 import FooterDisplay from './display';
 

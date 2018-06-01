@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { TodosContext } from 'example-app/contexts/todos';
+import { TodosContext } from '@contexts/todos';
 import TodoDisplay from './display';
 
 export interface Props {

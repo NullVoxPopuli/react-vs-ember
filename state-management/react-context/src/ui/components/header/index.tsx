@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import HeaderDisplay from './display';
-import { TodosContext } from 'example-app/contexts/todos';
+import { TodosContext } from '@contexts/todos';
 
 export default class HeaderContainer extends React.Component {
   render() {
