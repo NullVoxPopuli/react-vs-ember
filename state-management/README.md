@@ -71,14 +71,14 @@ The parts that do differ and tie redux into the frontend come from the correspon
 
 Below is a comparison of the similarities and differences of using redux in both react and ember.
 
-### Usage in React
+### Without a container
 
-Without a container
+The following example shows usage without a container, or rather, since naming in programming is very subjective, it defines a container that it used to render a list of things.  The reason these aren't traditionally containers is because they each contain a template. The focus here should be that the `@connect` usage is the exact same in both environments.
 
+#### Usage in React
+[react/src/ui/components/todo-list.tsx](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo-list.tsx)
 ```tsx
-// src/ui/components/todo-list.tsx
-// imports omitted, see
-// https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo-list.tsx
+// imports omitted
 
 const mapStateToProps = (state: State) => ({
   todos: list(state)
@@ -98,11 +98,33 @@ export default class TodoList extends React.Component<Props> {
 }
 ```
 
-With a container
 
+#### Usage in Ember
+ember/src/ui/components/todo-list/{ [component.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-list/component.ts) | [template.hbs](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-list/template.hbs) }
+```ts
+// imports omitted
+@connect(stateToComputed)
+export default class TodoListComponent extends Component {
+  tagName = 'ul';
+  classNames = ['todo-list'];
+}
+
+```
+```hbs
+{{#each todos as |todo|}}
+  <TodoItem @todo={{todo}} />
+{{/each}}
+```
+
+### With a container
+This next example demonstrates how one might abstract away all store/state logic into a container. This provides the benefit that the component can be unit tested without having to create the entire store. Enhanced composability can be achieved If a display or container component could be generic enough that they could be mixed and matched with other display and container components — higher-order-components fit in to this category of containers, but that’s a topic for another time.
+
+
+#### Usage in React
+
+[src/ui/components/todo/index.tsx](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo/index.tsx)
 ```tsx
-// src/ui/components/todo/index.tsx
-// https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo/index.tsx
+
 import * as React from 'react';
 import { connect } from 'react-redux';
 
@@ -118,10 +140,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(null, mapDispatchToProps)(TodoDisplay);
 ```
+[src/ui/components/todo/display.tsx](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo/display.tsx)
 ```tsx
-// src/ui/components/todo/display.tsx
 // file heavily abbreviated
-// see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo/display.tsx
 
 export default class TodoDisplay extends React.Component<Props, State> {
   state = { editing: false };
@@ -152,33 +173,7 @@ export default class TodoDisplay extends React.Component<Props, State> {
 ```
 
 
-### Usage in Ember
-
-Without a container
-```ts
-// src/ui/components/todo-list/component.ts
-// imports omitted
-// see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-list/component.ts
-@connect(stateToComputed)
-export default class TodoListComponent extends Component {
-  tagName = 'ul';
-  classNames = ['todo-list'];
-}
-
-```
-```hbs
-{{!--
-src/ui/components/todo-list/template.hbs
-https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-list/template.hbs
---}}
-{{#each todos as |todo|}}
-
-  <TodoItem @todo={{todo}} />
-
-{{/each}}
-```
-
-With a container
+#### Usage in Ember
 
 ```ts
 // src/ui/components/todo-item/component.ts
@@ -257,7 +252,22 @@ export default class TodoItemDisplay extends Component {
 
 
 
-## Without Redux (Ember Only)
+## Without Redux
+
+### React
+
+
+Redux is the go-to for application state management in react, but a fairly new API within react allows for state-management within react without additional dependencies. [The Context API](https://reactjs.org/docs/context.html) allows state to be shared across multiple components.  Context's are loosely similar to Ember's Services (services will be covered below), in that they can define silo'd behavior and be used by components. There are some restrictions that context's have, however. One is that there must be a context Provider, which provides the configured context to all children in the tree below the Provider, and then there is the Consumer, which allow children of the Consumer in the immediate rendering context to access the Context's data.
+
+Below is an example of how the `TodoMVC` app would be manage and interact with the `todos` state with a context instead of redux.
+
+
+
+### Ember
+
+
+
+
 
 With React, due it only being a view library, without a provided way to manage messages between components, redux is nearly a requirement for application-level state.
 
@@ -268,6 +278,17 @@ Using redux doesn't mean that other state-management should be avoided.
 
 [Not everything needs to be in redux](https://redux.js.org/faq/organizing-state#organizing-state)
 
+
+## The End (of part 2)
+
+In order to try to stay focused, I made a lot of assumptions about the readers' knowledge.
+If you want to know more about anything mentioned in this post, feel free to tweet at me @NullVoxPopuli.
+Maybe:
+- why use TypeScript?
+- why are the TypeScript definitions different?
+- why does ember user separate template files?
+- why does ember use handlebars instead of JSX?
+- why does your container example for ember have local state management?
 
 
 React: redux

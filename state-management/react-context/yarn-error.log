@@ -1,0 +1,53 @@
+Arguments: 
+  /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/yarn install
+
+PATH: 
+  /home/lprestonsegoiii/.pythons/Python-3.6.3/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/heroku/bin:/home/lprestonsegoiii/node_modules/.bin:/home/lprestonsegoiii/apps/phantomjs/bin:/home/lprestonsegoiii/scripts/system-utils:/home/lprestonsegoiii/scripts/git:/home/lprestonsegoiii/scripts/rails:/home/lprestonsegoiii/scripts:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin:/home/lprestonsegoiii/.pythons/Python-3.6.3/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/heroku/bin:/home/lprestonsegoiii/node_modules/.bin:/home/lprestonsegoiii/apps/phantomjs/bin:/home/lprestonsegoiii/scripts/system-utils:/home/lprestonsegoiii/scripts/git:/home/lprestonsegoiii/scripts/rails:/home/lprestonsegoiii/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/lprestonsegoiii/.fzf/bin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  8.11.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/lprestonsegoiii/Development/NullVoxPopuli/react-vs-ember/state-management/react-context/package.json: Unexpected token } in JSON at position 333
+      at JSON.parse (<anonymous>)
+      at /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "name": "react-vs-ember_state-management_react",
+    "version": "1.0.0",
+    "license": "MIT",
+    "main": "src/index.html",
+    "scripts": {
+      "parcel": "./node_modules/.bin/parcel",
+      "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT"
+    },
+    "dependencies": {
+      "react": "^16.4.0",
+      "react-dom": "^16.2.0",
+    },
+    "devDependencies": {
+      "@types/react": "^16.0.38",
+      "@types/react-dom": "^16.0.4",
+      "babel-plugin-module-resolver": "^3.1.1",
+      "node-sass": "^4.9.0",
+      "parcel-bundler": "^1.6.2",
+      "typescript": "^2.7.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

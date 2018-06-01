@@ -1,0 +1,11 @@
+{
+    "plugins": [
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "@contexts": ["./src/contexts"],
+                "@ui": ["./src/ui"]
+            }
+        }]
+    ]
+}
