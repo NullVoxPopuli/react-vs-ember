@@ -334,6 +334,9 @@ export default class Todo extends Model {
   @attr completed?: boolean;
 }
 ```
+
+Below is a service that abstracts the ember-data store and provides convenience functions for the `TodoMVC` problem space.
+
 [/src/services/todos.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/services/todos.ts)
 ```ts
 export default class TodosService extends Service {
@@ -355,6 +358,7 @@ export default class TodosService extends Service {
 }
 ```
 
+The usage of the service is provided using the `@service` decorator which dependency injects the service into the Component.
 [/src/ui/components/header/component.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/ui/components/header/component.ts)
 ```ts
 import Component from '@ember/component';
@@ -375,6 +379,8 @@ export default class Header extends Component {
   }
 }
 ```
+
+The last piece of the built-in state management that ember provides is [routing](https://guides.emberjs.com/release/routing/defining-your-routes/). The routing in this version of the app is responsible for which set of todos are being viewed, All, Active, or Completed. Routes did not _have_ to be used for the filtering of these lists, as one could set up a series of [computed properties](https://guides.emberjs.com/release/object-model/computed-properties/) with the filter value as the dependent key.
 
 /src/ui/routes/completed/{ [route.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/ui/routes/completed/route.ts) | [template.hbs](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/ui/routes/completed/template.hbs) }
 ```ts
@@ -405,11 +411,20 @@ export default class CompletedRoute extends Route {
 
 ## State Management: Final Thoughts
 
-Redux isn't required.
+Both React and Ember provide state management out of the box, but Redux provides some shnazzy debugging abilities ([time-travel](https://medium.com/the-web-tub/time-travel-in-react-redux-apps-using-the-redux-devtools-5e94eba5e7c0)) due to its immutable nature of handling changes. The predicable and traversable state changes bring sanity to debugging when multiple areas of an app may be trying to change something at relatively the same time.  On the flip side, Redux has had some question it's [perfromance](https://github.com/redux-saga/redux-saga/issues/241#issuecomment-207202589) [on](https://github.com/reduxjs/redux/issues/768
+)  [large](https://github.com/markerikson/react-redux-links/blob/master/react-performance.md
+) [sets](https://somebody32.github.io/high-performance-redux/
+) of data.
+
+As with all things, it's important to keep in mind that the right tool should be used for the job. [Not everything needs to be in redux](https://redux.js.org/faq/organizing-state#organizing-state)
 Using redux doesn't mean that other state-management should be avoided.
+For example, when working with a couple form fields, whose state you don't care about in other components, using redux to manage the values and `onChange` events would cause unnecessary indirection / complication without any benefit.
 
-[Not everything needs to be in redux](https://redux.js.org/faq/organizing-state#organizing-state)
+There may be situations where you need all different kinds of state management. Maybe services or contexts could be used managing computed values, redux could control things like whether or not the sidebars are popped open in your app, or redux could supplement some other state management technique for interacting with websockets.  There is no wrong answer... unless the answer makes your life difficult.
 
+It's all about the Developer Experience (DX).
+
+So do what feels right for each situation.
 
 ## The End (of part 2)
 
@@ -421,22 +436,3 @@ Maybe:
 - why does ember user separate template files?
 - why does ember use handlebars instead of JSX?
 - why does your container example for ember have local state management?
-
-
-React: redux
-
-https://redux.js.org/basics/usage-with-react
-
-https://ember-redux.com/
-
-
-Redux Performance
-
-Ouch: https://github.com/redux-saga/redux-saga/issues/241#issuecomment-207202589
-
-
-https://github.com/reduxjs/redux/issues/768
-https://github.com/reduxjs/redux/issues/1303
-https://github.com/reduxjs/redux/issues/1783
-https://github.com/markerikson/react-redux-links/blob/master/react-performance.md
-https://somebody32.github.io/high-performance-redux/
