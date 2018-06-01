@@ -257,20 +257,151 @@ export default class TodoItemDisplay extends Component {
 
 ### React
 
-
 Redux is the go-to for application state management in react, but a fairly new API within react allows for state-management within react without additional dependencies. [The Context API](https://reactjs.org/docs/context.html) allows state to be shared across multiple components.  Context's are loosely similar to Ember's Services (services will be covered below), in that they can define silo'd behavior and be used by components. There are some restrictions that context's have, however. One is that there must be a context Provider, which provides the configured context to all children in the tree below the Provider, and then there is the Consumer, which allow children of the Consumer in the immediate rendering context to access the Context's data.
 
 Below is an example of how the `TodoMVC` app would be manage and interact with the `todos` state with a context instead of redux.
+
+Instead of actions/reducers/etc, a context is configured, and given a value during invocation-time.
+The `Application` component becomes the state manager for this particular app.
+
+```tsx
+// import omitted
+export default class Application extends React.Component<{}, State> {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todos: [],
+      clearCompleted: this.clearCompleted,
+      // ...
+    }
+  }
+
+  clearCompleted = () => {
+    const todos = this.state.todos.filter(t => !t.completed);
+
+    this.setState({ todos });
+  }
+
+  // ... other actions omitted
+
+  render() {
+    return (
+      <TodosContext.Provider value={this.state}>
+        <TodoMVC />
+      </TodosContext.Provider>
+    );
+  }
+}
+
+```
+
+Using the context from any descendant in the tree looks like the following snippet.
+The consumer expects a function which can use the short-hand argument deconstruction syntax to pull out only what is needed for that render.
+
+```tsx
+import * as React from 'react';
+
+import HeaderDisplay from './display';
+import { TodosContext } from '@contexts/todos';
+
+export default class HeaderContainer extends React.Component {
+  render() {
+    return (
+      <TodosContext.Consumer>
+        {({ add }) => <HeaderDisplay addTodo={add} />}
+      </TodosContext.Consumer>
+    );
+  }
+}
+```
 
 
 
 ### Ember
 
+Ember comes with a few tools for managing application level state out of the box. The more common for application state is the [Service](https://guides.emberjs.com/release/applications/services/). Services are similar to the Context API that react provides (shown above), but does not require to be _provided_ to child components, as ember supports [dependency injection](https://guides.emberjs.com/release/applications/dependency-injection/), allowing for easier testing, and less boilerplate when hooking pieces of the app together.
+
+The other side to the provided state management is a supplemental package: [ember-data](https://github.com/emberjs/data). It provides a frontend ORM for managing data models that can be backed by varying data sources via the [adapters and serializers](https://emberigniter.com/fit-any-backend-into-ember-custom-adapters-serializers/). In the following sample code, ember-data is only used to manage the list of todos locally in the browser.
+
+[/src/data/models/todo.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/data/models/todo.ts)
+```ts
+import Model from 'ember-data/model';
+import { attr } from '@ember-decorators/data';
+
+export default class Todo extends Model {
+  @attr text?: string;
+  @attr completed?: boolean;
+}
+```
+[/src/services/todos.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/services/todos.ts)
+```ts
+export default class TodosService extends Service {
+  @service store!: DS.Store;
+
+  find(id: ID): Todo | null {
+    return this.store.peekRecord('todo', id);
+  }
+
+  destroyTodo(id: ID) {
+    const record = this.find(id);
+
+    if (record) {
+      record.deleteRecord();
+    }
+  }
+
+  // other functions omitted
+}
+```
+
+[/src/ui/components/header/component.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/ui/components/header/component.ts)
+```ts
+import Component from '@ember/component';
+import { service } from '@ember-decorators/service';
+import { action } from '@ember-decorators/object';
+
+import TodosService from 'example-app/services/todos';
+
+export default class Header extends Component {
+  @service todos!: TodosService;
+
+  text = '';
+
+  @action
+  didSubmit(this: Header) {
+    this.todos.add(this.text);
+    this.set('text', '');
+  }
+}
+```
+
+/src/ui/routes/completed/{ [route.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/ui/routes/completed/route.ts) | [template.hbs](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/ui/routes/completed/template.hbs) }
+```ts
+import DS from 'ember-data';
+import Route from '@ember/routing/route';
+
+import Todo from 'example-app/ui/data/models/todo';
+
+export default class CompletedRoute extends Route {
+  store!: DS.Store;
+
+  model() {
+    return this.store
+      .peekAll('todo')
+      .filter((todo: Todo) => todo.completed);
+  }
+}
+```
+```hbs
+<section class='main'>
+  <TodoList @todos={{model}} />
+</section>
+
+<Footer @todos={{model}} />
+```
 
 
-
-
-With React, due it only being a view library, without a provided way to manage messages between components, redux is nearly a requirement for application-level state.
 
 ## State Management: Final Thoughts
 
