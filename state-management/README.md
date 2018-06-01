@@ -4,7 +4,8 @@ _This is the second post in a segmented series on react (and react's ecosystem) 
 
 Managing application state can easily become non-trivial over time, so it’s important to have a good foundation to build upon. Without knowing the options and how to manage them, state can grow out of control, leading to a lack of testability and greatly reduced maintainability.
 
-This post will demonstrate two different ways of managing application state: With and without redux and what using or not using redux means in both the react and ember ecosystems.
+This post will demonstrate two different ways of managing application state: With and without redux and what using or not using redux means in both the react and ember ecosystems. For a refresher on why anyone would want to use redux, read the [motivation page from redux's website](https://redux.js.org/introduction/motivation).  All projects used in this blog post implement [TodoMVC](http://todomvc.com/), which is a simple todo app with some styling and predefined behavior. The code can be [viewed here](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management).
+
 Because redux is just javascript, there are negligible differences between the react and ember worlds. As shown [in the repo folder for this blog post](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management), the react and ember redux implementations use the _exact_ same `redux-store` folder.
 
 
