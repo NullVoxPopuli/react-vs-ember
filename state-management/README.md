@@ -22,7 +22,7 @@ Officially, [redux](https://redux.js.org) has [no opinion](https://redux.js.org/
 
 The following structure is the 'ducks' structure mentioned in the redux docs -- it's really a feature-based domain-concept layout that focuses on grouping related behavior rather than grouping by 'the type of the thing' (all actions in an 'actions' folder, for example).
 
-To see implementation details, specifically for managing imports and (re)exports, the code is available for browsing [here on github](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management/ember-redux/src/redux-store).
+To see implementation details, specifically for managing imports and (re)exports, the code is available for browsing [here](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management/ember-redux/src/redux-store).
 
 ```bash
 redux-store/
@@ -73,11 +73,11 @@ Redux is vanilla javascript, so it can be used with any library -- it doesn't ev
 
 The parts that do differ and tie redux into the frontend come from the corresponding packages: [react-redux](https://github.com/reduxjs/react-redux) and [ember-redux](https://github.com/ember-redux/ember-redux). These packages provide convenience and ease of setup by making assumptions about the development environment and providing some general abstractions and configurations.
 
-Below is a comparison of the similarities and differences of using redux in both react and ember.
+Next is a comparison of the similarities and differences of using redux in both react and ember.
 
 ### Without a container
 
-The following example shows usage without a container, or rather, since naming in programming is very subjective, it defines a container that it used to render a list of things.  The reason these aren't traditionally containers is because they each contain a template. The focus here should be that the `@connect` usage is the exact same in both environments.
+The following example shows usage without a container, or rather, since naming in programming is very subjective, it defines a container that it used to render a list of things.  The reason these aren't traditionally containers is because they each contain a template and that template is somewhat coupled to the rendered content (`ul` has `li`s). The focus here should be that the `@connect` usage is the exact same in both environments.
 
 #### Usage in React
 [react/src/ui/components/todo-list.tsx](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/react/src/ui/components/todo-list.tsx)
@@ -179,11 +179,8 @@ export default class TodoDisplay extends React.Component<Props, State> {
 
 #### Usage in Ember
 
+src/ui/components/todo-item/{ [component.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/component.ts) | [template.hbs](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/template.hbs) }
 ```ts
-// src/ui/components/todo-item/component.ts
-// imports omitted
-// see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/component.ts
-
 import Component from '@ember/component';
 import { action } from '@ember-decorators/object';
 
@@ -214,27 +211,18 @@ export default class TodoItemContainer extends Component {
 }
 ```
 ```hbs
-{{!--
-  src/ui/components/todo-item/template.hbs
-  see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/template.hbs
-  --}}
 <TodoDisplay
   @todo={{todo}}
   @props={{hash
     deleteTodo=(action "deleteTodo" todo.id)
     completeTodo=(action "completeTodo" todo.id)
-    editTodo=(action "editTodo" todo.id)
-    startEditing=(action "startEditing")
-    doneEditing=(action "doneEditing")
+    editTodo=(action "editTodo" todo.id)  
   }}
 />
 ```
 
+src/ui/components/todo-item/display/{ [component.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/display/component.ts) | [template.hbs](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/display/template.hbs) }
 ```ts
-{{!--
-  src/ui/components/todo-item/display/component.ts
-  see: https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember-redux/src/ui/components/todo-item/display/component.ts
-  --}}
 export default class TodoItemDisplay extends Component {
 
   @action
@@ -260,9 +248,9 @@ export default class TodoItemDisplay extends Component {
 
 ### React
 
-Redux is the go-to for application state management in react, but a fairly new API within react allows for state-management within react without additional dependencies. [The Context API](https://reactjs.org/docs/context.html) allows state to be shared across multiple components.  Context's are loosely similar to Ember's Services (services will be covered below), in that they can define silo'd behavior and be used by components. There are some restrictions that context's have, however. One is that there must be a context Provider, which provides the configured context to all children in the tree below the Provider, and then there is the Consumer, which allow children of the Consumer in the immediate rendering context to access the Context's data.
+Redux is the go-to for application state management in react, but a fairly new API within react allows for sensible state-management without additional dependencies. [The Context API](https://reactjs.org/docs/context.html) allows state to be shared across multiple components.  Context's are loosely similar to Ember's Services (services will be covered below), in that they can define silo'd behavior and be used by components. There are some restrictions that context's have, however. One is that there must be a context Provider, which provides the configured context to all children in the tree below the Provider, and then there is the Consumer, which allow children of the Consumer in the immediate rendering context to access the Context's data.
 
-Below is an example of how the `TodoMVC` app would be manage and interact with the `todos` state with a context instead of redux.
+Below is an example of how the `TodoMVC` app would be managed and interact with the `todos` state with a context instead of redux.
 
 Instead of actions/reducers/etc, a context is configured, and given a value during invocation-time.
 The `Application` component becomes the state manager for this particular app.
@@ -323,9 +311,9 @@ export default class HeaderContainer extends React.Component {
 
 ### Ember
 
-Ember comes with a few tools for managing application level state out of the box. The more common for application state is the [Service](https://guides.emberjs.com/release/applications/services/). Services are similar to the Context API that react provides (shown above), but does not require to be _provided_ to child components, as ember supports [dependency injection](https://guides.emberjs.com/release/applications/dependency-injection/), allowing for easier testing, and less boilerplate when hooking pieces of the app together.
+Ember comes with a few tools for managing application level state out of the box. The most common solution for application state is the [Service](https://guides.emberjs.com/release/applications/services/). Services are similar to the Context API that react provides (shown above), but does not require to be _provided_ to child components, as ember supports [dependency injection](https://guides.emberjs.com/release/applications/dependency-injection/), allowing for easier testing, and less boilerplate when hooking pieces of the app together.
 
-The other side to the provided state management is a supplemental package: [ember-data](https://github.com/emberjs/data). It provides a frontend ORM for managing data models that can be backed by varying data sources via the [adapters and serializers](https://emberigniter.com/fit-any-backend-into-ember-custom-adapters-serializers/). In the following sample code, ember-data is only used to manage the list of todos locally in the browser.
+The other side to the provided state management is the supplemental package, [ember-data](https://github.com/emberjs/data). It provides a frontend ORM for managing data models that can be backed by varying data sources via [adapters and serializers](https://emberigniter.com/fit-any-backend-into-ember-custom-adapters-serializers/). In the following sample code, ember-data is only used to manage the list of todos locally in the browser.
 
 [/src/data/models/todo.ts](https://github.com/NullVoxPopuli/react-vs-ember/blob/master/state-management/ember/src/data/models/todo.ts)
 ```ts
@@ -414,7 +402,7 @@ export default class CompletedRoute extends Route {
 
 ## State Management: Final Thoughts
 
-Both React and Ember provide state management out of the box, but Redux provides some shnazzy debugging abilities ([time-travel](https://medium.com/the-web-tub/time-travel-in-react-redux-apps-using-the-redux-devtools-5e94eba5e7c0)) due to its immutable nature of handling changes. The predicable and traversable state changes bring sanity to debugging when multiple areas of an app may be trying to change something at relatively the same time.  On the flip side, Redux has had some question it's [perfromance](https://github.com/redux-saga/redux-saga/issues/241#issuecomment-207202589) [on](https://github.com/reduxjs/redux/issues/768
+Both React and Ember provide state management out of the box, but Redux provides some shnazzy debugging abilities ([time-travel](https://medium.com/the-web-tub/time-travel-in-react-redux-apps-using-the-redux-devtools-5e94eba5e7c0)) due to its immutable nature of handling changes. The predicable and traversable state changes bring sanity to debugging when multiple areas of an app may be trying to change something at relatively the same time.  On the flip side, Redux has had many questions on its [perfromance](https://github.com/redux-saga/redux-saga/issues/241#issuecomment-207202589) [with](https://github.com/reduxjs/redux/issues/768
 )  [large](https://github.com/markerikson/react-redux-links/blob/master/react-performance.md
 ) [sets](https://somebody32.github.io/high-performance-redux/
 ) of data.
