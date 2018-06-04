@@ -1,10 +1,13 @@
 ## React vs Ember: State Management
 
-_This is the second post in a segmented series on react (and react's ecosystem) vs ember. To read the previous, [go here to read about Event Handling](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/event-handling).  The *Event Handling* post is not required reading for this post, but makes the same general assumptions about prior knowledge apply. [See the series intro here](https://github.com/NullVoxPopuli/react-vs-ember#react-vs-ember-introduction)._
+_This is the second post in a segmented series on react (and react's ecosystem) vs ember. To read the previous, [go here to read about Event Handling](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/event-handling).  The *Event Handling* post is not required reading for this post, but makes the same general assumptions about prior knowledge ([SPAs](https://en.wikipedia.org/wiki/Single-page_application), [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript), etc). [See the series intro here](https://github.com/NullVoxPopuli/react-vs-ember#react-vs-ember-introduction)._
 
-Managing application state can easily become non-trivial over time, so it’s important to have a good foundation to build upon. Without knowing the options and how to manage them, state can grow out of control, leading to a lack of testability and greatly reduced maintainability.
+Managing application state can easily become non-trivial over time, so it’s important to have a good foundation to build upon. Without knowing the options and how to manage them, trying to establish a foundation will result in a lack of testability and greatly reduced maintainability. (Testing will be covered in the next segment of this series)
 
-This post will demonstrate two different ways of managing application state: With and without redux and what using or not using redux means in both the react and ember ecosystems. For a refresher on why anyone would want to use redux, read the [motivation page from redux's website](https://redux.js.org/introduction/motivation).  All projects used in this blog post implement [TodoMVC](http://todomvc.com/), which is a simple todo app with some styling and predefined behavior. The code can be [viewed here](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management).
+This post will demonstrate two different ways of managing application state: With and without redux and what using or not using redux means in both the react and ember ecosystems. For a refresher on why anyone would want to use redux, read the [motivation page from redux's website](https://redux.js.org/introduction/motivation). The purpose of the comparison is to demonstrate the similarities and differences between react and ember with both redux and the ecosystem-native state management approach.
+
+All projects used in this blog post implement [TodoMVC](http://todomvc.com/), which is a simple todo app with some styling and predefined behavior. The code can be [viewed here](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management).
+
 
 Because redux is just javascript, there are negligible differences between the react and ember worlds. As shown [in the repo folder for this blog post](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management), the react and ember redux implementations use the _exact_ same `redux-store` folder.
 
@@ -15,10 +18,10 @@ Something something about application state, and why state management something 
 
 ### The custom redux layout
 
-Officially, [redux](https://redux.js.org) has [no opinion](https://redux.js.org/faq/code-structure) on code structure. The most commonly seen structure is the 'rails style', where there is an `actions` folder, `reducers` folder, etc. and your features are spread out via 'types' of folders. While this pattern may be easy to implement (i.e.: low effort), it is not suitable for maintainability and discovery.
+Officially, [redux](https://redux.js.org) has [no opinion](https://redux.js.org/faq/code-structure) on code structure. The most commonly seen structure is the 'rails style', where there is an `actions` folder, and a `reducers` folder -- resulting in segregation of your feature-code. While this pattern may be easy to implement (i.e.: low effort), it is not suitable for maintainability and discovery.
 
+The following structure is the 'ducks' structure mentioned in the redux docs -- it's really a feature-based domain-concept layout that focuses on grouping related behavior rather than grouping by 'the type of the thing' (all actions in an 'actions' folder, for example).
 
-The following structure is the 'ducks' structure mentioned in the redux docs -- it's really a feature-based domain-concept structure.
 To see implementation details, specifically for managing imports and (re)exports, the code is available for browsing [here on github](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management/ember-redux/src/redux-store).
 
 ```bash
