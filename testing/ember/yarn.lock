@@ -54,9 +54,9 @@
     ember-cli-babel "^6.6.0"
     ember-compatibility-helpers "^1.0.0"
 
-"@ember/optional-features@github:emberjs/ember-optional-features#f7df428073c7dd0e0d56da25de6b2e83bd069bef":
+"@ember/optional-features@^0.6.1":
   version "0.6.1"
-  resolved "https://codeload.github.com/emberjs/ember-optional-features/tar.gz/f7df428073c7dd0e0d56da25de6b2e83bd069bef"
+  resolved "https://registry.yarnpkg.com/@ember/optional-features/-/optional-features-0.6.1.tgz#c5163c11bdd11ed8d69d4e273b114b95af16e5a9"
   dependencies:
     chalk "^2.3.0"
     co "^4.6.0"
@@ -127,7 +127,7 @@
     "@types/jquery" "*"
     "@types/rsvp" "*"
 
-"@types/ember@*", "@types/ember@^2.8.23":
+"@types/ember@*", "@types/ember@^2.8.25":
   version "2.8.25"
   resolved "https://registry.yarnpkg.com/@types/ember/-/ember-2.8.25.tgz#351f9e1526d1980f7864878beb06718995252361"
 
@@ -2654,9 +2654,9 @@ ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.0, ember-cli-ve
     resolve "^1.3.3"
     semver "^5.3.0"
 
-"ember-cli@github:ember-cli/ember-cli#775af92c0dfe1369d4d4988462600206243ebcb4":
+"ember-cli@github:ember-cli/ember-cli#7bc63039a1f89e03d9c1246cc5d3e8245290f302":
   version "3.2.0-beta.2"
-  resolved "https://codeload.github.com/ember-cli/ember-cli/tar.gz/775af92c0dfe1369d4d4988462600206243ebcb4"
+  resolved "https://codeload.github.com/ember-cli/ember-cli/tar.gz/7bc63039a1f89e03d9c1246cc5d3e8245290f302"
   dependencies:
     amd-name-resolver "^1.2.0"
     babel-plugin-transform-es2015-modules-amd "^6.24.0"
@@ -2984,9 +2984,9 @@ ember-runtime-enumerable-includes-polyfill@^2.0.0:
     ember-cli-babel "^6.9.0"
     ember-cli-version-checker "^2.1.0"
 
-"ember-source@https://s3.amazonaws.com/builds.emberjs.com/canary/shas/4382687f368fb82bed873b4c4b72371236c873df.tgz":
-  version "3.3.0-canary"
-  resolved "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/4382687f368fb82bed873b4c4b72371236c873df.tgz#a8f0dd5f44804b531160d7889422c8a87d615b8b"
+"ember-source@https://s3.amazonaws.com/builds.emberjs.com/canary/shas/6f1b0605f5220530b45a1dd5ec41bb2a01f21e82.tgz":
+  version "3.4.0-canary"
+  resolved "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/6f1b0605f5220530b45a1dd5ec41bb2a01f21e82.tgz#69a31457476eca8df6f203a45f29b61096d83c54"
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-trees "^2.0.0"
@@ -6996,7 +6996,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript@^2.8.3:
+typescript@~2.8.3:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.4.tgz#0b1db68e6bdfb0b767fa2ab642136a35b059b199"
 

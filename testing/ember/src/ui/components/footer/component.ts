@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { Registry } from '@ember/service';
 import { service } from '@ember-decorators/service';
 import { action, computed } from '@ember-decorators/object';
 import { alias, equal, filterBy, gt } from '@ember-decorators/object/computed';
@@ -8,7 +9,7 @@ import TodosService from 'example-app/services/todos';
 
 export default class extends Component {
   @service('todos') todoManager!: TodosService;
-  @service router;
+  @service router!: Registry['router'];
 
   @alias('router.currentRouteName') routeName!: string;
   @equal('routeName', 'index') showAll!: boolean;

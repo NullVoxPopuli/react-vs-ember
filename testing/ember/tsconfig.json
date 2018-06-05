@@ -22,10 +22,14 @@
     "module": "es6",
     "paths": {
       "example-app/*": [
-        "src/*"
+        "src/*",
+        "tests/*"
       ],
       "example-app/src/*": [
         "src/*"
+      ],
+      "example-app/tests/*": [
+        "tests/*"
       ],
       "@ember": ["node_modules/@types/ember/index.d.ts"],
       "ember-redux": ["node_modules/ember-redux/index.d.ts"],
