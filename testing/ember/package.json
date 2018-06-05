@@ -1,0 +1,59 @@
+{
+  "name": "example-app",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Small description for example-app goes here",
+  "license": "MIT",
+  "author": "NullVoxPopuli",
+  "scripts": {
+    "ember": "MODULE_UNIFICATION=true EMBER_CLI_MODULE_UNIFICATION=true node_modules/.bin/ember",
+    "start": "yarn ember serve"
+  },
+  "dependencies": {
+    "@ember-decorators/babel-transforms": "^2.0.0",
+    "@ember/optional-features": "github:emberjs/ember-optional-features#f7df428073c7dd0e0d56da25de6b2e83bd069bef",
+    "@types/ember": "^2.8.23",
+    "@types/ember-data": "^2.14.17",
+    "@types/ember-qunit": "^3.0.2",
+    "@types/ember-test-helpers": "^0.7.1",
+    "@types/ember-testing-helpers": "^0.0.3",
+    "@types/rsvp": "^4.0.1",
+    "@types/qunit": "^2.5.1",
+    "ember-decorators": "^2.0.0",
+    "ember-cli-typescript": "github:typed-ember/ember-cli-typescript#mu",
+    "ember-decorators": "^2.0.0",
+    "ember-lodash-shim": "^2.0.0",
+    "ember-redux": "^3.1.1",
+    "ember-redux-shim": "^2.5.0",
+    "redux": "3.7.2",
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.7.0",
+    "ember-ajax": "^3.0.0",
+    "ember-cli": "github:ember-cli/ember-cli#775af92c0dfe1369d4d4988462600206243ebcb4",
+    "ember-cli-app-version": "^3.0.0",
+    "ember-cli-babel": "^6.6.0",
+    "ember-cli-dependency-checker": "^2.0.0",
+    "ember-cli-htmlbars": "^2.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
+    "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-qunit": "^4.1.1",
+    "ember-cli-sass": "^7.1.7",
+    "ember-cli-shims": "^1.2.0",
+    "ember-cli-sri": "^2.1.0",
+    "ember-cli-uglify": "^2.0.0",
+    "ember-data": "github:emberjs/data#e3a24f6b74324688afc6ea530730ca30d7d69c1d",
+    "ember-export-application-global": "^2.0.0",
+    "ember-load-initializers": "^1.1.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-resolver": "^4.0.0",
+    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/4382687f368fb82bed873b4c4b72371236c873df.tgz",
+    "ember-symbol-observable": "1.0.1",
+    "loader.js": "^4.2.3",
+    "qunit-dom": "^0.6.2"
+  },
+  "engines": {
+    "node": "6.* || >= 8.*"
+  }
+}

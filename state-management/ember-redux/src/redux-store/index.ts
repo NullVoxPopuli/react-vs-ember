@@ -1,6 +1,6 @@
 export { default as enhancers } from './enhancers';
 
-export { reducers } from './reducers';
+export { reducers, State } from './reducers';
 
 export {
   middleware as listOfMiddleware,

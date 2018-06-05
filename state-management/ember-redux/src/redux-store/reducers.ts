@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers, Reducer } from 'redux';
 
 import {
   State as TodoState,
@@ -9,6 +9,6 @@ export interface State{
   todos: TodoState
 }
 
-export const reducers = combineReducers({
+export const reducers: Reducer<State> = combineReducers({
   todos: todosReducer
 });
