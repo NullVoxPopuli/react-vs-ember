@@ -10,6 +10,7 @@ module.exports = function(environment) {
     },
     modulePrefix: 'example-app',
     environment,
+    isTesting: environment === 'test',
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
