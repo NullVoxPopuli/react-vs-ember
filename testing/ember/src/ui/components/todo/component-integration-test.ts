@@ -24,40 +24,49 @@ module('Integration | Component | todo', function(hooks) {
     this.set('testTodo', sampleTodo);
     await render(hbs`<Todo @todo={{testTodo}} />`);
 
-    assert.notOk(
-      this.element.querySelector(editingSelector),
-      'nothing should be editing before any interaction'
-    );
-
-    assert.notEqual(
-      document.activeElement, find(inputSelector),
-      'input should not have focus when not editing'
-    );
+    assert.notOk(find(editingSelector), 'nothing should be editing before any interaction');
+    assert.isNotFocussed(find(inputSelector), 'input should not have focus when not editing');
 
     await triggerEvent(labelSelector, 'click');
 
-    assert.ok(
-      this.element.querySelector(editingSelector),
-      'clicking the label should trigger editing'
-    );
-
-    assert.equal(
-      document.activeElement, find(inputSelector),
-      'input should have focus after the label is clicked'
-    );
+    assert.ok(find(editingSelector), 'clicking the label should trigger editing');
+    assert.isFocussed(find(inputSelector), 'input should have focus after the label is clicked');
 
   });
 
-  skip('input field blur | finishes editing', async function(assert) {
-    assert.expect(0);
-  });
-
-  skip('input field blur | updates the todo', async function(assert) {
-    assert.expect(0);
-  });
-
-  skip('input keypress tab | finishes editing', async function(assert) {
+  test('input field blur | unfocuses the input', async function(assert) {
     assert.expect(2);
+
+    this.set('testTodo', sampleTodo);
+    await render(hbs`<Todo @todo={{testTodo}} />`);
+    await triggerEvent(labelSelector, 'click');
+
+    assert.isFocussed(find(inputSelector), 'input should have focus after the label is clicked');
+
+    await blur(inputSelector);
+
+    assert.isNotFocussed(find(inputSelector), 'input should not have focus after a blur');
+  });
+
+  test('input field blur | updates the todo', async function(assert) {
+    assert.expect(1);
+
+    stubService('todos', { changeText: fakeChangeText });
+
+    this.set('testTodo', sampleTodo);
+    await render(hbs`<Todo @todo={{testTodo}} />`);
+
+    await triggerEvent(labelSelector, 'click');
+    await fillIn(inputSelector, 'updated');
+    await blur(inputSelector);
+
+    const text = find(labelSelector).textContent.trim();
+
+    assert.equal(text, 'updated');
+  });
+
+  test('input keypress tab | finishes editing', async function(assert) {
+    assert.expect(1);
 
     stubService('todos', { changeText: fakeChangeText });
 
@@ -66,35 +75,25 @@ module('Integration | Component | todo', function(hooks) {
 
     await triggerEvent(labelSelector, 'click');
     await triggerKeyEvent(inputSelector, 'keydown', 9);
+
+    assert.notOk(find(editingSelector));
   });
 
   test('input keypress enter | finishes editing', async function(assert) {
-    assert.expect(5);
+    assert.expect(1);
 
     stubService('todos', { changeText: fakeChangeText });
 
     this.set('testTodo', sampleTodo);
     await render(hbs`<Todo @todo={{testTodo}} />`);
     await triggerEvent(labelSelector, 'click');
+    await triggerKeyEvent(inputSelector, 'keydown', 13);
 
-    assert.ok(
-      this.element.querySelector(editingSelector),
-      'clicking the label should trigger editing'
-    );
-
-    await settled();
-
-    assert.equal(document.activeElement, find(inputSelector), 'input should have focus after the label is clicked');
-    find(inputSelector).blur();
-    // https://github.com/emberjs/ember-test-helpers/issues/381
-    await blur(inputSelector);
-
-    assert.notEqual(document.activeElement, find(inputSelector), 'input should not have focus after a blur');
-    await settled();
+    assert.notOk(find(editingSelector));
   });
 
-  skip('input keypress escape | finishes editing', async function(assert) {
-    assert.expect(2);
+  test('input keypress escape | finishes editing', async function(assert) {
+    assert.expect(1);
 
     stubService('todos', { changeText: fakeChangeText });
 
@@ -102,7 +101,8 @@ module('Integration | Component | todo', function(hooks) {
     await render(hbs`<Todo @todo={{testTodo}} />`);
 
     await triggerEvent(labelSelector, 'click');
-    await focus(inputSelector);
     await triggerKeyEvent(inputSelector, 'keydown', 27);
+
+    assert.notOk(find(editingSelector));
   });
 });
