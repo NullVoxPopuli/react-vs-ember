@@ -1,11 +1,11 @@
-<div class="view">
+<div data-test-todo-id={{todo.id}} class="view">
   <input
     type="checkbox"
     checked={{todo.completed}}
     class="toggle"
     onchange={{action (mut todo.completed) value='target.checked'}} />
 
-  <label {{action 'didClickLabel' on='doubleClick'}}>
+  <label data-test-todo-label {{action 'didClickLabel'}}>
     {{todo.text}}
   </label>
 

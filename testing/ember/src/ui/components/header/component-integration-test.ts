@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
-import { render, fillIn, triggerEvent  } from '@ember/test-helpers';
+import { render, fillIn, triggerEvent, find  } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 import { stubService } from 'example-app/tests/helpers';
@@ -16,7 +16,7 @@ module('Integration | Component | header', function(hooks) {
 
     await render(hbs`<Header />`);
 
-    const element = this.element.querySelector('input.new-todo') as HTMLInputElement;
+    const element = find('input.new-todo') as HTMLInputElement;
 
     await fillIn(element, 'Something that needs to be done');
     await triggerEvent('header form', 'submit');
@@ -39,7 +39,7 @@ module('Integration | Component | header', function(hooks) {
 
     await render(hbs`<Header />`);
 
-    const element = this.element.querySelector('input.new-todo') as HTMLInputElement;
+    const element = find('input.new-todo') as HTMLInputElement;
 
     await fillIn(element, todoText);
     await triggerEvent('header form', 'submit');

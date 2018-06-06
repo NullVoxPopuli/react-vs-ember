@@ -38,12 +38,12 @@ export default class TodoItem extends Component {
 
   @action
   focusInput(this: TodoItem) {
-    scheduleOnce('afterRender', this, () => {
+    // scheduleOnce('afterRender', this, () => {
       const element = this.element;
       const input = element.querySelector('input.edit') as HTMLInputElement
 
       input.focus();
-    });
+    // });
   }
 
   @action

@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 
-import { render } from '@ember/test-helpers';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 import { textFor, stubService } from 'example-app/tests/helpers';
@@ -22,7 +22,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const activeNav = this.element.querySelector('a.selected');
+    const activeNav = find('a.selected');
     const text = textFor('a.selected');
 
     assert.ok(activeNav);
@@ -37,7 +37,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const activeNav = this.element.querySelector('a.selected');
+    const activeNav = find('a.selected');
     const text = textFor('a.selected');
 
     assert.ok(activeNav);
@@ -52,7 +52,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const activeNav = this.element.querySelector('a.selected');
+    const activeNav = find('a.selected');
     const text = textFor('a.selected');
 
     assert.ok(activeNav);
@@ -67,7 +67,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const button = this.element.querySelector('button.clear-completed');
+    const button = find('button.clear-completed');
 
     assert.ok(button);
   });
@@ -80,7 +80,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const button = this.element.querySelector('button.clear-completed');
+    const button = find('button.clear-completed');
 
     assert.notOk(button);
   });

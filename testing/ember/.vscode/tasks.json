@@ -1,0 +1,18 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch Chrome with Debug Port",
+            "command": "Chrome",
+            "linux": {
+                "command": "google-chrome"
+            },
+            "args": [
+                "--remote-debugging-port", "9222",
+                "http://localhost:4200/tests"
+            ]
+        }
+    ]
+}
