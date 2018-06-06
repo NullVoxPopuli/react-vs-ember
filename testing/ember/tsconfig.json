@@ -33,6 +33,7 @@
       ],
       "@ember": ["node_modules/@types/ember/index.d.ts"],
       "ember-redux": ["node_modules/ember-redux/index.d.ts"],
+      "@ember/test-helpers": ["node_modules/@types/ember-test-helpers/index.d.ts"],
       "*": [
         "types/*"
       ]

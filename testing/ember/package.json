@@ -19,6 +19,7 @@
     "@types/ember-test-helpers": "^0.7.1",
     "@types/ember-testing-helpers": "^0.0.3",
     "@types/qunit": "^2.5.1",
+    "@types/qunit-dom": "^0.6.0",
     "@types/rsvp": "^4.0.1",
     "ember-cli-typescript": "github:typed-ember/ember-cli-typescript#mu",
     "ember-decorators": "^2.0.0",
@@ -38,7 +39,7 @@
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-qunit": "^4.1.1",
+    "ember-cli-qunit": "^4.3.2",
     "ember-cli-sass": "^7.1.7",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
@@ -52,7 +53,7 @@
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/6f1b0605f5220530b45a1dd5ec41bb2a01f21e82.tgz",
     "ember-symbol-observable": "1.0.1",
     "loader.js": "^4.2.3",
-    "qunit-dom": "^0.6.2"
+    "qunit-dom": "^0.6.3"
   },
   "engines": {
     "node": "6.* || >= 8.*"

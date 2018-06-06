@@ -24,6 +24,18 @@ module('Integration | Component | todo', function(hooks) {
     this.set('testTodo', sampleTodo);
     await render(hbs`<Todo @todo={{testTodo}} />`);
 
+    // qunit-dom specificatly looks in the root-element
+    // whereas @ember/test-helpers look from the body.
+    // once integration tests get rendered inside the root element,
+    // the nice dom-helpers can be used
+    // assert.dom(editingSelector).doesNotExist();
+    // assert.dom(inputSelector).isNotFocused();
+    //
+    // await triggerEvent(labelSelector, 'click');
+    //
+    // assert.dom(editingSelector).exists();
+    // assert.dom(inputSelector).isFocused();
+
     assert.notOk(find(editingSelector), 'nothing should be editing before any interaction');
     assert.isNotFocussed(find(inputSelector), 'input should not have focus when not editing');
 
