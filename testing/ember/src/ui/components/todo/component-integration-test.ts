@@ -43,7 +43,6 @@ module('Integration | Component | todo', function(hooks) {
 
     assert.ok(find(editingSelector), 'clicking the label should trigger editing');
     assert.isFocussed(find(inputSelector), 'input should have focus after the label is clicked');
-
   });
 
   test('input field blur | unfocuses the input', async function(assert) {
