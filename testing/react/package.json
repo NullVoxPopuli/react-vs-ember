@@ -6,7 +6,7 @@
   "scripts": {
     "parcel": "./node_modules/.bin/parcel",
     "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT",
-    "test": "./node_modules/.bin/jest --config ./jest.config.js",
+    "test": "./node_modules/.bin/jest --config ./jest.config.js --no-cache",
     "test:watch": "yarn test --watch"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.4.0",
     "ts-jest": "^22.4.6",
-    "typescript": "^2.7.2"
+    "typescript": "^2.8.3",
+    "typescript-babel-jest": "^1.0.5"
   }
 }
