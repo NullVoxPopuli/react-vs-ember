@@ -1,0 +1,37 @@
+{
+  "name": "react-vs-ember_state-management_react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.html",
+  "scripts": {
+    "parcel": "./node_modules/.bin/parcel",
+    "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT",
+    "test": "./node_modules/.bin/jest --config ./jest.config.js",
+    "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "@types/react-redux": "^6.0.0",
+    "babel-jest": "^23.0.1",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.1.0",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.6.2",
+    "puppeteer": "^1.4.0",
+    "react-test-renderer": "^16.4.0",
+    "ts-jest": "^22.4.6",
+    "typescript": "^2.7.2"
+  }
+}
