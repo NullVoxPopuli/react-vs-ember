@@ -40,11 +40,11 @@ module('Integration | Component | todo', function(hooks) {
     await render(hbs`<Todo @todo={{testTodo}} />`);
     await triggerEvent(labelSelector, 'click');
 
-    assert.isFocussed(find(inputSelector), 'input should have focus after the label is clicked');
+    assert.dom(inputSelector).isFocused();
 
     await blur(inputSelector);
 
-    assert.isNotFocussed(find(inputSelector), 'input should not have focus after a blur');
+    assert.dom(inputSelector).isNotFocused();
   });
 
   test('input field blur | updates the todo', async function(assert) {
@@ -65,7 +65,7 @@ module('Integration | Component | todo', function(hooks) {
   });
 
   test('input keypress tab | finishes editing', async function(assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     stubService('todos', { changeText: fakeChangeText });
 
@@ -73,26 +73,32 @@ module('Integration | Component | todo', function(hooks) {
     await render(hbs`<Todo @todo={{testTodo}} />`);
 
     await triggerEvent(labelSelector, 'click');
+
+    assert.dom(editingSelector).exists();
+
     await triggerKeyEvent(inputSelector, 'keydown', 9);
 
-    assert.notOk(find(editingSelector));
+    assert.dom(editingSelector).doesNotExist();
   });
 
   test('input keypress enter | finishes editing', async function(assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     stubService('todos', { changeText: fakeChangeText });
 
     this.set('testTodo', sampleTodo);
     await render(hbs`<Todo @todo={{testTodo}} />`);
     await triggerEvent(labelSelector, 'click');
+
+    assert.dom(editingSelector).exists();
+
     await triggerKeyEvent(inputSelector, 'keydown', 13);
 
-    assert.notOk(find(editingSelector));
+    assert.dom(editingSelector).doesNotExist();
   });
 
   test('input keypress escape | finishes editing', async function(assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     stubService('todos', { changeText: fakeChangeText });
 
@@ -100,8 +106,11 @@ module('Integration | Component | todo', function(hooks) {
     await render(hbs`<Todo @todo={{testTodo}} />`);
 
     await triggerEvent(labelSelector, 'click');
+
+    assert.dom(editingSelector).exists();
+
     await triggerKeyEvent(inputSelector, 'keydown', 27);
 
-    assert.notOk(find(editingSelector));
+    assert.dom(editingSelector).doesNotExist();
   });
 });
