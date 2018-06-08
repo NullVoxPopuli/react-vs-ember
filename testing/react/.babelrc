@@ -4,7 +4,8 @@
             "root": ["./src"],
             "alias": {
                 "@store": ["./src/redux-store"],
-                "@ui": ["./src/ui"]
+                "@ui": ["./src/ui"],
+                "tests": ["./tests"]
             }
         }]
     ]

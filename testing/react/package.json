@@ -6,8 +6,9 @@
   "scripts": {
     "parcel": "./node_modules/.bin/parcel",
     "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT",
-    "test": "./node_modules/.bin/jest --config ./jest.config.js --no-cache",
-    "test:watch": "yarn test --watch"
+    "test:run": "./node_modules/.bin/mocha --opts ./tests/mocha.opts",
+    "test:build": "NODE_ENV=development yarn parcel build src/index.html --out-dir tests/support/tmp --target browser",
+    "test": "yarn test:build && yarn test:run"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -16,23 +17,31 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.0.0",
+    "@types/chai": "^4.1.3",
+    "@types/chai-dom": "^0.0.6",
+    "@types/connect": "^3.4.32",
+    "@types/mocha": "^5.2.1",
+    "@types/puppeteer": "^1.3.3",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^6.0.0",
-    "babel-jest": "^23.0.1",
+    "@types/serve-static": "^1.13.2",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-dom": "^1.8.0",
+    "connect": "^3.6.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.1.0",
+    "mocha": "^5.2.0",
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.6.2",
     "puppeteer": "^1.4.0",
     "react-test-renderer": "^16.4.0",
-    "ts-jest": "^22.4.6",
-    "typescript": "^2.8.3",
-    "typescript-babel-jest": "^1.0.5"
+    "serve-static": "^1.13.2",
+    "ts-node": "^6.1.0",
+    "tsconfig-paths": "^3.3.2",
+    "typescript": "^2.8.3"
   }
 }
