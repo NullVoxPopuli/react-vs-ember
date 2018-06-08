@@ -4,27 +4,23 @@ import { ISuiteCallbackContext } from 'mocha';
 
 import { host } from 'tests/support/acceptance/config';
 import { setupForAcceptance } from 'tests/helpers/setup-for-acceptance';
-import { findAll } from 'tests/helpers/dom';
 
-interface Context extends ISuiteCallbackContext {
-  browser: puppeteer.Browser;
-  page: puppeteer.Page;
-}
+describe('Acceptance | list filtering', function() {
+  const ctx = setupForAcceptance(this);
 
-describe('Acceptance | list filtering', function(this: Context) {
-  setupForAcceptance.apply(this);
-
-  it('should load without error', async () => {
-    await this.page.goto('https://google.com')
-
-    let text = await this.page.evaluate(() => document.body.textContent)
-    expect(text).to.contain('google')
-  });
+  // it('should load without error', async () => {
+  //   await ctx.visit('https://google.com')
+  //
+  //   // let text = await ctx.textFor('body');
+  //
+  //   expect(text).to.contain('google')
+  // });
 
   it('list all todos', async () => {
-    await this.page.goto(host);
+    await ctx.visit(host);
 
-    const todos = await findAll.apply(this, 'ul.todo-list li');
+    await ctx.screenshot();
+    const todos = await ctx.findAll('ul.todo-list li');
 
     expect(todos.length).to.eq(1);
   });

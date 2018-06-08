@@ -21,8 +21,6 @@ export default function() {
 
   return new Promise((resolve, reject) => {
     server.listen(port, () => {
-      console.log('Test Server Listening...');
-
       resolve(server);
     });
   });

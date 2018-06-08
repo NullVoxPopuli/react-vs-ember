@@ -1,26 +1,33 @@
 import * as puppeteer from 'puppeteer';
 
 import startTestServer from 'tests/support/acceptance/server';
+import { ISuiteCallbackContext } from 'mocha';
+import { Context } from './context';
 
-export const setupForAcceptance = function() {
+export const setupForAcceptance = (parent: ISuiteCallbackContext) => {
+  const ctx = new Context();
+
   before(async () => {
-    this.server = await startTestServer();
+    ctx.server = await startTestServer();
 
-    this.browser = await puppeteer.launch();
+    ctx.browser = await puppeteer.launch();
   });
 
   after(async () => {
-    this.browser.close();
+    ctx.browser && ctx.browser.close();
 
-    await this.server.shutdown();
+    await ctx.server.shutdown();
   });
 
   beforeEach(async () => {
-    this.page = await this.browser.newPage()
+    // default size is 800 by 600 px
+    ctx.page = await ctx.browser.newPage();
   });
 
 
   afterEach(async () => {
-    await this.page.close()
+    await ctx.page.close()
   });
-}
+
+  return ctx;
+};
