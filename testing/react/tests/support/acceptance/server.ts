@@ -3,6 +3,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 import * as connect from 'connect';
 import * as serveStatic from 'serve-static';
+import * as httpShutdown from 'http-shutdown';
+
 import { port } from './config';
 
 const dist = path.join(__dirname, '..', 'tmp/');
@@ -12,8 +14,16 @@ if (!fs.existsSync(dist)) {
   process.exit(1);
 }
 
-const app = connect().use(serveStatic(dist));
+export default function() {
+  const app = connect().use(serveStatic(dist));
+  const httpServer = http.createServer(app);
+  const server = httpShutdown(httpServer);
 
-http.createServer(app).listen(port, () => {
-  console.log('Test Server Listening...')
-})
+  return new Promise((resolve, reject) => {
+    server.listen(port, () => {
+      console.log('Test Server Listening...');
+
+      resolve(server);
+    });
+  });
+}

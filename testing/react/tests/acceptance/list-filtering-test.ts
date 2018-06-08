@@ -1,33 +1,30 @@
 import * as puppeteer from 'puppeteer';
 import { expect } from 'chai';
+import { ISuiteCallbackContext } from 'mocha';
 
 import { host } from 'tests/support/acceptance/config';
+import { setupForAcceptance } from 'tests/helpers/setup-for-acceptance';
+import { findAll } from 'tests/helpers/dom';
 
-describe('Acceptance | list filtering', () => {
-  let page, browser;
-  var url = host;
+interface Context extends ISuiteCallbackContext {
+  browser: puppeteer.Browser;
+  page: puppeteer.Page;
+}
 
-  beforeEach(async () => {
-    browser = await puppeteer.launch()
-    page = await browser.newPage()
-  });
-
-
-  afterEach(async () => {
-    await page.close()
-  })
+describe('Acceptance | list filtering', function(this: Context) {
+  setupForAcceptance.apply(this);
 
   it('should load without error', async () => {
-    await page.goto('https://google.com')
+    await this.page.goto('https://google.com')
 
-     let text = await page.evaluate(() => document.body.textContent)
-     expect(text).to.contain('google')
-   })
+    let text = await this.page.evaluate(() => document.body.textContent)
+    expect(text).to.contain('google')
+  });
 
   it('list all todos', async () => {
-    await page.goto(url);
+    await this.page.goto(host);
 
-    const todos = page.$eval('ul.todo-list li');
+    const todos = await findAll.apply(this, 'ul.todo-list li');
 
     expect(todos.length).to.eq(1);
   });

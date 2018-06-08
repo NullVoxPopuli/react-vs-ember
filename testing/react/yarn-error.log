@@ -1,5 +1,5 @@
 Arguments: 
-  /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/yarn add --dev @types/connect @types/serveStatic
+  /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/node /home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin/yarn add --dev http-shutdown @types/http-shutdown
 
 PATH: 
   /home/lprestonsegoiii/.pythons/Python-3.6.3/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/heroku/bin:/home/lprestonsegoiii/Development/NullVoxPopuli/react-vs-ember/testing/react/node_modules/.bin:/home/lprestonsegoiii/apps/phantomjs/bin:/home/lprestonsegoiii/scripts/system-utils:/home/lprestonsegoiii/scripts/git:/home/lprestonsegoiii/scripts/rails:/home/lprestonsegoiii/scripts:/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/bin:/home/lprestonsegoiii/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/lprestonsegoiii/.fzf/bin:/home/lprestonsegoiii/.rvm/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fserveStatic: Not found
+  Error: https://registry.yarnpkg.com/@types%2fhttp-shutdown: Not found
       at Request.params.callback [as _callback] (/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:65327:18)
       at Request.self.callback (/home/lprestonsegoiii/.nvm/versions/node/v8.11.1/lib/node_modules/yarn/lib/cli.js:133155:22)
       at emitTwo (events.js:126:13)
@@ -35,7 +35,7 @@ npm manifest:
     "scripts": {
       "parcel": "./node_modules/.bin/parcel",
       "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT",
-      "test:run": "./node_modules/.bin/mocha -r ts-node/register --globals window,navigator,document --check-leaks **/*-test.ts",
+      "test:run": "./node_modules/.bin/mocha --opts ./tests/mocha.opts",
       "test:build": "NODE_ENV=development yarn parcel build src/index.html --out-dir tests/support/tmp --target browser",
       "test": "yarn test:build && yarn test:run"
     },
@@ -48,11 +48,13 @@ npm manifest:
     "devDependencies": {
       "@types/chai": "^4.1.3",
       "@types/chai-dom": "^0.0.6",
+      "@types/connect": "^3.4.32",
       "@types/mocha": "^5.2.1",
       "@types/puppeteer": "^1.3.3",
       "@types/react": "^16.0.38",
       "@types/react-dom": "^16.0.4",
       "@types/react-redux": "^6.0.0",
+      "@types/serve-static": "^1.13.2",
       "babel-plugin-module-resolver": "^3.1.1",
       "babel-preset-env": "^1.7.0",
       "babel-preset-react": "^6.24.1",
@@ -68,6 +70,7 @@ npm manifest:
       "react-test-renderer": "^16.4.0",
       "serve-static": "^1.13.2",
       "ts-node": "^6.1.0",
+      "tsconfig-paths": "^3.3.2",
       "typescript": "^2.8.3"
     }
   }
@@ -90,9 +93,27 @@ Lockfile:
     version "4.1.3"
     resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.3.tgz#b8a74352977a23b604c01aa784f5b793443fb7dc"
   
+  "@types/connect@^3.4.32":
+    version "3.4.32"
+    resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.32.tgz#aa0e9616b9435ccad02bc52b5b454ffc2c70ba28"
+    dependencies:
+      "@types/node" "*"
+  
   "@types/events@*":
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
+  
+  "@types/express-serve-static-core@*":
+    version "4.16.0"
+    resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.16.0.tgz#fdfe777594ddc1fe8eb8eccce52e261b496e43e7"
+    dependencies:
+      "@types/events" "*"
+      "@types/node" "*"
+      "@types/range-parser" "*"
+  
+  "@types/mime@*":
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.0.tgz#5a7306e367c539b9f6543499de8dd519fac37a8b"
   
   "@types/mocha@^5.2.1":
     version "5.2.1"
@@ -108,6 +129,10 @@ Lockfile:
     dependencies:
       "@types/events" "*"
       "@types/node" "*"
+  
+  "@types/range-parser@*":
+    version "1.2.2"
+    resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.2.tgz#fa8e1ad1d474688a757140c91de6dace6f4abc8d"
   
   "@types/react-dom@^16.0.4":
     version "16.0.5"
@@ -128,6 +153,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.16.tgz#78fc44a90b45701f50c8a7008f733680ba51fc86"
     dependencies:
       csstype "^2.2.0"
+  
+  "@types/serve-static@^1.13.2":
+    version "1.13.2"
+    resolved "https://registry.yarnpkg.com/@types/serve-static/-/serve-static-1.13.2.tgz#f5ac4d7a6420a99a6a45af4719f4dcd8cd907a48"
+    dependencies:
+      "@types/express-serve-static-core" "*"
+      "@types/mime" "*"
   
   abbrev@1:
     version "1.1.1"
@@ -1585,6 +1617,10 @@ Lockfile:
   deep-is@~0.1.3:
     version "0.1.3"
     resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
+  
+  deepmerge@^2.0.1:
+    version "2.1.1"
+    resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.1.1.tgz#e862b4e45ea0555072bf51e7fd0d9845170ae768"
   
   define-properties@^1.1.2:
     version "1.1.2"
@@ -4711,13 +4747,17 @@ Lockfile:
     dependencies:
       is-utf8 "^0.2.0"
   
+  strip-bom@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
+  
   strip-indent@^1.0.1:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/strip-indent/-/strip-indent-1.0.1.tgz#0c7962a6adefa7bbd4ac366460a638552ae1a0a2"
     dependencies:
       get-stdin "^4.0.1"
   
-  strip-json-comments@~2.0.1:
+  strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   
@@ -4878,6 +4918,15 @@ Lockfile:
       mkdirp "^0.5.1"
       source-map-support "^0.5.6"
       yn "^2.0.0"
+  
+  tsconfig-paths@^3.3.2:
+    version "3.3.2"
+    resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-3.3.2.tgz#bb48b845e221a44387be0f9968ee6c37c2a37c4d"
+    dependencies:
+      deepmerge "^2.0.1"
+      minimist "^1.2.0"
+      strip-bom "^3.0.0"
+      strip-json-comments "^2.0.1"
   
   tty-browserify@0.0.0:
     version "0.0.0"

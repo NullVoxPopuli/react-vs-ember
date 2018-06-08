@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import * as puppeteer from 'puppeteer';
 
 describe('Acceptance | todo editing', () => {
     it('the initial todo can be edited', () => {
