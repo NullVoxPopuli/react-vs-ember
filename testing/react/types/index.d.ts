@@ -1,3 +1,3 @@
-declare type Troolean =
+type Troolean =
   | boolean
   | undefined

@@ -35,6 +35,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "http-shutdown": "^1.2.0",
+    "jsdom": "^11.11.0",
     "mocha": "^5.2.0",
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.6.2",

@@ -14,8 +14,8 @@ const mapStateToProps = (state: State) => ({
   todos: list(state)
 });
 
-@connect(mapStateToProps)
-export default class TodoList extends React.Component<Props> {
+// @connect(mapStateToProps)
+/* export default */ class TodoList extends React.Component<Props> {
   render() {
     const { todos } = this.props;
 
@@ -26,3 +26,5 @@ export default class TodoList extends React.Component<Props> {
     );
   }
 }
+
+export default connect(mapStateToProps)(TodoList);

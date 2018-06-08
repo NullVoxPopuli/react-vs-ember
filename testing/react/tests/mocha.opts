@@ -1,4 +1,4 @@
 --require ts-node/register
 --require tsconfig-paths/register
 tests/support/setup.ts
-{src,tests}/**/*-test.ts
+{src,tests}/**/*-test.{ts,tsx}

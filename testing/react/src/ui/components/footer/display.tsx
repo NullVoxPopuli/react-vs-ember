@@ -1,14 +1,18 @@
 import * as React from 'react';
+import { ClearCompletedAction } from 'example-app/redux-store/todos/actions/clear-completed';
+import { ShowActiveAction } from 'example-app/redux-store/todos/actions/show-active';
+import { ShowAllAction } from 'example-app/redux-store/todos/actions/show-all';
+import { ShowCompletedAction } from 'example-app/redux-store/todos/actions/show-completed';
 
 export interface Props {
-  todosCount: number;
-  allCount: number;
   filter: Troolean;
+  allCount: number;
+  todosCount: number;
   completedCount: number;
-  showAll: () => void;
-  showCompleted: () => void;
-  showActive: () => void;
-  clearCompleted: () => void;
+  clearCompleted: () => ClearCompletedAction;
+  showAll: () => ShowAllAction;
+  showActive: () => ShowActiveAction;
+  showCompleted: () => ShowCompletedAction;
 }
 
 export default class FooterDisplay extends React.Component<Props> {

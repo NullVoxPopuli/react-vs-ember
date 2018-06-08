@@ -1,9 +1,13 @@
-import * as puppeteer from 'puppeteer';
+export {}; // this file needs to be a module?
 
-declare namespace NodeJS {
-  var browser: puppeteer.Browser;
+declare global {
+  interface Window {
+    devToolsExtension: any
+  }
 
   interface Global {
-    browser: puppeteer.Browser;
+    window: Window;
+    document: Document;
+    navigator: Navigator;
   }
 }
