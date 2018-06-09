@@ -10,6 +10,7 @@
     "test:build": "NODE_ENV=development yarn parcel build src/index.html --out-dir tests/support/tmp --target browser",
     "test": "yarn test:build && yarn test:run",
     "cypress": "./node_modules/.bin/cypress",
+    "cypress:run": "yarn cypress run",
     "cypress:open": "yarn cypress open"
   },
   "dependencies": {

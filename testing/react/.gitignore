@@ -2,3 +2,6 @@
 /dist
 /node_modules
 tmp/
+
+tests/cypress/screenshots/
+tests/cypress/videos/
