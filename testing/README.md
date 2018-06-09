@@ -10,3 +10,12 @@ http://instea.sk/2016/08/testing-react-applications-with-karma-jest-or-mocha/
 
 
 https://docs.cypress.io/guides/overview/why-cypress.html#Writing-Tests
+
+be sure to talk about:
+ - puppeteer
+ - nightmare
+ - selenium
+ - protractor
+
+etc, and why they weren't used
+also, jest vs mocha...
