@@ -34,3 +34,7 @@ protractor looks to be the closest to providing what ember has: https://www.prot
 - still no dom interaction. uses ElementFinder proxies, which all return promises, similar to cypress
 
 Cypress: jquery elements
+
+be also sure to mention all the transpiling and packager issues
+
+cypress: Chainables aren't all promises, thus can't be awaited
