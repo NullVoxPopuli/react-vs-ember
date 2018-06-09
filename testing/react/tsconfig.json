@@ -27,6 +27,7 @@
   "include": [
     "src",
     "types",
-    "tests"
+    "tests",
+    "node_modules/cypress"
   ]
 }

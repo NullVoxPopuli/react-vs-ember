@@ -39,6 +39,10 @@ export default class ReduxProvider extends React.Component {
     // Start sagas, etc
     setupMiddleware(store);
 
+    if (window.Cypress) {
+      window.__store__ = store;
+    }
+
     return store;
   }
 

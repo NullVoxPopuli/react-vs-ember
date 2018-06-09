@@ -1662,6 +1662,12 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
+"cypress-parcel-preprocessor@github:cypress-io/cypress-parcel-preprocessor#fa7f05b1e05c106693cd57cb5274edad5985d547":
+  version "0.0.0-development"
+  resolved "https://codeload.github.com/cypress-io/cypress-parcel-preprocessor/tar.gz/fa7f05b1e05c106693cd57cb5274edad5985d547"
+  dependencies:
+    debug "3.1.0"
+
 cypress@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.0.1.tgz#6a8938ce8a551e4ae1bd5fb2ceab038d4ad39c4d"
@@ -3930,7 +3936,7 @@ pako@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
 
-parcel-bundler@^1.6.2:
+parcel-bundler@^1.7.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/parcel-bundler/-/parcel-bundler-1.8.1.tgz#ac62d0690786f51d7f309694bab6856f685a6986"
   dependencies:
