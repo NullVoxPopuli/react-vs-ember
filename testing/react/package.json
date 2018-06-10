@@ -7,8 +7,10 @@
     "parcel": "./node_modules/.bin/parcel",
     "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT",
     "test:run": "./node_modules/.bin/mocha --opts ./tests/mocha.opts",
+    "test:run-cypress": "./node_modules/.bin/ts-node tests/support/cypress-bootstrap",
     "test:build": "NODE_ENV=development yarn parcel build src/index.html --out-dir tests/support/tmp --target browser",
-    "test": "yarn test:build && yarn test:run",
+    "test": "yarn test:build && yarn test:server && yarn cypress:run",
+    "test:server": "./node_modules/.bin/ts-node ./tests/support/acceptance/server.ts",
     "cypress": "./node_modules/.bin/cypress",
     "cypress:run": "yarn cypress run",
     "cypress:open": "yarn cypress open"

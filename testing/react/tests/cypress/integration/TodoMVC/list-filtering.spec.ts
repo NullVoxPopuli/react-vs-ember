@@ -2,7 +2,7 @@
 
 import { toggle, add } from "example-app/redux-store/todos";
 
-const host = 'localhost:1234';
+import { host } from 'tests/support/acceptance/config';
 
 context('Acceptance | list filtering', () => {
   const find = selector => cy.get(selector);

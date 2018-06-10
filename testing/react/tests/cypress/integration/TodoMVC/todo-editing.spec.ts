@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
-const host = 'localhost:1234';
+
+import { host } from 'tests/support/acceptance/config';
+
 
 
 describe('Acceptance | todo editing', () => {
