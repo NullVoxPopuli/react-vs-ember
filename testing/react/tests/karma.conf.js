@@ -2,6 +2,9 @@
 var path = require("path");
 var root = path.resolve(__dirname, '..');
 
+console.log('root path: ', root);
+console.log(root + '/src/**/*.ts');
+
 module.exports = function(config) {
   config.set({
     basePath: '',
@@ -13,13 +16,10 @@ module.exports = function(config) {
 
     // files to watch
     files: [
-      path.resolve(root, 'src/**/*.ts'),
-      path.resolve(root, 'src/**/*.tsx'),
-      path.resolve(root, 'tests/**/*-test.tsx'),
-      path.resolve(root, 'tests/**/*-test.ts'),
-      path.resolve(root, 'node_modules/jsdom-global/register.js'),
-      path.resolve(root, 'node_modules/tsconfig-paths/register.js'),
-      path.resolve(root, 'node_modules/ts-node/register/index.js'),
+      root + '/src/**/*.ts',
+      root + '/src/**/*.tsx',
+      root + '/tests/**/*-test.tsx',
+      root + '/tests/**/*-test.ts',
     ],
 
     exclude: [
@@ -28,11 +28,11 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      '**/*.js': ['webpack'],
-      '../src/**/*.ts': [ 'webpack'],
-      '../src/**/*.tsx': [ 'webpack'],
-      '../tests/**/*.ts': [ 'webpack'],
-      '../tests/**/*.tsx': [ 'webpack'],
+      [`${root}**/*.js`]: ['webpack'],
+      [`${root}/src/**/*.ts`]: ['webpack'],
+      [`${root}/src/**/*.tsx`]: ['webpack'],
+      [`${root}/tests/**/*.ts`]: ['webpack'],
+      [`${root}/tests/**/*.tsx`]: ['webpack'],
     },
 
     karmaTypescriptConfig: {
@@ -84,25 +84,30 @@ module.exports = function(config) {
     // web server port
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: 'DEBUG',
 
     // provide a custom container which the app runs in
     // allows us to force fetch into polyfill mode & use pretender
     // customContextFile: 'tests/index.html',
     client: {
       mocha: {
-        opts: 'tests/mocha.opts'
+        reporter: 'html',
+        opts: root + '/tests/mocha.opts'
       },
+    },
+
+    mime: {
+      'text/x-typescript': ['ts','tsx']
     },
 
     autoWatch: true,
     browsers: ['Chrome'],
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
+    // customLaunchers: {
+    //   Chrome_travis_ci: {
+    //     base: 'Chrome',
+    //     flags: ['--no-sandbox']
+    //   }
+    // },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
