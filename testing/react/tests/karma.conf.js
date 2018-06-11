@@ -3,23 +3,20 @@ var path = require("path");
 var root = path.resolve(__dirname, '..');
 
 console.log('root path: ', root);
-console.log(root + '/src/**/*.ts');
 
 module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: [
       'mocha',
-      // 'chai',
-      // 'karma-typescript'
     ],
 
     // files to watch
     files: [
       root + '/src/**/*.ts',
       root + '/src/**/*.tsx',
-      root + '/tests/**/*-test.tsx',
-      root + '/tests/**/*-test.ts',
+      root + '/tests/**/*.tsx',
+      root + '/tests/**/*.ts',
     ],
 
     exclude: [
@@ -35,50 +32,9 @@ module.exports = function(config) {
       [`${root}/tests/**/*.tsx`]: ['webpack'],
     },
 
-    karmaTypescriptConfig: {
-      tsconfig: './tsconfig.json',
-      bundlerOptions: {
-        entrypoints: /-test.tsx?$/,
-        // exclude: ["**/*\.d\.ts$", "**/index.d.ts"],
-        //for enzyme
-        exclude: [
-          "react/addons",
-          "react/lib/ReactContext",
-          "react/lib/ExecutionEnvironment"
-        ],
-        resolve: {
-          extensions: [
-            '.ts',
-            '.tsx',
-            '.d.ts',
-            '.js',
-            '.jsx',
-          ],
-        },
-      },
-      compilerOptions: {
-        allowJs: true,
-        module: 'commonjs',
-        target: 'es5',
-        lib: [
-          'es5',
-          'dom',
-          'es6',
-        ],
-      },
-      include: [
-        "src",
-        "tests",
-        "types",
-      ],
-      exclude: [
-        'node_modules'
-      ]
-    },
-
     reporters: [
+      'progress',
       'mocha',
-      // 'karma-typescript'
     ],
 
     // web server port
@@ -118,16 +74,14 @@ module.exports = function(config) {
     plugins: [
       'karma-mocha',
       'karma-webpack',
-      // 'karma-typescript',
-      // 'karma-chai',
       'karma-mocha-reporter',
       'karma-chrome-launcher'
     ]
   });
 
-  // CI config
-  if (process.env.TRAVIS || process.env.CI) {
-    config.singleRun = true;
-    config.browsers = ['Chrome_travis_ci'];
-  }
+  // // CI config
+  // if (process.env.TRAVIS || process.env.CI) {
+  //   config.singleRun = true;
+  //   config.browsers = ['Chrome_travis_ci'];
+  // }
 };
