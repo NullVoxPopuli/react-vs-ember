@@ -16,10 +16,10 @@ module('Integration | Component | header', function(hooks) {
 
     await render(hbs`<Header />`);
 
-    const element = find('input.new-todo') as HTMLInputElement;
+    const element = find('[data-test-new-todo-input]') as HTMLInputElement;
 
     await fillIn(element, 'Something that needs to be done');
-    await triggerEvent('header form', 'submit');
+    await triggerEvent('[data-test-new-todo-form]', 'submit');
 
     const value = element.value;
 
@@ -39,9 +39,9 @@ module('Integration | Component | header', function(hooks) {
 
     await render(hbs`<Header />`);
 
-    const element = find('input.new-todo') as HTMLInputElement;
+    const element = find('[data-test-new-todo-input]') as HTMLInputElement;
 
     await fillIn(element, todoText);
-    await triggerEvent('header form', 'submit');
+    await triggerEvent('[data-test-new-todo-form]', 'submit');
   });
 });

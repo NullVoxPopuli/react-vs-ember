@@ -10,8 +10,8 @@ module('Integration | Component | todo', function(hooks) {
   setupRenderingTest(hooks);
 
   const editingSelector = 'li.editing';
-  const inputSelector = 'input.edit';
-  const labelSelector = 'label[data-test-todo-label]';
+  const inputSelector = '[data-test-todo-edit]';
+  const labelSelector = '[data-test-todo-label]';
   const sampleTodo = { id: 1, text: 'Something that needs to be done' };
   const fakeChangeText = (assert: Assert) => (id: number, text: string) => {
     assert.equal(id, sampleTodo.id);

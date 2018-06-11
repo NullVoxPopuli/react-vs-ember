@@ -67,7 +67,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const button = find('button.clear-completed');
+    const button = find('[data-test-clear-button]');
 
     assert.ok(button);
   });
@@ -80,7 +80,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const button = find('button.clear-completed');
+    const button = find('[data-test-clear-button]');
 
     assert.notOk(button);
   });
@@ -93,7 +93,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const text = textFor('span.todo-count strong');
+    const text = textFor('[data-test-todo-count-text]');
 
     assert.ok(text.includes('items left'));
   });
@@ -106,7 +106,7 @@ module('Integration | Component | footer', function(hooks) {
 
     await render(hbs`<Footer @todos={{testTodos}} />`);
 
-    const text = textFor('span.todo-count strong');
+    const text = textFor('[data-test-todo-count-text]');
 
     assert.ok(text.includes('item left'));
   });

@@ -1,6 +1,7 @@
 <header class='header'>
-  <form {{action 'didSubmit' on="submit"}}>
+  <form data-test-new-todo-form {{action 'didSubmit' on="submit"}}>
     <input
+      data-test-new-todo-input
       type="text"
       class="new-todo"
       placeholder="What needs to be done?"

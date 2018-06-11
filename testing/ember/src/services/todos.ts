@@ -44,7 +44,12 @@ export default class TodosService extends Service {
 
   clearCompleted() {
     this.completed().forEach(todo => {
-      todo.deleteRecord();
+      // todo.deleteRecord();
+      // deleteRecord is used if you eventually want
+      // to send the delete to a backend.
+      // unloadRecord tells ember-data to delete
+      // the local-copy of the data.
+      this.store.unloadRecord(todo);
     });
   }
 

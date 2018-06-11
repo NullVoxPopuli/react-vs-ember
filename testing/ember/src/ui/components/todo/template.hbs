@@ -1,5 +1,6 @@
 <div data-test-todo-id={{todo.id}} class="view">
   <input
+    data-test-todo-completion-toggle
     type="checkbox"
     checked={{todo.completed}}
     class="toggle"
@@ -13,6 +14,7 @@
 </div>
 
 {{input
+  data-test-todo-edit
   type='text'
   class='edit'
   value=todo.text

@@ -5,7 +5,7 @@ export const stubService = (name: string, hash = {}) => {
   let stubbedService = Service.extend(hash);
 
   let { owner } = getContext();
-  owner.register(`service:${name}`, stubbedService)
+  owner.register(`service:${name}`, stubbedService);
 };
 
 export default stubService;

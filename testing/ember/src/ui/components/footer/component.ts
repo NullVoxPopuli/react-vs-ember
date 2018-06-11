@@ -11,6 +11,10 @@ export default class extends Component {
   @service('todos') todoManager!: TodosService;
   @service router!: Registry['router'];
 
+  // these four computed properties are used for
+  // determining which link get's the 'selected' class
+  // (by default, link-to applies an 'active' class,
+  //  but the TodoMVC css uses 'selected' instead of 'active')
   @alias('router.currentRouteName') routeName!: string;
   @equal('routeName', 'index') showAll!: boolean;
   @equal('routeName', 'uncompleted') showActive!: boolean;
