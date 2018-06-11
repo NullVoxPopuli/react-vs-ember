@@ -38,3 +38,7 @@ Cypress: jquery elements
 be also sure to mention all the transpiling and packager issues
 
 cypress: Chainables aren't all promises, thus can't be awaited
+
+https://github.com/bigtestjs/interactor
+https://github.com/bigtestjs/react
+ - simple

@@ -1,12 +1,6 @@
-import * as puppeteer from 'puppeteer';
 import { expect } from 'chai';
-import { ISuiteCallbackContext } from 'mocha';
-
-import { host } from 'tests/support/acceptance/config';
-import { setupForAcceptance } from 'tests/helpers/setup-for-acceptance';
 
 describe('Acceptance | list filtering', function() {
-  const ctx = setupForAcceptance(this);
 
   // it('list all todos', async () => {
   //   await ctx.visit(host);
