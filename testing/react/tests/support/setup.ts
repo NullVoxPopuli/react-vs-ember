@@ -14,5 +14,8 @@ const { window } = jsdom;
 
 (global as any).window = window;
 (global as any).document = window.document;
+(global as any).navigator = {
+  userAgent: 'node.js',
+};
 
 configure({ adapter: new Adapter() });

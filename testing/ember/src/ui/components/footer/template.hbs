@@ -5,19 +5,19 @@
   </span>
 
   <ul class="filters">
-    <li>
+    <li data-test-filter-all>
       {{#link-to 'application' class=(if showAll 'selected')}}
         All
       {{/link-to}}
     </li>
 
-    <li>
+    <li data-test-filter-active>
       {{#link-to 'uncompleted' class=(if showActive 'selected')}}
         Active
       {{/link-to}}
     </li>
 
-    <li>
+    <li data-test-filter-completed>
       {{#link-to 'completed' class=(if showCompleted 'selected')}}
         Completed
       {{/link-to}}
@@ -26,6 +26,7 @@
 
   {{#if showClearButton}}
     <button
+      data-test-clear-button
       onclick={{action 'clearCompleted'}}
       class="clear-completed">
       Clear completed

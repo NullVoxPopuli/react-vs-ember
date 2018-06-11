@@ -2551,7 +2551,7 @@ ember-cli-test-loader@^2.2.0:
     chalk "^2.3.0"
     chokidar "^2.0.3"
     debug "^3.1.0"
-    ember-cli "~3.1.4"
+    ember-cli "~2.18.2"
     ember-cli-get-component-path-option "^1.0.0"
     ember-cli-is-package-missing "^1.0.0"
     ember-cli-normalize-entity-name "^1.0.0"
@@ -2964,6 +2964,13 @@ ember-symbol-observable@1.0.1:
     broccoli-replace "^0.12.0"
     ember-cli-babel "^6.1.0"
     symbol-observable "^1.0.4"
+
+ember-test-selectors@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-1.0.0.tgz#a2f8cd86f4fb4c320004a2bf0e4c450d41668a21"
+  dependencies:
+    ember-cli-babel "^6.8.2"
+    ember-cli-version-checker "^2.0.0"
 
 encodeurl@~1.0.2:
   version "1.0.2"

@@ -16,6 +16,8 @@ be sure to talk about:
  - nightmare
  - selenium
  - protractor
+ - the role of karma
+
 all
  - can't access dom directly in tests
  - can't change application state

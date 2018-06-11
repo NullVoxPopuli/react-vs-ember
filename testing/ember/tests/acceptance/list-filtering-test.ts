@@ -1,11 +1,10 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit, findAll } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import { find, findAll } from '@ember/test-helpers';
 
 import { make, setupFactoryGuy } from 'ember-data-factory-guy';
 
-module('Acceptance | routing list filtering', function(hooks) {
+module('Acceptance | list filtering', function(hooks) {
   setupApplicationTest(hooks);
   setupFactoryGuy(hooks);
 
