@@ -9,7 +9,7 @@
     "test:run": "./node_modules/.bin/mocha --opts ./tests/mocha.opts",
     "test:build": "NODE_ENV=development yarn parcel build src/index.html --out-dir tests/support/tmp --target browser",
     "test": "yarn test:run",
-    "webpack:build": "./node_modules/.bin/webpack --config ./tests/webpack.config.js",
+    "webpack:build": "./node_modules/.bin/webpack-cli --config tests/webpack.config.js",
     "karma": "./node_modules/.bin/karma",
     "karma:start": "yarn karma start ./tests/karma.conf.js --fail-on-empty-test-suite"
   },

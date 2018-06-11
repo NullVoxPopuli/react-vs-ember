@@ -8,7 +8,7 @@ module.exports = function(config) {
     frameworks: [
       'mocha',
       // 'chai',
-      'karma-typescript'
+      // 'karma-typescript'
     ],
 
     // files to watch
@@ -29,10 +29,10 @@ module.exports = function(config) {
 
     preprocessors: {
       '**/*.js': ['webpack'],
-      '../src/**/*.ts': ['karma-typescript', 'webpack'],
-      '../src/**/*.tsx': ['karma-typescript', 'webpack'],
-      '../tests/**/*.ts': ['karma-typescript', 'webpack'],
-      '../tests/**/*.tsx': ['karma-typescript', 'webpack'],
+      '../src/**/*.ts': [ 'webpack'],
+      '../src/**/*.tsx': [ 'webpack'],
+      '../tests/**/*.ts': [ 'webpack'],
+      '../tests/**/*.tsx': [ 'webpack'],
     },
 
     karmaTypescriptConfig: {
@@ -78,7 +78,7 @@ module.exports = function(config) {
 
     reporters: [
       'mocha',
-      'karma-typescript'
+      // 'karma-typescript'
     ],
 
     // web server port
@@ -113,7 +113,7 @@ module.exports = function(config) {
     plugins: [
       'karma-mocha',
       'karma-webpack',
-      'karma-typescript',
+      // 'karma-typescript',
       // 'karma-chai',
       'karma-mocha-reporter',
       'karma-chrome-launcher'
