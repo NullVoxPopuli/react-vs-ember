@@ -3,6 +3,7 @@
     "jsx": "react",
     "target": "ES2017",
     "baseUrl": ".",
+    "allowJs": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "paths": {
@@ -27,7 +28,6 @@
   "include": [
     "src",
     "types",
-    "tests",
-    "node_modules/cypress"
+    "tests"
   ]
 }

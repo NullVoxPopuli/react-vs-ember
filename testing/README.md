@@ -44,3 +44,8 @@ cypress: Chainables aren't all promises, thus can't be awaited
 https://github.com/bigtestjs/interactor
 https://github.com/bigtestjs/react
  - simple
+
+
+Good write up here on some timing problems: https://github.com/bigtestjs/convergence
+
+https://github.com/bigtestjs: A Suite of JavaScript libraries and framework extensions to help you answer the question: Does my application work in real life?
