@@ -13,11 +13,8 @@ module.exports = function(config) {
 
     // files to watch
     files: [
-      `${root}/tests/**/*.{ts,tsx}`,
-      // root + '/src/**/*.ts',
-      // root + '/src/**/*.tsx',
-      // root + '/tests/**/*.tsx',
-      // root + '/tests/**/*.ts',
+      path.resolve(root, 'tests/**/*.ts'),
+      path.resolve(root, 'tests/**/*.tsx'),
     ],
 
     exclude: [
@@ -26,7 +23,6 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      [`${root}/**/*.js`]: ['webpack'],
       [`${root}/src/**/*.ts`]: ['webpack'],
       [`${root}/src/**/*.tsx`]: ['webpack'],
       [`${root}/tests/**/*.ts`]: ['webpack'],
