@@ -13,19 +13,20 @@ module.exports = function(config) {
 
     // files to watch
     files: [
-      root + '/src/**/*.ts',
-      root + '/src/**/*.tsx',
-      root + '/tests/**/*.tsx',
-      root + '/tests/**/*.ts',
+      `${root}/tests/**/*.{ts,tsx}`,
+      // root + '/src/**/*.ts',
+      // root + '/src/**/*.tsx',
+      // root + '/tests/**/*.tsx',
+      // root + '/tests/**/*.ts',
     ],
 
     exclude: [
-      'dist',,
-      '.cache',
+      `${root}/dist`,
+      `${root}/.cache`,
     ],
 
     preprocessors: {
-      [`${root}**/*.js`]: ['webpack'],
+      [`${root}/**/*.js`]: ['webpack'],
       [`${root}/src/**/*.ts`]: ['webpack'],
       [`${root}/src/**/*.tsx`]: ['webpack'],
       [`${root}/tests/**/*.ts`]: ['webpack'],
