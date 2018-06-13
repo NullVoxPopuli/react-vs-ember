@@ -12,35 +12,46 @@ module('Acceptance | todo editing', function(hooks) {
     await visit('/');
   });
 
-  test('the initial todo can be edited', async function(assert) {
-    assert.expect(1);
+  module('the initial todo', function() {
+    test('starts in display mode', function(assert) {
+      assert.notOk(firstTodo.isEditing());
+    });
 
-    await firstTodo.click();
+    module('the label is clicked', function(hooks) {
+      hooks.beforeEach(async function() {
+        await firstTodo.click();
+      });
 
-    assert.ok(firstTodo.isEditing());
-  });
+      test('it is in editing mode', function(assert) {
+        assert.ok(firstTodo.isEditing());
+      });
 
-  test('the initial todo can have the text changed', async function(assert) {
-    assert.expect(2);
+      module('changing the text', function(hooks) {
+        const newText = 'Some new text or something';
 
-    await firstTodo.click();
+        hooks.beforeEach(async function(assert) {
+          assert.notOk(firstTodo.label().textContent.includes(newText));
 
-    const newText = 'Some new text or something';
+          await firstTodo.click();
+          await firstTodo.fill(newText);
+        });
 
-    assert.notOk(firstTodo.label().textContent.includes(newText));
+        test('text is updated', async function(assert) {
+          assert.ok(firstTodo.label().textContent.includes(newText));
+        });
+      });
+    });
 
-    await firstTodo.fill(newText);
+    module('completion', function(hooks) {
+      hooks.beforeEach(async function(assert) {
+        assert.equal(app.completedTodos().length, 0);
 
-    assert.ok(firstTodo.label().textContent.includes(newText));
-  });
+        await firstTodo.toggle();
+      });
 
-  test('the initial todo can be completed', async function(assert) {
-    assert.expect(2);
-
-    assert.equal(app.completedTodos().length, 0);
-
-    await firstTodo.toggle();
-
-    assert.equal(app.completedTodos().length, 1);
+      test('is marked as completed', async function(assert) {
+        assert.equal(app.completedTodos().length, 1);
+      });
+    });
   });
 });

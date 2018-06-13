@@ -1,8 +1,8 @@
 import { describe } from '@bigtest/mocha';
 import { expect } from 'chai';
 
-import firstTodo from 'tests/helpers/pages/first-todo';
 import { setupApplicationTest } from 'tests/helpers';
+import firstTodo from 'tests/helpers/pages/first-todo';
 
 describe('Acceptance | todo editing', () => {
   setupApplicationTest();
