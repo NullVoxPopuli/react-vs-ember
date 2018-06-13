@@ -29,8 +29,6 @@ export default class ReduxProvider extends React.Component<IProps> {
       ...(initialState || {})
     };
 
-    console.log(state);
-
     const store = createStore(
       reducers,
       state,

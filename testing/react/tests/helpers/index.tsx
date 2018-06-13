@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { setupAppForTesting } from '@bigtest/react';
+import { setupAppForTesting, cleanup } from '@bigtest/react';
 
 import { ReduxProvider } from '@store/index';
 import TodoMVC from '@ui/components/todo-mvc';
@@ -19,11 +19,17 @@ class TestWrapper extends React.Component<any, any> {
 }
 
 export function setupApplicationTest(initialState = {}) {
-  beforeEach(async function() {
+  beforeEach(async () => {
     this.app = await setupAppForTesting(TestWrapper, {
+      mountId: `react-testing-root-${Math.random()}`,
+      rootElement: document.createElement('div'),
       props: {
         initialState
-      }
+      },
     });
+  });
+
+  afterEach(async () => {
+    await cleanup();
   });
 }
