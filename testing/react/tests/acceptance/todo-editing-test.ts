@@ -1,14 +1,10 @@
-require('tests/support/setup');
-
 import { describe, beforeEach, it } from '@bigtest/mocha';
 import { expect } from 'chai';
-
 import { setupAppForTesting } from '@bigtest/react';
 
 import Application from '@ui/application';
 
-import { describeApplication } from 'tests/helpers/setup-for-acceptance';
-import page from 'tests/helpers/pages/todo-mvc';
+import firstTodo from 'tests/helpers/pages/first-todo';
 
 
 describe('Acceptance | todo editing', () => {
@@ -17,20 +13,37 @@ describe('Acceptance | todo editing', () => {
   });
 
   describe('the initial todo', () => {
-    beforeEach(async () => {
-      await page.clickFirstTodo
+    it('starts in display mode', () => {
+      expect(firstTodo.isEditing).to.be.false;
     });
 
-    it('can be edited', async () => {
-      expect(page.isEditing()).to.be.true;
+    describe('the label is clicked', () => {
+      beforeEach(async () => {
+        await firstTodo.clickLabel();
+      });
+
+      it('is in editing mode', async () => {
+        expect(firstTodo.isEditing).to.be.true;
+      });
+
+      it('can have the text change', async () => {
+        const newText = 'Some new text or something';
+
+        expect(firstTodo.label).not.contain(newText);
+
+        await firstTodo.fill(newText);
+        await firstTodo.blur();
+
+        expect(firstTodo.label).to.contain(newText);
+      });
     });
-  })
-  //
-  // it('the initial todo can have the text change', () => {
-  //
-  // });
-  //
-  // it('the initial todo can be completed', () => {
-  //
-  // });
+
+    it('can be completed', async () => {
+      expect(firstTodo.isCompleted).to.be.false;
+
+      await firstTodo.toggle();
+
+      expect(firstTodo.isCompleted).to.be.true;
+    });
+  });
 });

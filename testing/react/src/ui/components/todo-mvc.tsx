@@ -8,7 +8,7 @@ export default class TodoMVC extends React.Component {
   render() {
     return (
       <div data-test-todo-mvc>
-        <h1>todos</h1>
+        <h1 data-test-page-header>todos</h1>
 
         <div className='todoapp'>
           <Header />

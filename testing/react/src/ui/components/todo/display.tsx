@@ -64,9 +64,10 @@ export default class TodoDisplay extends React.Component<Props, State> {
     const { todo, destroyTodo, toggleCompletion } = this.props;
 
     return (
-      <li className={this.classes()}>
+      <li data-test-todo className={this.classes()}>
         <div className='view'>
           <input
+            data-test-todo-toggle
             type='checkbox'
             checked={todo.completed}
             className='toggle'
@@ -80,6 +81,7 @@ export default class TodoDisplay extends React.Component<Props, State> {
         </div>
 
         <input
+          data-test-todo-edit
           type='text'
           className='edit'
           value={todo.text || ''}
