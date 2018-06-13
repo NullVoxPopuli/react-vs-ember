@@ -2,8 +2,6 @@ import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
-import { click, findAll, find, fillIn } from '@ember/test-helpers';
-
 import firstTodo from 'example-app/tests/helpers/pages/first-todo';
 import app from 'example-app/tests/helpers/pages/app';
 
