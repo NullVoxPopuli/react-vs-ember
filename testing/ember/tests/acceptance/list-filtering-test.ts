@@ -1,15 +1,14 @@
 import { module, test } from 'qunit';
-import { visit, findAll } from '@ember/test-helpers';
+import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 import { make, setupFactoryGuy } from 'ember-data-factory-guy';
 
+import app from 'example-app/tests/helpers/pages/app';
+
 module('Acceptance | list filtering', function(hooks) {
   setupApplicationTest(hooks);
   setupFactoryGuy(hooks);
-
-  const findAllTodos = () => findAll('ul.todo-list li');
-  const findCompletedTodos = () => findAll('ul.todo-list li.completed');
 
   hooks.beforeEach(function() {
     make('todo', 'completed');
@@ -22,7 +21,7 @@ module('Acceptance | list filtering', function(hooks) {
     await visit('/');
 
     // 2 from the before each, and 1 is created in the application route
-    assert.equal(findAllTodos().length, 3);
+    assert.equal(app.allTodos().length, 3);
   });
 
   test('visiting /completed | lists only the completed todo', async function(assert) {
@@ -30,8 +29,8 @@ module('Acceptance | list filtering', function(hooks) {
 
     await visit('/completed');
 
-    assert.equal(findAllTodos().length, 1);
-    assert.equal(findCompletedTodos().length, 1);
+    assert.equal(app.allTodos().length, 1);
+    assert.equal(app.completedTodos().length, 1);
   });
 
   test('visiting /uncompleted | lists only the todo from the before each', async function(assert) {
@@ -39,7 +38,7 @@ module('Acceptance | list filtering', function(hooks) {
 
     await visit('/uncompleted');
 
-    assert.equal(findAllTodos().length, 1);
-    assert.equal(findCompletedTodos().length, 0);
+    assert.equal(app.allTodos().length, 1);
+    assert.equal(app.completedTodos().length, 0);
   });
 });
