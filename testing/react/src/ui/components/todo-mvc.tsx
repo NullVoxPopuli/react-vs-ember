@@ -7,7 +7,7 @@ import TodoList from './todo-list';
 export default class TodoMVC extends React.Component {
   render() {
     return (
-      <div>
+      <div data-test-todo-mvc>
         <h1>todos</h1>
 
         <div className='todoapp'>

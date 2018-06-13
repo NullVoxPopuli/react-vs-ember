@@ -9,16 +9,17 @@ import page from 'tests/helpers/pages/todo-mvc';
 
 // usage: https://github.com/bigtestjs/react/blob/master/tests/setup-app-test.js
 describe('Acceptance | Application | renders', () => {
+  let app;
+
+  beforeEach(async () => {
+    app = await setupAppForTesting(Application);
+  })
 
   it('renders', async () => {
-    await setupAppForTesting(Application);
-
     expect(page.headingText).to.equal('todos');
   });
 
   it('resolves with the app', async () => {
-    const app = await setupAppForTesting(Application)
-
     expect(app).to.be.an.instanceOf(Application);
   });
 });
