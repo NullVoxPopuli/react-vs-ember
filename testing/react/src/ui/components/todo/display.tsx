@@ -73,7 +73,7 @@ export default class TodoDisplay extends React.Component<Props, State> {
             onChange={() => toggleCompletion(todo.id)}
           />
 
-          <label onDoubleClick={this.didDoubleClickLabel}>{todo.text}</label>
+          <label onClick={this.didDoubleClickLabel}>{todo.text}</label>
 
           <button className='destroy' onClick={() => destroyTodo(todo.id)}>
           </button>

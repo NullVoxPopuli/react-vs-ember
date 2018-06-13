@@ -1,46 +1,30 @@
-import { beforeEach, describe, it } from '@bigtest/mocha';
+require('tests/support/setup');
+
+import { describe, beforeEach, it } from '@bigtest/mocha';
 import { expect } from 'chai';
 
 import { setupAppForTesting } from '@bigtest/react';
 
-import {
-  interactor, text,
-  clickable, fillable, blurrable
-} from '@bigtest/interactor';
-
 import Application from '@ui/application';
 
 import { describeApplication } from 'tests/helpers/setup-for-acceptance';
+import page from 'tests/helpers/pages/todo-mvc';
 
-@interactor
-class TodoMVCPage {
-  headingText = text('h1');
-  clickFirstTodo = clickable('ul.todo-list li:first-child');
-  fillName = fillable('ul.todo-list li:first-child input');
-}
 
-describeApplication('Acceptance | todo editing', () => {
-  let app;
-
-  it('renders', () => {
-    expect(new TodoMVCPage().headingText).to.equal('todos');
+describe('Acceptance | todo editing', () => {
+  beforeEach(async () => {
+    await setupAppForTesting(Application);
   });
-  //
-  // beforeEach(async () => {
-  //   app = await setupAppForTesting(Application);
-  // });
-  //
-  // it('the initial todo can be edited', () => {
-  //   const page = new TodoMVCPage();
-  //     page.clickFirstTodo()
-  //     .run();
-  //
-  //   const edits = app.find('.editable');
-  //
-  //   const classes = edits[0].classList;
-  //
-  //   expect(classes).to.contain('editing');
-  // });
+
+  describe('the initial todo', () => {
+    beforeEach(async () => {
+      await page.clickFirstTodo
+    });
+
+    it('can be edited', async () => {
+      expect(page.isEditing()).to.be.true;
+    });
+  })
   //
   // it('the initial todo can have the text change', () => {
   //

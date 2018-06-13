@@ -49,3 +49,7 @@ https://github.com/bigtestjs/react
 Good write up here on some timing problems: https://github.com/bigtestjs/convergence
 
 https://github.com/bigtestjs: A Suite of JavaScript libraries and framework extensions to help you answer the question: Does my application work in real life?
+
+
+Possible convergence with ember's testing strategy:
+https://github.com/bigtestjs/meta/issues/2
