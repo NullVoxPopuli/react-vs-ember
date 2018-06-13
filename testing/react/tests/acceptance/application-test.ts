@@ -4,7 +4,7 @@ import { expect } from 'chai';
 
 import Application from '@ui/application';
 
-import page from 'tests/helpers/pages/todo-mvc';
+import page from 'tests/helpers/pages/app';
 
 // usage: https://github.com/bigtestjs/react/blob/master/tests/setup-app-test.js
 describe('Acceptance | Application | renders', () => {

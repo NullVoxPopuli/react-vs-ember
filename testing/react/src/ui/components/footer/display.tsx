@@ -67,7 +67,10 @@ export default class FooterDisplay extends React.Component<Props> {
         </ul>
 
         {showClearButton && (
-          <button onClick={clearCompleted} className='clear-completed'>Clear completed</button>
+          <button
+            data-test-clear-button
+            onClick={clearCompleted}
+            className='clear-completed'>Clear completed</button>
         )}
       </footer>
     );

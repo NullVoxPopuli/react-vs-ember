@@ -6,7 +6,11 @@ import { reducers } from './reducers';
 import { middleware, setup as setupMiddleware } from './middleware';
 import { default as enhancers } from './enhancers';
 
-export default class ReduxProvider extends React.Component {
+export interface IProps {
+  initialState?: any;
+}
+
+export default class ReduxProvider extends React.Component<IProps> {
   store: Store;
 
   constructor(props) {
@@ -24,6 +28,8 @@ export default class ReduxProvider extends React.Component {
     const state = {
       ...(initialState || {})
     };
+
+    console.log(state);
 
     const store = createStore(
       reducers,
