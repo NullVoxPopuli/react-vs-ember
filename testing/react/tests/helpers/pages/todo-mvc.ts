@@ -14,4 +14,4 @@ export class TodoMVCPage {
   isEditing = isVisible('.editing');
 }
 
-export default new TodoMVCPage();
+export default new TodoMVCPage('[data-test-todo-mvc]');
