@@ -21,15 +21,13 @@ class TestWrapper extends React.Component<any, any> {
 export function setupApplicationTest(initialState = {}) {
   beforeEach(async () => {
     this.app = await setupAppForTesting(TestWrapper, {
-      mountId: `react-testing-root-${Math.random()}`,
-      rootElement: document.createElement('div'),
       props: {
         initialState
       },
     });
   });
 
-  afterEach(async () => {
-    await cleanup();
-  });
+  // afterEach(async () => {
+  //   await cleanup();
+  // });
 }

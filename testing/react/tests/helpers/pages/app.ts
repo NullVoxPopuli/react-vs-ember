@@ -5,6 +5,8 @@ import {
 
 @interactor
 export class TodoMVCPage {
+  constructor(selector: string) {}
+
   headingText = text('[data-test-page-header]');
   allTodosCount = count('[data-test-todo]');
   completedTodosCount = count('[data-test-todo].completed');

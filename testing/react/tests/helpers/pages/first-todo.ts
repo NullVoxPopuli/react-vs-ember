@@ -9,6 +9,8 @@ const firstTodo = '[data-test-todo]';
 
 @interactor
 export class FirstTodoPage {
+  constructor(selector: string) {}
+
   clickLabel = clickable(`${firstTodo} label`);
   label = text(`${firstTodo} label`);
   fill = fillable(`${firstTodo} [data-test-todo-edit]`);

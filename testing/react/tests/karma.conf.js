@@ -6,15 +6,19 @@ console.log('root path: ', root);
 
 module.exports = function(config) {
   config.set({
+    singleRun: false,
     basePath: '',
-    frameworks: [
-      'mocha',
-    ],
+    frameworks: [ 'mocha' ],
+    reporters: [ 'mocha' ],
+    browsers: ['Chrome'],
+    mime: { 'text/x-typescript': ['ts','tsx'] },
 
-    // files to watch
+    port: 9876,
+    colors: true,
+    // logLevel: 'DEBUG',
+
     files: [
-      path.resolve(root, 'tests/**/*.ts'),
-      path.resolve(root, 'tests/**/*.tsx'),
+      { pattern: path.resolve(root, 'tests/acceptance/index.ts'), watched: false }
     ],
 
     exclude: [
@@ -23,51 +27,19 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      [`${root}/src/**/*.ts`]: ['webpack'],
-      [`${root}/src/**/*.tsx`]: ['webpack'],
-      [`${root}/tests/**/*.ts`]: ['webpack'],
-      [`${root}/tests/**/*.tsx`]: ['webpack'],
+      [`${root}/tests/index.ts`]: ['webpack']
     },
 
-    reporters: [
-      'progress',
-      'mocha',
-    ],
-
-    // web server port
-    port: 9876,
-    colors: true,
-    logLevel: 'DEBUG',
-
-    // provide a custom container which the app runs in
-    // allows us to force fetch into polyfill mode & use pretender
-    // customContextFile: 'tests/index.html',
     client: {
       mocha: {
+        // ui: 'require',
         reporter: 'html',
         opts: root + '/tests/mocha.opts'
       },
     },
 
-    mime: {
-      'text/x-typescript': ['ts','tsx']
-    },
-
-    autoWatch: true,
-    browsers: ['Chrome'],
-    // customLaunchers: {
-    //   Chrome_travis_ci: {
-    //     base: 'Chrome',
-    //     flags: ['--no-sandbox']
-    //   }
-    // },
-
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
-    concurrency: Infinity,
     webpack: require(__dirname + '/webpack.config.js'),
-    webpackMiddleware: { stats: 'errors-only' },
+    webpackMiddleware: { stats: 'minimal' },
     plugins: [
       'karma-mocha',
       'karma-webpack',
@@ -75,10 +47,4 @@ module.exports = function(config) {
       'karma-chrome-launcher'
     ]
   });
-
-  // // CI config
-  // if (process.env.TRAVIS || process.env.CI) {
-  //   config.singleRun = true;
-  //   config.browsers = ['Chrome_travis_ci'];
-  // }
 };
