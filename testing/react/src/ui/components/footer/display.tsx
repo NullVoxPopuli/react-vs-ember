@@ -40,6 +40,7 @@ export default class FooterDisplay extends React.Component<Props> {
         <ul className="filters">
           <li>
             <a
+              data-test-filter-all
               onClick={showAll}
               className={(isShowingAll && 'selected') || ''}
               style={{ cursor: 'pointer' }}>
@@ -49,6 +50,7 @@ export default class FooterDisplay extends React.Component<Props> {
 
           <li>
             <a
+              data-test-filter-active
               onClick={showActive}
               className={(isShowingActive && 'selected') || ''}
               style={{ cursor: 'pointer' }}>
@@ -58,6 +60,7 @@ export default class FooterDisplay extends React.Component<Props> {
 
           <li>
             <a
+              data-test-filter-completed
               onClick={showCompleted}
               className={(isShowingCompleted && 'selected') || ''}
               style={{ cursor: 'pointer' }}>

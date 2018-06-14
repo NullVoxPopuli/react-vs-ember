@@ -26,8 +26,4 @@ export function setupApplicationTest(initialState = {}) {
       },
     });
   });
-
-  // afterEach(async () => {
-  //   await cleanup();
-  // });
 }

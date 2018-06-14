@@ -1,51 +1,45 @@
-import { beforeEach, describe, it } from '@bigtest/mocha';
+import { describe } from '@bigtest/mocha';
 import { expect } from 'chai';
 
+import { setupApplicationTest } from 'tests/helpers/index';
+import app from 'tests/helpers/pages/app';
+
 describe('Acceptance | list filtering', function() {
+  setupApplicationTest({
+    todos: { all: [
+      { id: 1, text: 'not completed', completed: false },
+      { id: 2, text: 'also not completed', completed: false },
+      { id: 3, text: 'completed', completed: true }
+    ] }
+  });
 
-  // it('list all todos', async () => {
-  //   await ctx.visit(host);
-  //
-  //   // await ctx.screenshot();
-  //   const todos = await ctx.findAll('ul.todo-list li');
-  //
-  //   expect(todos.length).to.eq(1);
-  // });
+  describe('listing all todos', () => {
+    beforeEach(async () => {
+      await app.clickAll();
+    });
 
-  // test('list only completed todos', () => {
-  //
-  // });
-  //
-  // test('list only active todos', () => {
-  //
-  // });
+    it('displays everything', () => {
+      expect(app.allTodosCount).to.eq(3);
+    });
+  })
+
+  describe('listing active todos', () => {
+    beforeEach(async () => {
+      await app.clickActive();
+    });
+
+    it('displays only the active todos', () => {
+      expect(app.allTodosCount).to.eq(2);
+    });
+  });
+
+  describe('listing only completed todos', () => {
+    beforeEach(async () => {
+      await app.clickCompleted();
+    });
+
+    it('displays only the completed todo', () => {
+      expect(app.allTodosCount).to.eq(1);
+    });
+  });
 });
-
-//
-// import 'mocha';
-// import * as React from 'react';
-// import * as ReactDOM from 'react-dom';
-// // import { expect } from 'chai';
-// // import { Greeting } from '../greeting'
-// import Application from '@ui/application';
-//
-// describe('A basic test', function () {
-//   let node: HTMLDivElement;
-//
-//   before('setup', function () {
-//     node = document.createElement('div');
-//     document.body.appendChild(node);
-//   })
-//
-//   after('teardown', function () {
-//     ReactDOM.unmountComponentAtNode(node);
-//     document.body.removeChild(node);
-//   })
-//
-//   it('renders', function () {
-//     ReactDOM.render(<Application />, node);
-//     const todos = document.querySelectorAll('ul.todo-list li');
-//
-//     expect(todos.length).to.eq(1);
-//   })
-// })
