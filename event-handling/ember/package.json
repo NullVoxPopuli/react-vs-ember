@@ -11,17 +11,17 @@
   },
   "dependencies": {
     "@ember-decorators/babel-transforms": "^2.0.0",
-    "@ember/optional-features": "^0.5.2",
-    "@types/ember": "^2.8.22",
+    "@ember/optional-features": "^0.6.1",
+    "@types/ember": "^2.8.25",
     "@types/rsvp": "^4.0.1",
     "ember-cli-typescript": "github:typed-ember/ember-cli-typescript#mu",
     "ember-decorators": "^2.0.0",
-    "typescript": "^2.8.3"
+    "typescript": "~2.8.3"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.0.0",
-    "ember-cli": "github:twokul/ember-cli#mu-fix",
+    "ember-cli": "github:ember-cli/ember-cli#7bc63039a1f89e03d9c1246cc5d3e8245290f302",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-dependency-checker": "^2.0.0",
@@ -37,7 +37,7 @@
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^4.0.0",
-    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/0ffc0c6ea57c036ff13d8f58f66af5e205e0c9be.tgz",
+    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/6f1b0605f5220530b45a1dd5ec41bb2a01f21e82.tgz",
     "loader.js": "^4.2.3",
     "qunit-dom": "^0.6.2"
   },

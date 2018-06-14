@@ -5,6 +5,7 @@ module.exports = function(environment) {
     'ember-resolver': {
       features: {
         EMBER_RESOLVER_MODULE_UNIFICATION: true,
+        EMBER_GLIMMER_ANGLE_BRACKET_INVOCATION: true
       },
     },
     modulePrefix: 'example-app',
@@ -16,6 +17,8 @@ module.exports = function(environment) {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
         'ember-module-unification': true,
+        'ember-glimmer-angle-bracket-invocation': true,
+        EMBER_GLIMMER_ANGLE_BRACKET_INVOCATION: true,
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
