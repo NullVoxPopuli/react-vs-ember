@@ -2,8 +2,6 @@
 
 var path = require("path");
 var webpack = require("webpack");
-var nodeExternals = require('webpack-node-externals');
-
 
 function locate(path) {
   return process.cwd() + '/' + path;
@@ -12,7 +10,7 @@ function locate(path) {
 module.exports = {
   mode: 'development',
   context: process.cwd(),
-  entry: locate('tests/acceptance/index.ts'),
+  entry: locate('tests/index.ts'),
   module: {
     rules: [
       {
@@ -22,8 +20,6 @@ module.exports = {
       }
     ]
   },
-  externals: [nodeExternals()],
-  target: 'node',
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {

@@ -19,7 +19,7 @@ class TestWrapper extends React.Component<any, any> {
 }
 
 export function setupApplicationTest(initialState = {}) {
-  beforeEach(async () => {
+  beforeEach(async function() {
     this.app = await setupAppForTesting(TestWrapper, {
       props: {
         initialState

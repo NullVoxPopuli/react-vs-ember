@@ -15,10 +15,10 @@ module.exports = function(config) {
 
     port: 9876,
     colors: true,
-    // logLevel: 'DEBUG',
+    logLevel: 'DEBUG',
 
     files: [
-      { pattern: path.resolve(root, 'tests/acceptance/index.ts'), watched: false }
+      { pattern: path.resolve(root, 'tests/index.ts'), watched: false }
     ],
 
     exclude: [
@@ -32,7 +32,6 @@ module.exports = function(config) {
 
     client: {
       mocha: {
-        // ui: 'require',
         reporter: 'html',
         opts: root + '/tests/mocha.opts'
       },
