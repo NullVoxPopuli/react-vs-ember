@@ -60,19 +60,19 @@ https://www.jsdelivr.com/package/npm/prismjs?path=components&tab=collection
 
 
 <script
-  src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.js,npm/prismjs@1.14.0/plugins/show-language/prism-show-language.min.js,npm/prismjs@1.14.0/components/prism-typescript.min.js,npm/prismjs@1.14.0/components/prism-jsx.min.js,npm/prismjs@1.14.0/components/prism-tsx.min.js,npm/prismjs@1.14.0/components/prism-markup-templating.min.js,npm/prismjs@1.14.0/components/prism-handlebars.min.js"></script>
+  src="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.js,npm/prismjs@1.14.0/plugins/show-language/prism-show-language.min.js,npm/prismjs@1.14.0/components/prism-typescript.min.js,npm/prismjs@1.14.0/components/prism-jsx.min.js,npm/prismjs@1.14.0/components/prism-tsx.min.js,npm/prismjs@1.14.0/components/prism-markup-templating.min.js,npm/prismjs@1.14.0/components/prism-handlebars.min.js,npm/prismjs@1.14.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js,npm/prismjs@1.14.0/plugins/autolinker/prism-autolinker.min.js"></script>
 
 
 
 
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0/themes/prism.min.css,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.css">
+  href="https://cdn.jsdelivr.net/combine/npm/prismjs@1.14.0/themes/prism.min.css,npm/prismjs@1.14.0/plugins/line-numbers/prism-line-numbers.min.css,npm/prismjs@1.14.0/plugins/autolinker/prism-autolinker.min.css">
 
 
 <style>
-.main h1, .main h2 {
-  margin-bottom: 2rem !important;
+a.token.md-link {
+  text-decoration: underline;
 }
 </style>
 ```
