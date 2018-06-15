@@ -1,4 +1,5 @@
 import { describe } from '@bigtest/mocha';
+import { visit, location } from '@bigtest/react';
 import { expect } from 'chai';
 
 import { setupApplicationTest } from 'tests/helpers/index';
@@ -18,6 +19,8 @@ describe('Acceptance | Clearing Completed', () => {
     });
 
     beforeEach(async () => {
+      await visit('/');
+
       todosBefore = app.allTodosCount;
 
       expect(todosBefore).to.eq(2);
@@ -43,6 +46,8 @@ describe('Acceptance | Clearing Completed', () => {
     });
 
     beforeEach(async () => {
+      await visit('/');
+
       todosBefore = app.allTodosCount;
 
       expect(todosBefore).to.eq(2);
@@ -68,6 +73,8 @@ describe('Acceptance | Clearing Completed', () => {
     });
 
     beforeEach(async () => {
+      await visit('/');
+
       todosBefore = app.allTodosCount;
 
       expect(todosBefore).to.eq(2);

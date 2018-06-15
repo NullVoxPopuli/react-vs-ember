@@ -1,4 +1,5 @@
 import { describe } from '@bigtest/mocha';
+import { visit } from '@bigtest/react';
 import { expect } from 'chai';
 
 import { setupApplicationTest } from 'tests/helpers/index';

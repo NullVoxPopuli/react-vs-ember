@@ -1,4 +1,5 @@
 import { describe } from '@bigtest/mocha';
+import { visit } from '@bigtest/react';
 import { expect } from 'chai';
 
 import { setupApplicationTest } from 'tests/helpers';
@@ -8,6 +9,10 @@ describe('Acceptance | todo editing', () => {
   setupApplicationTest();
 
   describe('the initial todo', () => {
+    beforeEach(async () => {
+      await visit('/');
+    });
+
     it('starts in display mode', () => {
       expect(firstTodo.isEditing).to.be.false;
     });

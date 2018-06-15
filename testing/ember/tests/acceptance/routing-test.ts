@@ -18,7 +18,7 @@ module('Acceptance | routing', function(hooks) {
   test('click Active', async function(assert) {
     assert.expect(1);
 
-    await visit('/');
+    await visit('uncompleted');
     await click('[data-test-filter-active] a');
 
     assert.equal(currentRouteName(), 'uncompleted');
