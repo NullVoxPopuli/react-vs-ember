@@ -2,6 +2,8 @@ import { module, test } from 'qunit';
 import { visit, click, currentURL, currentRouteName } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
+import app from 'example-app/tests/helpers/pages/app';
+
 module('Acceptance | routing', function(hooks) {
   setupApplicationTest(hooks);
 
@@ -10,7 +12,7 @@ module('Acceptance | routing', function(hooks) {
 
     // should be different route than what is being tested
     await visit('completed');
-    await click('[data-test-filter-all] a');
+    await app.clickAll();
 
     assert.equal(currentRouteName(), 'index');
   });
@@ -19,7 +21,7 @@ module('Acceptance | routing', function(hooks) {
     assert.expect(1);
 
     await visit('uncompleted');
-    await click('[data-test-filter-active] a');
+    await app.clickActive();
 
     assert.equal(currentRouteName(), 'uncompleted');
   });
@@ -28,7 +30,7 @@ module('Acceptance | routing', function(hooks) {
     assert.expect(1);
 
     await visit('/');
-    await click('[data-test-filter-completed] a');
+    await app.clickCompleted();
 
     assert.equal(currentRouteName(), 'completed');
   });
