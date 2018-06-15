@@ -1,8 +1,7 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import { ClearCompletedAction } from 'example-app/redux-store/todos/actions/clear-completed';
-import { ShowActiveAction } from 'example-app/redux-store/todos/actions/show-active';
-import { ShowAllAction } from 'example-app/redux-store/todos/actions/show-all';
-import { ShowCompletedAction } from 'example-app/redux-store/todos/actions/show-completed';
 
 export interface Props {
   filter: Troolean;
@@ -10,23 +9,13 @@ export interface Props {
   todosCount: number;
   completedCount: number;
   clearCompleted: () => ClearCompletedAction;
-  showAll: () => ShowAllAction;
-  showActive: () => ShowActiveAction;
-  showCompleted: () => ShowCompletedAction;
 }
 
 export default class FooterDisplay extends React.Component<Props> {
   render() {
-    const {
-      todosCount, filter,
-      showAll, showCompleted, showActive, clearCompleted
-    } = this.props;
+    const { todosCount, clearCompleted } = this.props;
 
     const itemWord = todosCount > 1 ? 'items' : 'item';
-
-    const isShowingAll = filter === undefined;
-    const isShowingActive = filter === false;
-    const isShowingCompleted = filter === true;
 
     const showClearButton = todosCount > 0;
 
@@ -39,33 +28,33 @@ export default class FooterDisplay extends React.Component<Props> {
 
         <ul className="filters">
           <li>
-            <a
+            <NavLink
               data-test-filter-all
-              onClick={showAll}
-              className={(isShowingAll && 'selected') || ''}
+              to={'/'} exact
+              activeClassName='selected'
               style={{ cursor: 'pointer' }}>
               All
-            </a>
+            </NavLink>
           </li>
 
           <li>
-            <a
+            <NavLink
               data-test-filter-active
-              onClick={showActive}
-              className={(isShowingActive && 'selected') || ''}
+              to={'/active'} exact
+              activeClassName='selected'
               style={{ cursor: 'pointer' }}>
               Active
-            </a>
+            </NavLink>
           </li>
 
           <li>
-            <a
+            <NavLink
               data-test-filter-completed
-              onClick={showCompleted}
-              className={(isShowingCompleted && 'selected') || ''}
+              to={'/completed'} exact
+              activeClassName='selected'
               style={{ cursor: 'pointer' }}>
               Completed
-            </a>
+            </NavLink>
           </li>
         </ul>
 

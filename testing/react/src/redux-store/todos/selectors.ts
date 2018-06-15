@@ -17,7 +17,9 @@ export function list(state: SubState): Todo[] {
 
 export const filter = (state: SubState): boolean | undefined => state.todos.filter;
 export const all = (state: SubState): Todo[] => state.todos.all;
+export const active = (state: SubState): Todo[] => all(state).filter(t => !t.completed);
+export const completed = (state: SubState): Todo[] => all(state).filter(t => t.completed);
 
 export const count = (state: SubState): number => list(state).length;
 export const allCount = (state: SubState): number => all(state).length;
-export const completedCount = (state: SubState): number => all(state).filter(t => t.completed).length;
+export const completedCount = (state: SubState): number => completed(state).length;

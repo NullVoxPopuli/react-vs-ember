@@ -16,9 +16,15 @@
   "dependencies": {
     "@types/enzyme": "^3.1.10",
     "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/react-router": "^4.0.26",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/recompose": "^0.26.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "recompose": "^0.27.1",
     "redux": "^4.0.0"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 import * as React from 'react';
-
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+import { compose } from 'recompose';
 
 import {
   selectors,
@@ -27,7 +28,7 @@ const mapDispatchToProps = {
   showCompleted
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
 )(FooterDisplay);

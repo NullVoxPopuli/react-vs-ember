@@ -1,8 +1,13 @@
 import * as React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from './header';
 import Footer from './footer';
 import TodoList from './todo-list';
+
+import IndexRoute from '@ui/routes/index';
+import ActiveRoute from '@ui/routes/active';
+import CompletedRoute from '@ui/routes/completed';
 
 export default class TodoMVC extends React.Component {
   render() {
@@ -14,14 +19,16 @@ export default class TodoMVC extends React.Component {
           <Header />
 
           <section className='main'>
-            <input type='checkbox' className='toggle-all' value='on' />
-
-              <TodoList />
+            {/* <Switch> */}
+              <Route exact path='/' component={IndexRoute} />
+              <Route exact path='/active' component={ActiveRoute} />
+              <Route exact path='/completed' component={CompletedRoute} />
+            {/* </Switch> */}
           </section>
 
           <Footer />
         </div>
       </div>
-    )
+    );
   }
 }
