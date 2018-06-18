@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { Todo } from '@store/todos';
+import * as ReactDOM from 'react-dom';
 
 export interface Props {
   todo: Todo;
@@ -37,10 +38,9 @@ export default class TodoDisplay extends React.Component<Props, State> {
     }
   }
 
-  didDoubleClickLabel = () => {
-    this.setState({ editing: true }, () => {
-      this.inputRef && this.inputRef.focus();
-    });
+  didClickLabel = () => {
+    this.inputRef.focus();
+    this.setState({ editing: true });
   }
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +78,7 @@ export default class TodoDisplay extends React.Component<Props, State> {
             onChange={() => toggleCompletion(todo.id)}
           />
 
-          <label onClick={this.didDoubleClickLabel}>{todo.text}</label>
+          <label onClick={this.didClickLabel}>{todo.text}</label>
 
           <button className='destroy' onClick={() => destroyTodo(todo.id)}>
           </button>

@@ -8,7 +8,8 @@ import { FirstTodoPage } from 'tests/helpers/pages/first-todo';
 
 import TodoDisplay from '../display';
 
-const todo = new FirstTodoPage();
+const testId = 'todo-integration-test';
+const todo = new FirstTodoPage(`#${testId}`);
 
 describe('Integration | Component | todo', () => {
   describe('mounting', () => {
@@ -20,7 +21,7 @@ describe('Integration | Component | todo', () => {
         editTodo: sinon.spy()
       };
 
-      await mount(() => <TodoDisplay {...props} />);
+      await mount(() => <TodoDisplay {...props} />, { mountId: testId });
     });
 
     it('suceeds', async () => {
@@ -41,7 +42,7 @@ describe('Integration | Component | todo', () => {
         editTodo
       };
 
-      await mount(() => <TodoDisplay {...props} />);
+      await mount(() => <TodoDisplay {...props} />, { mountId: testId });
 
       await todo.clickLabel();
     });
@@ -55,45 +56,54 @@ describe('Integration | Component | todo', () => {
       expect(todo.input.hasFocus).to.be.true;
     });
 
-    describe('enter key', () => {
+    describe('a key is pressed', () => {
       beforeEach(async () => {
-        await todo.pressEnter();
+        await todo.clickLabel();
+        // sanity / required state before continuing
+        expect(todo.isEditing, 'isEditing').to.be.true;
+        expect(todo.input.hasFocus, 'hasFocus').to.be.true;
       });
 
-      it('blurs the field', () => {
-        expect(todo.isEditing).to.be.false;
+      describe('enter key', () => {
+        beforeEach(async () => {
+          await todo.pressEnter();
+        });
+
+        it('blurs the field', () => {
+          expect(todo.isEditing).to.be.false;
+        });
+
+        it('submits the change', () => {
+          expect(editTodo).to.have.been.calledWith(1, 'hi');
+        });
       });
 
-      it('submits the change', () => {
-        expect(editTodo).to.have.been.calledWith(1, 'hi');
-      });
-    });
+      describe('escape key', () => {
+        beforeEach(async () => {
+          await todo.pressEscape();
+        });
 
-    describe('escape key', () => {
-      beforeEach(async () => {
-        await todo.pressEscape();
-      });
+        it('blurs the field', () => {
+          expect(todo.isEditing).to.be.false;
+        });
 
-      it('blurs the field', () => {
-        expect(todo.isEditing).to.be.false;
-      });
-
-      it('submits the change', () => {
-        expect(editTodo).to.have.been.calledWith(1, 'hi');
-      });
-    });
-
-    describe('tab key', () => {
-      beforeEach(async () => {
-        await todo.pressTab();
+        it('submits the change', () => {
+          expect(editTodo).to.have.been.calledWith(1, 'hi');
+        });
       });
 
-      it('blurs the field', () => {
-        expect(todo.isEditing).to.be.false;
-      });
+      describe('tab key', () => {
+        beforeEach(async () => {
+          await todo.pressTab();
+        });
 
-      it('submits the change', () => {
-        expect(editTodo).to.have.been.calledWith(1, 'hi');
+        it('blurs the field', () => {
+          expect(todo.isEditing).to.be.false;
+        });
+
+        it('submits the change', () => {
+          expect(editTodo).to.have.been.calledWith(1, 'hi');
+        });
       });
     });
   });
