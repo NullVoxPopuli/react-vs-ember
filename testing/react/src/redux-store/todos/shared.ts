@@ -7,8 +7,7 @@ export type Todo = {
 }
 
 export type State = {
-  all: Todo[],
-  filter: boolean | undefined
+  all: Todo[]
 }
 
 export const initialState: State = {
@@ -18,8 +17,7 @@ export const initialState: State = {
       text: 'Redux',
       completed: false
     }
-  ],
-  filter: undefined
+  ]
 }
 
 export type OtherAction = { type: '' };

@@ -12,11 +12,11 @@ export interface Props {
 
 export default class FooterDisplay extends React.Component<Props> {
   render() {
-    const { todosCount, clearCompleted } = this.props;
+    const { todosCount, completedCount, clearCompleted } = this.props;
 
     const itemWord = todosCount > 1 ? 'items' : 'item';
 
-    const showClearButton = todosCount > 0;
+    const showClearButton = completedCount > 0;
 
     return (
       <footer data-test-footer className='footer'>

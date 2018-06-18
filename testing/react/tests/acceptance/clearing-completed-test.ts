@@ -8,9 +8,6 @@ import app from 'tests/helpers/pages/app';
 describe('Acceptance | Clearing Completed', () => {
 
   describe('there are no completed todos', () => {
-    let todosBefore: number;
-    let todosAfter: number;
-
     setupApplicationTest({
       todos: { all: [
         { id: 1, text: 'not completed', completed: false },
@@ -20,17 +17,10 @@ describe('Acceptance | Clearing Completed', () => {
 
     beforeEach(async () => {
       await visit('/');
-
-      todosBefore = app.allTodosCount;
-
-      expect(todosBefore).to.eq(2);
-
-      await app.clickClearCompleted();
-      todosAfter = app.allTodosCount;
     });
 
-    it('number of todos do not change', () => {
-      expect(todosAfter).to.eq(todosBefore);
+    it('cannot clear because nothing is complete', () => {
+      expect(app.clearCompletedIsPresent).to.be.false;
     });
   });
 
@@ -76,7 +66,6 @@ describe('Acceptance | Clearing Completed', () => {
       await visit('/');
 
       todosBefore = app.allTodosCount;
-
       expect(todosBefore).to.eq(2);
 
       await app.clickClearCompleted();

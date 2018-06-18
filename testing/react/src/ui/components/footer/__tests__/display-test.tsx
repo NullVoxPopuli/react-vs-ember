@@ -66,7 +66,7 @@ describe('Integration | Component | footer', () => {
 
     it('does not show the clear button when there are 0 todos', async () => {
       const props = {
-        allCount: 2, todosCount: 0, completedCount: 2,
+        allCount: 2, todosCount: 2, completedCount: 0,
         clearCompleted: () => ({ type: CLEAR_COMPLETED })
       }
 

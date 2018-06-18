@@ -10,7 +10,8 @@
     "karma": "./node_modules/.bin/karma",
     "karma:start": "yarn karma start ./tests/karma.conf.js --fail-on-empty-test-suite",
     "test:watch": "yarn karma:start",
-    "test": "yarn karma:start --single-run"
+    "test:watch:headless": "CI=true yarn karma:start",
+    "test:ci": "CI=true yarn karma:start --single-run"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -22,9 +23,6 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
-    "@types/react-router": "^4.0.26",
-    "@types/react-router-dom": "^4.2.7",
-    "@types/recompose": "^0.26.1",
     "@bigtest/interactor": "^0.5.0",
     "@bigtest/mocha": "^0.3.3",
     "@bigtest/react": "^0.1.1",
@@ -37,6 +35,10 @@
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^6.0.0",
+    "@types/react-router": "^4.0.26",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/recompose": "^0.26.1",
+    "@types/redux-mock-store": "^0.0.13",
     "@types/serve-static": "^1.13.2",
     "@types/sinon": "^5.0.1",
     "@types/sinon-chai": "^3.2.0",
@@ -61,6 +63,7 @@
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.7.1",
     "react-test-renderer": "^16.4.0",
+    "redux-mock-store": "^1.5.3",
     "serve-static": "^1.13.2",
     "sinon": "^6.0.0",
     "sinon-chai": "^3.2.0",
