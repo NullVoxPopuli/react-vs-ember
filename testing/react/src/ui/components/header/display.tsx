@@ -31,9 +31,13 @@ export default class HeaderDisplay extends React.Component<Props, State> {
     const { text } = this.state;
 
     return (
-      <header className='header'>
-        <form style={{marginBottom: 0}} onSubmit={this.didSubmit}>
+      <header data-test-header className='header'>
+        <form
+          data-test-form
+          style={{marginBottom: 0}}
+          onSubmit={this.didSubmit}>
           <input
+            data-test-header-input
             type='text'
             className='new-todo'
             placeholder='What needs to be done?'

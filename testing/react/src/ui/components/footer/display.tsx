@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { ClearCompletedAction } from 'example-app/redux-store/todos/actions/clear-completed';
 
 export interface Props {
-  filter: Troolean;
   allCount: number;
   todosCount: number;
   completedCount: number;
@@ -20,10 +19,10 @@ export default class FooterDisplay extends React.Component<Props> {
     const showClearButton = todosCount > 0;
 
     return (
-      <footer className='footer'>
+      <footer data-test-footer className='footer'>
 
         <span className='todo-count'>
-          <strong>{todosCount} {itemWord} left</strong>
+          <strong data-test-count>{todosCount} {itemWord} left</strong>
         </span>
 
         <ul className="filters">

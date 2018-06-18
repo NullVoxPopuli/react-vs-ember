@@ -46,4 +46,20 @@ module.exports = function(config) {
       'karma-chrome-launcher'
     ]
   });
+
+  if (process.env.CI) {
+    config.customLaunchers = {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox', // required to run without privileges in Docker
+          '--disable-web-security',
+          '--enable-gpu'
+        ]
+      }
+    };
+
+    config.browsers = ['ChromeHeadlessNoSandbox']
+    config.colors = true;
+  }
 };
