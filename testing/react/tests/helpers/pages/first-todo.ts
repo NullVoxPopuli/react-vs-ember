@@ -2,7 +2,7 @@ import {
   interactor, text,
   clickable,
   fillable, blurrable,
-  isPresent, triggerable, find
+  isPresent, triggerable, find, is, scoped
 } from '@bigtest/interactor';
 
 const firstTodo = '[data-test-todo]';
@@ -18,7 +18,9 @@ export class FirstTodoPage {
   isEditing = isPresent(`${firstTodo}.editing`);
   isCompleted = isPresent(`${firstTodo}.completed`);
   toggle = clickable(`${firstTodo} [data-test-todo-toggle]`);
-  input = find(`${firstTodo} [data-test-todo-edit]`);
+  input = scoped(`${firstTodo} [data-test-todo-edit]`, {
+    hasFocus: is(':focus')
+  });
 
   pressTab = triggerable(`${firstTodo} [data-test-todo-edit]`, 'keydown', { keyCode: 9 });
   pressEnter = triggerable(`${firstTodo} [data-test-todo-edit]`, 'keydown', { keyCode: 13 });

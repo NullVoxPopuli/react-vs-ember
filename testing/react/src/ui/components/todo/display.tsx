@@ -15,9 +15,9 @@ export interface State {
 
 export default class TodoDisplay extends React.Component<Props, State> {
   state = { editing: false };
+  inputRef: HTMLInputElement;
 
   didFinishEditing = (e:  React.FocusEvent<HTMLInputElement>) => {
-    console.log('blur-triggered');
     const { editTodo, todo: { id } } = this.props;
 
     const text = e.target.value;
@@ -32,15 +32,15 @@ export default class TodoDisplay extends React.Component<Props, State> {
 
     // Tab, Enter, Escape
     if (9 === code || 13 === code || 27 === code) {
-      console.log('beforeBlur', target);
       target.blur();
-      console.log('afterBlur');
       this.setState({ editing: false });
     }
   }
 
   didDoubleClickLabel = () => {
-    this.setState({ editing: true });
+    this.setState({ editing: true }, () => {
+      this.inputRef && this.inputRef.focus();
+    });
   }
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,9 +88,10 @@ export default class TodoDisplay extends React.Component<Props, State> {
           data-test-todo-edit
           type='text'
           className='edit'
+          ref={r => this.inputRef = r}
           value={todo.text || ''}
           onChange={this.handleChange}
-          onBlur={e => { console.log(e); this.didFinishEditing(e)}}
+          onBlur={this.didFinishEditing}
           onKeyDown={this.handleKeydown}
         />
       </li>

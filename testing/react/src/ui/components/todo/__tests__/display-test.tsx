@@ -33,6 +33,7 @@ describe('Integration | Component | todo', () => {
 
     beforeEach(async () => {
       editTodo = sinon.spy();
+
       const props = {
         todo: { id: 1, text: 'hi', completed: false },
         toggleCompletion: sinon.spy(),
@@ -48,6 +49,10 @@ describe('Integration | Component | todo', () => {
 
     it('toggles editing', () => {
       expect(todo.isEditing).to.be.true;
+    });
+
+    it('input is focussed', () => {
+      expect(todo.input.hasFocus).to.be.true;
     });
 
     describe('enter key', () => {
@@ -66,7 +71,6 @@ describe('Integration | Component | todo', () => {
 
     describe('escape key', () => {
       beforeEach(async () => {
-        // const event = document.createEvent('keydown', {target: todo.input});
         await todo.pressEscape();
       });
 
