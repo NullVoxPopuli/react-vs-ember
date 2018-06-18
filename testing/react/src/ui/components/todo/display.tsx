@@ -17,6 +17,7 @@ export default class TodoDisplay extends React.Component<Props, State> {
   state = { editing: false };
 
   didFinishEditing = (e:  React.FocusEvent<HTMLInputElement>) => {
+    console.log('blur-triggered');
     const { editTodo, todo: { id } } = this.props;
 
     const text = e.target.value;
@@ -27,10 +28,13 @@ export default class TodoDisplay extends React.Component<Props, State> {
 
   handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
+    const code = e.keyCode;
 
     // Tab, Enter, Escape
-    if ([9, 13, 27].includes(e.keyCode)) {
+    if (9 === code || 13 === code || 27 === code) {
+      console.log('beforeBlur', target);
       target.blur();
+      console.log('afterBlur');
       this.setState({ editing: false });
     }
   }
@@ -86,7 +90,7 @@ export default class TodoDisplay extends React.Component<Props, State> {
           className='edit'
           value={todo.text || ''}
           onChange={this.handleChange}
-          onBlur={this.didFinishEditing}
+          onBlur={e => { console.log(e); this.didFinishEditing(e)}}
           onKeyDown={this.handleKeydown}
         />
       </li>
