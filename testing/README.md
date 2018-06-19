@@ -1,4 +1,22 @@
-React vs Ember: testing
+# React vs Ember: Testing
+
+This is the third post in a segment series on React (and React's ecosystem) vs Ember. To read the previous, [go here to read about State Management](https://github.com/NullVoxPopuli/react-vs-ember/tree/master/state-management). The previous posts are not required for reading this post, but makes the same general assumptions about prior knowledge. ([SPAs](https://en.wikipedia.org/wiki/Single-page_application), [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript), etc). [See the series intro here](https://github.com/NullVoxPopuli/react-vs-ember#react-vs-ember-introduction)
+
+
+## A brief overview of what should be tested
+- testing methodology
+
+## Unit Testing
+
+## Integration Testing Components
+
+## Acceptance Testing
+
+
+## Testing: Can be a big pain without the proper tools
+Summary stuff here
+why not enzyme?
+
 
 
 https://ropig.com/blog/end-end-tests-dont-suck-puppeteer/
