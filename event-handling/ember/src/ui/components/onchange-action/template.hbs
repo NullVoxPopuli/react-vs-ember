@@ -3,4 +3,4 @@
 textProperty: {{textProperty}} <br />
 
 <br />
-{{input value=textProperty onChange=(action 'didChangeTextField')}}
+<input value={{textProperty}} oninput={{action didChangeTextField}} />
