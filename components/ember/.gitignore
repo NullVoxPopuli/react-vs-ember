@@ -1,0 +1,31 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# legacy (may accidentally be created via generator)
+/app
+/coverage*
+
+# bundle analysis
+/concat-stats-for
+
+# compiled output
+/dist/
+/tmp/
+
+
+# dependencies
+/bower_components/
+/node_modules/
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/
+/libpeerconnection.log
+/npm-debug.log*
+/testem.log
+/yarn-error.log
+
+# ember-try
+/.node_modules.ember-try/
+/bower.json.ember-try
+/package.json.ember-try

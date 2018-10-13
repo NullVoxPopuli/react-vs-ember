@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ES2017",
+    "baseUrl": ".",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "paths": {
+      "example-app/*": [
+        "src/*"
+      ],
+      "example-app/src/*": [
+        "src/*"
+      ],
+      "@store/*": [
+        "src/redux-store/*"
+      ],
+      "@ui/*": [
+        "src/ui/*"
+      ],
+      "tests/*": [ "tests/*" ],
+      "*": [
+        "types/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "types",
+    "tests"
+  ]
+}

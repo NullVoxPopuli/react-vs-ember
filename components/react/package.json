@@ -1,0 +1,43 @@
+{
+  "name": "react-vs-ember_state-management_react",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/index.html",
+  "scripts": {
+    "parcel": "./node_modules/.bin/parcel",
+    "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT",
+    "webpack:build": "./node_modules/.bin/webpack-cli --config tests/webpack.config.js",
+    "karma": "./node_modules/.bin/karma",
+    "karma:start": "yarn karma start ./tests/karma.conf.js --fail-on-empty-test-suite",
+    "test:watch": "yarn karma:start",
+    "test:watch:headless": "CI=true yarn karma:start",
+    "test:ci": "CI=true yarn karma:start --single-run"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "@types/webpack": "^4.4.0",
+    "@types/webpack-env": "^1.13.6",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "http-shutdown": "^1.2.0",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.7.1",
+    "react-test-renderer": "^16.4.0",
+    "serve-static": "^1.13.2",
+    "ts-loader": "^4.4.1",
+    "ts-node": "^6.1.0",
+    "tsconfig-paths": "^3.3.2",
+    "typescript": "^2.8.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^3.0.3",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

@@ -1,0 +1,32 @@
+/tmp
+/blueprints/*/files/**/*.js
+/src/utils/mnemonic/bip39/wordlists/english.ts
+/src/data/models/application/*.js
+/config/optional-features.json
+/concat-stats-for
+/node_modules
+/dist
+*.lock
+*.log
+*.json
+*.yaml
+
+
+# unconventional js
+/blueprints/*/files/
+/vendor/
+
+# compiled output
+/dist/
+/tmp/
+
+# dependencies
+/bower_components/
+
+# misc
+/coverage/
+
+# ember-try
+/.node_modules.ember-try/
+/bower.json.ember-try
+/package.json.ember-try

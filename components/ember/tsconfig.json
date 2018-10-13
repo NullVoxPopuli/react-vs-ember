@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmitOnError": false,
+    "noEmit": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": false,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "module": "es6",
+    "paths": {
+      "ember-demo/config/*": ["config/*"],
+      "ember-demo/tests/*": ["tests/*"],
+      "ember-demo/*": ["src/*"],
+      "ember-demo/src/*": ["src/*"],
+      "*": ["types/*"]
+    }
+  },
+  "include": [
+    "src",
+    "tests",
+    "types"
+  ]
+}

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function runstuff {
+  # First arg
+  given_command=$1
+  # The rest of the args
+  arguments=${@:2}
+
+  case $given_command in
+    docker)
+      docker build . -t testing-react \
+      && \
+        docker run -it \
+          -p 9091:9091 \
+          -p 9092:9092 \
+          -v $PWD:/app \
+          --rm testing-react
+    ;;
+
+    local) yarn && yarn start;;
+
+    clean)
+      echo "Cleaning..."
+      # Don't name any folders bin, obj, tmp, dist, or node_modules
+      shopt -s globstar
+      rm -rf **/dist && \
+      rm -rf **/node_modules && \
+      rm -rf **/tmp
+    ;;
+
+    *)
+      echo "Command not found: $@"
+    ;;
+  esac
+}
+
+if [ $1 ]; then
+  runstuff $*
+fi

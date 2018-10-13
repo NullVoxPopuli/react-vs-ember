@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        ["module-resolver", {
+            "root": ["./src"],
+            "alias": {
+                "@store": ["./src/redux-store"],
+                "@ui": ["./src/ui"],
+                "tests": ["./tests"]
+            }
+        }]
+    ]
+}
