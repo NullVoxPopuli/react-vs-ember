@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default class TodoMVC extends React.Component {
   state = { clickCount: 0, multiplier: 2 };
-  
+
   get double() {
     return this.state.clickCount * this.state.multiplier;
   }
@@ -34,3 +34,4 @@ export default class TodoMVC extends React.Component {
     );
   }
 }
+
