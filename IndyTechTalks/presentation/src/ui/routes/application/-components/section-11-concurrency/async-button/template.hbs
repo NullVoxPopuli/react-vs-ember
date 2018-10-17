@@ -1,5 +1,9 @@
-<button onClick={{perform this.clickTask}} disabled={{this.clickTask.isRunning}}>
-  Async Button: {{this.clickCount}} times clicked
+<button
+  class='button is-primary is-large'
+  onClick={{perform this.clickTask}}
+  disabled={{this.clickTask.isRunning}}
+>
+  Async Button: Clicked {{this.clickCount}} times
 </button>
 
 {{#if this.clickTask.isRunning}}

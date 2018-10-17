@@ -38,6 +38,7 @@ module.exports = function(defaults) {
   // app.import('vendor/highlightjs/styles/atom-one-dark.css');
 
   app.import('node_modules/reveal.js/js/reveal.js');
+  app.import('node_modules/bulma/bulma.sass');
 
   let appTree = app.toTree();
 

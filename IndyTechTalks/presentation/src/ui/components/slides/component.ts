@@ -63,7 +63,9 @@ export default class Slides extends Component {
       backgroundTransition: this.backgroundTransition,
       progress: this.progress,
       controls: this.controls,
-      center: this.center
+      center: this.center,
+      width: 1280,
+      height: 720
     };
 
     if (this.width) {

@@ -1,0 +1,13 @@
+<button class='button is-primary is-large' {{action this.increment}}>Add</button>
+<button class='button is-primary is-large' {{action this.decrement}}>Subtract</button>
+
+<br><br> Multiplier
+<input
+  class='input is-large w-25'
+  type='number'
+  value={{this.multiplier}}
+  oninput={{action this.changeMultiplier}}>
+
+<p>
+  {{this.clickCount}} * {{this.multiplier}} == {{this.double}}
+</p>

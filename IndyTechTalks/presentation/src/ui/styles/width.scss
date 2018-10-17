@@ -1,0 +1,10 @@
+@mixin sizeUtils($modifier) {
+  @for $i from 1 through 20 {
+    .w-#{$i * 5}#{$modifier} {
+      width: 5% * $i !important;
+    }
+  }
+}
+
+
+@include sizeUtils('');

@@ -9,7 +9,19 @@
 @import './reveal-presentation';
 @import './syntax-theme';
 
+@import 'node_modules/bulma/sass/utilities/_all';
+@import 'node_modules/bulma/sass/base/_all';
+// @import 'node_modules/bulma/sass/elements/_all';
+@import 'node_modules/bulma/sass/elements/button';
+@import 'node_modules/bulma/sass/elements/form';
+
 @import './flex';
+@import './width';
+
+* {
+  // why isn't this default?
+  box-sizing:border-box;
+}
 
 .reveal.center {
   height: 100vh;
@@ -24,7 +36,16 @@ a.icon-link {
 }
 
 .reveal {
+  .slides {
+    section {
+      &.align-top {
+        top: 0 !important;
+        min-height: 100% !important;
+      }
+    }
+  }
   section {
+
     img {
       background: none;
       border: none;

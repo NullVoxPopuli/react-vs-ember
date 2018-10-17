@@ -49,8 +49,6 @@ body {
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
 
   .reveal .slides {
-    width: auto !important;
-    height: auto !important;
     box-sizing: border-box;
 
     section {
@@ -60,8 +58,11 @@ body {
     }
   }
 
-  .reveal pre code {
-    max-height: 100%;
+  .reveal pre {
+    width: 100%;
+    code {
+      max-height: 100%;
+    }
   }
 
 /*********************************************
