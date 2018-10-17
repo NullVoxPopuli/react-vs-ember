@@ -11,9 +11,7 @@
   </s.Notes>
 </Slide>
 
-<Slide>
-  <Image @of='react.png' />
-</Slide>
+<ReactSlide />
 
 <BulletSlide class='react-color' @text='View Library' />
 <BulletSlide class='react-color' @text='Aggressively Few Opinions' />
@@ -21,11 +19,7 @@
 <BulletSlide class='react-color' @text='Supported by Facebook' />
 
 
-
-<Slide>
-  <Image @of='ember.png' />
-</Slide>
-
+<EmberSlide />
 
 <BulletSlide class='ember-color' @text='Framework' />
 <BulletSlide class='ember-color' @text='Programatically Enforced Opinions' />
@@ -36,3 +30,14 @@
 />
 <BulletSlide class='ember-color' @text='Supported by a Community' />
 
+
+<Slide as |s|>
+  <h2>How do we compare these?</h2>
+  <s.Notes data-markdown>
+    They have nothing in common
+
+    - Ember provides most functionality you need to build an app
+    - React will need a lot of decisions made in order to build an app. The decisions made throughout will use a combination of community favorites, and tools less common to the community at large, but have overall very good DX (developer experience), comparable to ember's suite of tools.
+
+  </s.Notes>
+</Slide>

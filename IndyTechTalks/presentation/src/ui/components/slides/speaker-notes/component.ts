@@ -6,8 +6,16 @@ import { classNames } from '@ember-decorators/component';
 import { computed } from '@ember-decorators/object';
 import { set, get, computed } from '@ember/object';
 import { isPresent, isBlank } from '@ember/utils';
+import showdown from 'showdown';
 
 import RevealService, { IPresentationState } from 'react-vs-ember/services/reveal-service';
+
+
+const converter = new showdown.Converter({
+  simplifiedAutoLink: true,
+  simpleLineBreaks: true,
+  openLinksInNewWindow: true,
+});
 
 // NOTE: This component ports source from the reveal.js speaker notes plugin and
 //       therefore contains much code that is not idiomatic Ember.
@@ -113,7 +121,8 @@ export default class extends Component {
     if ( data.notes ) {
       notes.classList.remove( 'hidden' );
       if( data.markdown ) {
-        notesValue.innerHTML = marked( data.notes );
+        const html = converter.makeHtml(data.notes);
+        notesValue.innerHTML = html;
       }
       else {
         notesValue.innerHTML = data.notes;
