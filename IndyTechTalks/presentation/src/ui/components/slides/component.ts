@@ -15,8 +15,8 @@ export default class Slides extends Component {
   @alias('revealService.presentationWidth') width!: number;
   @alias('revealService.controls') controls!: boolean;
 
-  transition = 'slide'; // none|fade|slide|convex|concave|zoom
-  backgroundTransition = 'fade'; // none/fade/slide/convex/concave/zoom
+  transition = 'none'; // none|fade|slide|convex|concave|zoom
+  backgroundTransition = 'none'; // none/fade/slide/convex/concave/zoom
   progress = true;
   center = true;
 
@@ -65,7 +65,8 @@ export default class Slides extends Component {
       controls: this.controls,
       center: this.center,
       width: 1280,
-      height: 720
+      height: 720,
+      transitionSpeed: 'fast',
     };
 
     if (this.width) {

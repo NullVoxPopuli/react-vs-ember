@@ -9,7 +9,7 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: rgb(248,239,236);
+  background: #222; //rgb(248,239,236);
   // url('/img/background-shades.svg');
 }
 
@@ -18,7 +18,9 @@ body {
   font-size: 36px;
   font-weight: 300;
   letter-spacing: -0.02em;
-  color: black; }
+  // color: black;
+  color: white;
+}
 
 ::selection {
   color: white;
@@ -35,7 +37,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: black;
+  // color: black;
+  color: white;
   font-family: "Open Sans", Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: 0.02em;
@@ -55,11 +58,18 @@ body {
       box-sizing: border-box;
       padding: 2rem;
       // width: auto;
+
+      &.section-title {
+        h2 {
+          color: white;
+        }
+      }
     }
   }
 
   .reveal pre {
     width: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     code {
       max-height: 100%;
     }

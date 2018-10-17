@@ -1,0 +1,1 @@
+ember new my-app
