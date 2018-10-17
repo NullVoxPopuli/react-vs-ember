@@ -876,6 +876,10 @@
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/@types/qunit/-/qunit-2.5.3.tgz#e7df363b5e1d1ba034b5fdd34b560d5ec0914225"
 
+"@types/reveal@^3.3.33":
+  version "3.3.33"
+  resolved "https://registry.yarnpkg.com/@types/reveal/-/reveal-3.3.33.tgz#e5448f6b4e6734ec3ea4ee85211bb9313a879044"
+
 "@types/rsvp@*", "@types/rsvp@^4.0.1":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.2.tgz#bf9f72eaa6771292638a85bb8ce1db97e754b371"
@@ -1350,6 +1354,10 @@ babel-plugin-syntax-exponentiation-operator@^6.8.0:
   version "6.13.0"
   resolved "http://registry.npmjs.org/babel-plugin-syntax-exponentiation-operator/-/babel-plugin-syntax-exponentiation-operator-6.13.0.tgz#9ee7e8337290da95288201a6a57f4170317830de"
 
+babel-plugin-syntax-object-rest-spread@^6.8.0:
+  version "6.13.0"
+  resolved "http://registry.npmjs.org/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
+
 babel-plugin-syntax-trailing-function-commas@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
@@ -1554,6 +1562,13 @@ babel-plugin-transform-exponentiation-operator@^6.22.0:
     babel-helper-builder-binary-assignment-operator-visitor "^6.24.1"
     babel-plugin-syntax-exponentiation-operator "^6.8.0"
     babel-runtime "^6.22.0"
+
+babel-plugin-transform-object-rest-spread@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.26.0.tgz#0f36692d50fef6b7e2d4b3ac1478137a963b7b06"
+  dependencies:
+    babel-plugin-syntax-object-rest-spread "^6.8.0"
+    babel-runtime "^6.26.0"
 
 babel-plugin-transform-regenerator@^6.22.0:
   version "6.26.0"
@@ -3081,9 +3096,9 @@ ember-cli-htmlbars@^3.0.0:
     json-stable-stringify "^1.0.0"
     strip-bom "^3.0.0"
 
-ember-cli-inject-live-reload@^1.4.1:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-inject-live-reload/-/ember-cli-inject-live-reload-1.10.2.tgz#43c59f7f1d1e717772da32e5e81d948fb9fe7c94"
+ember-cli-inject-live-reload@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-inject-live-reload/-/ember-cli-inject-live-reload-2.0.1.tgz#1bf3a6ea1747bceddc9f62f7ca8575de6b53ddaf"
   dependencies:
     clean-base-url "^1.0.0"
     ember-cli-version-checker "^2.1.2"
@@ -3416,6 +3431,13 @@ ember-inflector@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-3.0.0.tgz#7e1ee8aaa0fa773ba0905d8b7c0786354d890ee1"
   dependencies:
+    ember-cli-babel "^6.6.0"
+
+ember-keyboard@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-4.0.0.tgz#63764ebf0fac8153977b04faa73ef1c11820800c"
+  dependencies:
+    babel-plugin-transform-object-rest-spread "^6.26.0"
     ember-cli-babel "^6.6.0"
 
 ember-load-initializers@^1.1.0:
@@ -6710,6 +6732,10 @@ restore-cursor@^2.0.0:
 ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
+
+reveal.js@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-3.7.0.tgz#7afaf72fd963000381289d58f3aa54c0c46b150c"
 
 rimraf@^2.2.8, rimraf@^2.3.4, rimraf@^2.4.3, rimraf@^2.4.4, rimraf@^2.5.3, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"

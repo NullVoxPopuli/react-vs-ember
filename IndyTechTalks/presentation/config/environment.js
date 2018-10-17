@@ -7,7 +7,7 @@ module.exports = function(environment) {
         EMBER_RESOLVER_MODULE_UNIFICATION: true
       }
     },
-    modulePrefix: 'ember-with-concurrency',
+    modulePrefix: 'react-vs-ember',
     environment,
     rootURL: '/',
     locationType: 'auto',

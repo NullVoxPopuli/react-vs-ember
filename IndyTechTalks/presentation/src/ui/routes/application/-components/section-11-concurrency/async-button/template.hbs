@@ -1,0 +1,9 @@
+<button onClick={{perform this.clickTask}} disabled={{this.clickTask.isRunning}}>
+  Async Button: {{this.clickCount}} times clicked
+</button>
+
+{{#if this.clickTask.isRunning}}
+  Running...
+{{/if}}
+
+<br>Last click coordinates: {{this.lastCoords}}

@@ -1,5 +1,5 @@
 {
-  "name": "ember-with-concurrency",
+  "name": "react-vs-ember",
   "version": "0.0.1",
   "private": false,
   "description": "",
@@ -32,9 +32,11 @@
     "@types/ember-testing-helpers": "^0.0.3",
     "@types/ember__test-helpers": "^0.7.0",
     "@types/qunit": "^2.5.1",
+    "@types/reveal": "^3.3.33",
     "@types/rsvp": "^4.0.1",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-concat-analyser": "^4.2.0",
+    "broccoli-stew": "^2.0.0",
     "ember-cli": "github:ember-cli/ember-cli#f0c436dcdef642508dbeb5264faa6b2f437259b9",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.2.1",
@@ -42,7 +44,7 @@
     "ember-cli-eslint": "^4.2.3",
     "ember-cli-htmlbars": "^3.0.0",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
-    "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-inject-live-reload": "^2.0.1",
     "ember-cli-qunit": "^4.1.1",
     "ember-cli-sass": "^8.0.1",
     "ember-cli-shims": "^1.2.0",
@@ -55,6 +57,7 @@
     "ember-data": "github:emberjs/data#effd7a8e9ae2dc95c51dbed68d23cf701a234f22",
     "ember-decorators": "3.0.0-beta.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-keyboard": "^4.0.0",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-resolver": "^5.0.1",
@@ -75,5 +78,8 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "reveal.js": "^3.7.0"
   }
 }

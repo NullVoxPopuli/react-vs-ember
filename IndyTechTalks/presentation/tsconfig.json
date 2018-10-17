@@ -20,10 +20,10 @@
     "baseUrl": ".",
     "module": "es6",
     "paths": {
-      "ember-with-concurrency/tests/*": [
+      "react-vs-ember/tests/*": [
         "tests/*"
       ],
-      "ember-with-concurrency/*": [
+      "react-vs-ember/*": [
         "src/*"
       ],
       "*": [

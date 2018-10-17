@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,300italic,700italic);
+
+@import 'node_modules/reveal.js/css/reveal.scss';
+@import 'node_modules/reveal.js/css/theme/template/mixins.scss';
+@import 'node_modules/reveal.js/css/theme/template/settings.scss';
+@import 'node_modules/reveal.js/css/theme/template/theme.scss';
+@import 'node_modules/reveal.js/css/theme/solarized';
+
+@import './flex';
+// @import './ember-theme.scss';
+
+.reveal.center {
+  height: 100vh;
+}
+
+
+a.icon-link {
+  img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.reveal section {
+  img {
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  h5 {
+    font-size: 2rem;
+  }
+
+  .react-color {
+    color: #00d8ff;
+  }
+
+  .ember-color {
+    color: #f23819;
+  }
+
+}
+
+
+.no-margins {
+  margin: 0 !important;
+}
+
+
+button {
+  font-size: 1.5rem;
+  border: none;
+  padding: 4px 8px;
+}
