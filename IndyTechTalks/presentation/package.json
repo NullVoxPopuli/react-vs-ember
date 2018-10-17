@@ -53,6 +53,7 @@
     "ember-cli-template-lint": "^1.0.0-beta.2",
     "ember-cli-typescript": "^1.4.2",
     "ember-cli-uglify": "^2.0.0",
+    "ember-code-snippet": "github:NullVoxPopuli/ember-code-snippet#c3528e8dd85e1766c82c1ea7b8a7b036c3cea990",
     "ember-concurrency": "^0.8.22",
     "ember-concurrency-decorators": "^0.1.0",
     "ember-data": "github:emberjs/data#effd7a8e9ae2dc95c51dbed68d23cf701a234f22",

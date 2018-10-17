@@ -1,0 +1,11 @@
+<button {{action this.increment}}>Add</button>
+<button {{action this.decrement}}>Subtract</button>
+
+<br><br> Multiplier
+<input type='number'
+  value={{this.multiplier}}
+  oninput={{action this.changeMultiplier}}>
+
+<p>
+  {{this.clickCount}} * {{this.multiplier}} == {{this.double}}
+</p>

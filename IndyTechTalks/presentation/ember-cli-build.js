@@ -7,7 +7,15 @@ const mergeTrees = require('broccoli-merge-trees');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
-    hinting: false
+    hinting: false,
+    includeHighlightJS: false,
+    includeHighlightStyle: false,
+    snippetSearchPaths: ['src'],
+    includeFileExtensionInSnippetNames: false,
+    snippetPaths: [
+      'src/slide-assets/snippets',
+      'slide-assets/snippets'
+    ]
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -23,7 +31,11 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  app.import('vendor/highlightjs.stub.js', {
+    using: [ { transformation: 'amd', as: 'highlight.js' } ]
+  });
 
+  // app.import('vendor/highlightjs/styles/atom-one-dark.css');
 
   app.import('node_modules/reveal.js/js/reveal.js');
 

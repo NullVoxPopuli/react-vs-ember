@@ -36,5 +36,8 @@
     "src/**/*",
     "tests/**/*",
     "types/**/*"
+  ],
+  "exclude": [
+    "src/slide-assets/**/*"
   ]
 }
