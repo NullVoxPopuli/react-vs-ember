@@ -1,0 +1,29 @@
+{{!-- BEGIN-MONKEYPATCH notes-html-iframes --}}
+<div id='current-slide'>
+  <EmbeddedSlides @width={{1280}} @height={{1024}} @url={{this.currentUrl}} />
+</div>
+<div id='upcoming-slide'>
+  <span class='label'>UPCOMING:</span>
+  <EmbeddedSlides @width={{640}} @height={{512}} @url={{this.upcomingUrl}} />
+</div>
+{{!-- END-MONKEYPATCH notes-html-iframes --}}
+
+{{!-- BEGIN-SNIPPET notes-html-body --}}
+<div id='speaker-controls'>
+  <div class='speaker-controls-time'>
+    <h4 class='label'>Time <span class='reset-button'>Click to Reset</span></h4>
+    <div class='clock'>
+      <span class='clock-value'>0:00 AM</span>
+    </div>
+    <div class='timer'>
+      <span class='hours-value'>00</span><span class='minutes-value'>:00</span><span class='seconds-value'>:00</span>
+    </div>
+    <div class='clear'></div>
+  </div>
+
+  <div class='speaker-controls-notes hidden erjs-SpeakerControlsNotes'>
+    <h4 class='label erjs-SpeakerControlsNotes-noteLabel'>Notes</h4>
+    <div class='value erjs-SpeakerControlsNotes-noteText'></div>
+  </div>
+</div>
+{{!-- END-SNIPPET notes-html-body --}}

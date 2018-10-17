@@ -4,10 +4,11 @@
 @import 'node_modules/reveal.js/css/theme/template/mixins.scss';
 @import 'node_modules/reveal.js/css/theme/template/settings.scss';
 @import 'node_modules/reveal.js/css/theme/template/theme.scss';
-@import 'node_modules/reveal.js/css/theme/solarized';
+// @import 'node_modules/reveal.js/css/theme/solarized';
+@import './ember-theme.scss';
+@import './reveal-presentation';
 
 @import './flex';
-// @import './ember-theme.scss';
 
 .reveal.center {
   height: 100vh;
@@ -21,22 +22,25 @@ a.icon-link {
   }
 }
 
-.reveal section {
-  img {
-    background: none;
-    border: none;
-    box-shadow: none;
+.reveal {
+  section {
+    img {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    h5 {
+      font-size: 2rem;
+    }
+
   }
 
-  h5 {
-    font-size: 2rem;
-  }
-
-  .react-color {
+  .react-color, .react-color h3, .react-color h4 {
     color: #00d8ff;
   }
 
-  .ember-color {
+  .ember-color, .ember-color h3, .ember-color h4 {
     color: #f23819;
   }
 
@@ -45,6 +49,14 @@ a.icon-link {
 
 .no-margins {
   margin: 0 !important;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.f-right {
+  float: right;
 }
 
 

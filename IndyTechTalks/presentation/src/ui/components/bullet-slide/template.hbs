@@ -1,3 +1,7 @@
 <Slide ...attributes>
-  <h3 class={{@class}}>{{@text}}</h3>
+  <h3>{{@text}}</h3>
+
+  {{#if @subtext}}
+    <h4 class='lowercase f-right'>{{@subtext}}</h4>
+  {{/if}}
 </Slide>

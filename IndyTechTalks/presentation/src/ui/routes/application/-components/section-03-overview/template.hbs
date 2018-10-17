@@ -4,18 +4,21 @@
 </Slide>
 
 
-<Slide>
+<Slide as |s|>
   <h1>From the outside in</h1>
+  <s.Notes>
+    At the highest of levels, there are ways in which each can be used to solve the same problems, but it's the details of implementation that differ, so why would one even consider one over the other? Over the next whatever amount of time, you'll see some key differences and decisions that need to be made in each.
+  </s.Notes>
 </Slide>
 
 <Slide>
   <Image @of='react.png' />
 </Slide>
 
-<BulletSlide @class='react-color' @text='View Library' />
-<BulletSlide @class='react-color' @text='Aggressively Few Opinions' />
-<BulletSlide @class='react-color' @text='Many Ways to Solve Problems' />
-<BulletSlide @class='react-color' @text='Supported by Facebook' />
+<BulletSlide class='react-color' @text='View Library' />
+<BulletSlide class='react-color' @text='Aggressively Few Opinions' />
+<BulletSlide class='react-color' @text='Many Ways to Solve Problems' />
+<BulletSlide class='react-color' @text='Supported by Facebook' />
 
 
 
@@ -24,8 +27,12 @@
 </Slide>
 
 
-<BulletSlide @class='ember-color' @text='Framework' />
-<BulletSlide @class='ember-color' @text='Programatically Enforced Opinions' />
-<BulletSlide @class='ember-color' @text='Few recommended ways of doing things' />
-<BulletSlide @class='ember-color' @text='Supported by a Community' />
+<BulletSlide class='ember-color' @text='Framework' />
+<BulletSlide class='ember-color' @text='Programatically Enforced Opinions' />
+<BulletSlide
+  class='ember-color'
+  @text='Few recommended ways of doing things'
+  @subtext='but with options, just in case'
+/>
+<BulletSlide class='ember-color' @text='Supported by a Community' />
 

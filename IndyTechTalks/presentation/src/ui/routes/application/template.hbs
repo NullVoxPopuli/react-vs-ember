@@ -1,4 +1,4 @@
-<Slides>
+<Slides as |actions|>
   <Section-01-Intro />
   <Section-02-AboutMe />
   <Section-03-Overview />
@@ -14,4 +14,6 @@
   <Section-13-ApiData />
   <Section-14-Testing />
   <SectionQuestions />
+
+  <KeyboardPress @key='KeyS' @onUp={{actions.togglePresenterView}} />
 </Slides>

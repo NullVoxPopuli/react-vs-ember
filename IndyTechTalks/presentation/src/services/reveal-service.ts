@@ -1,6 +1,13 @@
 import Service from '@ember/service';
 import { computed } from '@ember-decorators/object';
 
+export interface IPresentationState {
+  indexh: number | null;
+  indexv: number | null;
+  paused: boolean;
+  overview: boolean;
+}
+
 export default class RevealService extends Service {
   indexh = null;
   indexv = null;
@@ -10,7 +17,7 @@ export default class RevealService extends Service {
   isSpeakerNotes = false;
 
   @computed('indexh', 'indexv', 'paused', 'overview')
-  get presentationState() {
+  get presentationState(): IPresentationState {
     return {
       indexh: this.indexh,
       indexv: this.indexv,
