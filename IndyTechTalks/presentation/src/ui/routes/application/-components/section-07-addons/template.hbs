@@ -1,0 +1,59 @@
+<SectionTitleSlide as |s|>
+  <s.Title>Addons / Packages</s.Title>
+</SectionTitleSlide>
+
+<Slide as |s|>
+  <s.ContextTitle class='contextual-title react-color'>
+    React - Adding Typescript
+  </s.ContextTitle>
+
+  <div class='flex-row'>
+    <div class='has-text-left flex-width-33'>
+      <h4 class='has-text-weight-bold'>Webpack</h4>
+      <ul class='is-size-3'>
+        <li>many options, multiple ways of transpiling typescript</li>
+        <li>source-map-loader</li>
+      </ul>
+    </div>
+
+    <div class='p-l-lg has-text-left flex-width-33'>
+      <h4 class='has-text-weight-bold'>Parcel</h4>
+      <ul class='is-size-3'>
+        <li>Auto-configures itself based on files present
+          <br>(only need to add tsconfig.json)
+        </li>
+      </ul>
+    </div>
+
+    <div class='p-l-lg has-text-left flex-width-33'>
+      <h4 class='has-text-weight-bold'>create-react-app</h4>
+      <ul class='is-size-3'>
+        <li>rip out react-scripts and setup webpack</li>
+      </ul>
+    </div>
+  </div>
+
+  <br><br>
+  <ul class='is-size-3'>
+    <li>Add a tsconfig.json and start using tsx files</li>
+    <li>Must research how to configure tsconfig.json</li>
+    <li>Manually install types for react, the bundler, router, etc</li>
+    <li>Module resolution?????</li>
+  </ul>
+
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle class='contextual-title ember-color'>
+    Ember - Adding Typescript
+  </s.ContextTitle>
+
+  <h4 class='margin-center force-large'>{{code-snippet name='ember-install-typescript.bash'}}</h4>
+
+  <s.Notes data-markdown>
+    - Adds Typescript
+    - Adds all the types for a default ember app (including testing types)
+    - Adds tsconfig with configured paths
+    - The only thing it doesn't do is add typescript parsing to eslint
+  </s.Notes>
+</Slide>

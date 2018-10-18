@@ -1,29 +1,33 @@
-{{!-- BEGIN-MONKEYPATCH notes-html-iframes --}}
-<div id='current-slide'>
-  <EmbeddedSlides @width={{1280}} @height={{1024}} @url={{this.currentUrl}} />
-</div>
-<div id='upcoming-slide'>
-  <span class='label'>UPCOMING:</span>
-  <EmbeddedSlides @width={{640}} @height={{512}} @url={{this.upcomingUrl}} />
-</div>
-{{!-- END-MONKEYPATCH notes-html-iframes --}}
+<div class='flex-row'>
+  <div class='flex-column flex-width-65 justify-content-start'>
+    <div id='current-slide'>
+      <EmbeddedSlides @width={{1280}} @height={{720}} @url={{this.currentUrl}} />
+    </div>
 
-{{!-- BEGIN-SNIPPET notes-html-body --}}
-<div id='speaker-controls'>
-  <div class='speaker-controls-time'>
-    <h4 class='label'>Time <span class='reset-button'>Click to Reset</span></h4>
-    <div class='clock'>
-      <span class='clock-value'>0:00 AM</span>
+    <div class='flex-row'>
+      <div class='speaker-controls-time'>
+        <h4 class='label'>Time <span class='reset-button'>Click to Reset</span></h4>
+        <div class='clock p-l-lg'>
+          <span class='clock-value'>0:00 AM</span>
+        </div>
+        <div class='timer p-l-lg'>
+          <span class='hours-value'>00</span><span class='minutes-value'>:00</span><span class='seconds-value'>:00</span>
+        </div>
+        <div class='clear'></div>
+      </div>
+      <div class='slide-number'></div>
     </div>
-    <div class='timer'>
-      <span class='hours-value'>00</span><span class='minutes-value'>:00</span><span class='seconds-value'>:00</span>
-    </div>
-    <div class='clear'></div>
   </div>
 
-  <div class='speaker-controls-notes hidden erjs-SpeakerControlsNotes'>
-    <h4 class='label erjs-SpeakerControlsNotes-noteLabel'>Notes</h4>
-    <div class='value erjs-SpeakerControlsNotes-noteText'></div>
+  <div class='flex-column justify-content-start flex-width-35'>
+    <div id='upcoming-slide'>
+      <span class='label'>UPCOMING</span>
+      <EmbeddedSlides @width={{640}} @height={{360}} @url={{this.upcomingUrl}} />
+    </div>
+
+    <div class='speaker-controls-notes hidden erjs-SpeakerControlsNotes'>
+      <h4 class='label erjs-SpeakerControlsNotes-noteLabel'>Notes</h4>
+      <div class='value erjs-SpeakerControlsNotes-noteText'></div>
+    </div>
   </div>
 </div>
-{{!-- END-SNIPPET notes-html-body --}}

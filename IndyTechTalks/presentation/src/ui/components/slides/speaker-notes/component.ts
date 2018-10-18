@@ -80,6 +80,7 @@ export default class extends Component {
     // END-MONKEYPATCH notesjs-locals
 
     // BEGIN-SNIPPET notesjs-post
+
     var slideElement = Reveal.getCurrentSlide(),
       notesElement = slideElement.querySelector( 'aside.notes' );
 

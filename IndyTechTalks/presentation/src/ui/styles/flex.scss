@@ -19,6 +19,12 @@
     }
   }
 
+  .flex-width-33#{$modifier} {
+    .flex-width-33#{$modifier} {
+      flex-basis: 33%;
+    }
+  }
+
 
   .align-items-start#{$modifier} { align-items: flex-start; }
   .align-items-end#{$modifier} { align-items: flex-end; }

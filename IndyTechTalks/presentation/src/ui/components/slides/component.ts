@@ -67,6 +67,8 @@ export default class Slides extends Component {
       width: 1280,
       height: 720,
       transitionSpeed: 'fast',
+      slideNumber: true,
+      showSlideNumber: 'notes',
     };
 
     if (this.width) {

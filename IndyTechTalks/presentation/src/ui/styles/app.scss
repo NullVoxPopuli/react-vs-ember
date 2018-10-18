@@ -18,6 +18,7 @@
 
 @import './flex';
 @import './width';
+@import './spacing';
 
 * {
   // why isn't this default?
@@ -39,6 +40,8 @@ a.icon-link {
 .reveal {
   .slides {
     section {
+      @import './spacing';
+
       &.align-top {
         top: 0 !important;
         min-height: 100% !important;

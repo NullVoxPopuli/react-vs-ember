@@ -2,8 +2,12 @@
   <s.Title>Concurrency</s.Title>
 </Slide>
 
-<DemoSlide>
+<DemoSlide as |s|>
   <AsyncButton />
+
+  <s.Notes data-markdown>
+    This is the canonical way
+  </s.Notes>
 </DemoSlide>
 
 <CodeSlide class='ember-color' @title='Ember' @name='ember-async-button.ts' />
