@@ -1,3 +1,4 @@
+// BEGIN-SNIPPET ember-async-button.ts
 import Component from '@ember/component';
 import { reads } from '@ember-decorators/object/computed';
 import { timeout } from 'ember-concurrency';
@@ -16,3 +17,4 @@ export default class AsyncButton extends Component {
     return `${e.x} x ${e.y}`;
   };
 }
+// END-SNIPPET

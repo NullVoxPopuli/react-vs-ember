@@ -41,6 +41,7 @@ a.icon-link {
   .slides {
     section {
       @import './spacing';
+      @import './demos/todomvc';
 
       &.align-top {
         top: 0 !important;
@@ -55,6 +56,22 @@ a.icon-link {
         position: fixed;
         top: 2rem;
         left: 2rem;
+      }
+
+      .github-link {
+        height: 3rem;
+        min-height: 3rem;
+        line-height: 3rem;
+      }
+
+      .circle {
+        border-radius: 50%;
+      }
+
+      table {
+        th {
+          color: #efefef;
+        }
       }
     }
   }
@@ -78,12 +95,7 @@ a.icon-link {
   pre {
     font-size: 1rem;
     padding: 1.5rem;
-    line-height: 1rem;
-    height: 100%;
 
-    code {
-      line-height: 1.75rem;
-    }
   }
 
   .react-color, .react-color h3, .react-color h4 {

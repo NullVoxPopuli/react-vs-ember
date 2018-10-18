@@ -1,3 +1,4 @@
+// BEGIN-SNIPPET ember-component.ts
 import Component from '@ember/component';
 import { computed, action } from '@ember-decorators/object';
 
@@ -19,3 +20,4 @@ export default class EmberComponent extends Component {
     this.set('multiplier', parseInt(element.value));
   }
 }
+// END-SNIPPET

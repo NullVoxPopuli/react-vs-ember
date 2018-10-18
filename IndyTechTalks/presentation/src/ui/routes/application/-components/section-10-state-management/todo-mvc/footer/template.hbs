@@ -1,0 +1,30 @@
+<div class='footer flex-row justify-content-space-between'>
+
+  <span class='todo-count'>
+    <strong>
+      {{this.todosCount}} {{this.itemWord}}
+      {{if this.showAll 'left'}}
+      {{if this.showActive 'left'}}
+    </strong>
+  </span>
+
+  <button
+    onclick={{action this.clearCompleted}}
+    class='clear-completed'>
+    Clear completed
+  </button>
+</div>
+
+<div class='filters flex-row'>
+  <a class={{if this.showAll 'selected'}} {{action this.setFilter 'all'}}>
+    All
+  </a>
+
+  <a class={{if this.showActive 'selected'}} {{action this.setFilter 'uncompleted'}}>
+    Active
+  </a>
+
+  <a class={{if this.showCompleted 'selected'}} {{action this.setFilter 'completed'}}>
+    Completed
+  </a>
+</div>

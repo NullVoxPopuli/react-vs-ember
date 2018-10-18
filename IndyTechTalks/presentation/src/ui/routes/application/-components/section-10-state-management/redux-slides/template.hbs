@@ -1,0 +1,152 @@
+<Slide>
+  <h3><Title /></h3>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+  <table class='is-size-3'>
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Presentational Components</th>
+        <th>Container Components</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Purpose</th>
+        <td>How things look (html/css)</td>
+        <td>How things work (data fetching/state updates)</td>
+      </tr>
+      <tr>
+        <th>Aware of redux</th>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>To read data</th>
+        <td>Read data from incoming attrs</td>
+        <td>Subscribe to Redux state</td>
+      </tr>
+      <tr>
+        <th>To change data</th>
+        <td>closure actions</td>
+        <td>Dispatch Redux actions</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class='is-size-5'>
+    source:
+    <ExternalLink @to='http://redux.js.org/docs/basics/UsageWithReact.html'>react-redux</ExternalLink> and
+    <ExternalLink @to='https://ember-redux.com/ddau/'>ember-redux</ExternalLink>
+  </p>
+
+  <s.Notes data-markdown>
+    - data-down, action-up (DDAU)
+    - if you've been doing react and/or ember for a while, you may already be doing this but just not know it
+  </s.Notes>
+</Slide>
+
+<BulletSlide @text='DDAU' as |s|>
+  <s.Notes data-markdown>
+    - Data Down, Actions Up
+    - Some people have taken this too far,
+      as have people adhering to container and presentational components.
+    - Passing giant masses of props is not ok.
+  </s.Notes>
+</BulletSlide>
+
+<Slide as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+
+  <div class='flex-row'>
+    <div class='flex-column'>
+      <label class='github-link'>
+        <SupportingCodeLink
+          class='is-size-4'
+          @to='state-management/react/src/ui/components/todo-list.tsx'
+        >
+          src/ui/components/todo-list.tsx
+        </SupportingCodeLink>
+      </label>
+      {{code-snippet name='react-redux-container.tsx'}}
+      {{code-snippet name='react-redux-presentation.tsx'}}
+    </div>
+
+    <div class='flex-column p-l-lg'>
+      <label class='is-size-5 github-link'>
+        src/ui/components/todo-list/{
+        <SupportingCodeLink
+          class='is-size-4'
+          @to='state-management/ember/src/ui/components/todo-list/component.ts'
+        >
+          component.ts
+        </SupportingCodeLink> |
+        <SupportingCodeLink
+          class='is-size-4'
+          @to='state-management/ember/src/ui/components/todo-list/template.hbs'
+        >
+          template.hbs
+        </SupportingCodeLink> }
+      </label>
+      {{code-snippet name='ember-redux-container.ts'}}
+      {{code-snippet name='ember-redux-container-template.hbs'}}
+    </div>
+  </div>
+
+  <s.Notes data-markdown>
+    - for those not familiar with redux, redux provides an app-level immutable state that you can _connect_ to (via `connect`).
+    - details of setting up redux are outside the scope of this project (also, everyone does it differently)
+    - this is how data is pulled out of the state
+    - pretty much the same
+    - (explain more about what is going on with the code)
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+
+  <div class='flex-row'>
+    <div class='flex-column'>
+      <label class='github-link'>
+        <SupportingCodeLink
+          class='is-size-4'
+          @to='state-management/react/src/ui/components/todo/index.tsx'
+        >
+          src/ui/components/todo/index.tsx
+        </SupportingCodeLink>
+      </label>
+      {{code-snippet name='react-redux-container2.tsx'}}
+    </div>
+
+    <div class='flex-column p-l-lg'>
+      <label class='is-size-5 github-link'>
+        src/ui/components/todo-list/{
+        <SupportingCodeLink
+          class='is-size-4'
+          @to='state-management/ember/src/ui/components/todo-item/component.ts'
+        >
+          component.ts
+        </SupportingCodeLink> |
+        <SupportingCodeLink
+          class='is-size-4'
+          @to='state-management/ember/src/ui/components/todo-item/template.hbs'
+        >
+          template.hbs
+        </SupportingCodeLink> }
+      </label>
+      {{code-snippet name='ember-redux-container2.ts'}}
+      {{code-snippet name='ember-redux-container2-template.hbs'}}
+    </div>
+  </div>
+
+
+
+  <s.Notes data-markdown>
+    - this is how you setup things to send data back to the store
+    - pretty much the same, kinda
+      - because in React, components are more or less functions, React gets a clear win here as far as fewer lines of code
+  </s.Notes>
+
+</Slide>

@@ -1,0 +1,13 @@
+<div class='header'>
+  <form {{action 'didSubmit' on="submit"}}>
+    {{input
+      type="text"
+      class="new-todo"
+      placeholder="What needs to be done?"
+      value=text
+      autofocus=true
+    }}
+
+    <input style="display: none" type="submit" value="submit" />
+  </form>
+</div>

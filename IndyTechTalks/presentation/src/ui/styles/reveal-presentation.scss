@@ -8,6 +8,7 @@
 // https://stackoverflow.com/questions/47841764/how-do-i-make-sure-an-iframes-aspect-ratio-is-responsive
 // aka, keeping aspect ratio
 .reveal-embedded-presentation-wrapper {
+  border: 1px solid black;
   position: relative;
   padding-bottom: 56.25%; // = 16:9
   width: 100%;
@@ -73,6 +74,7 @@
       padding: 10px 16px;
       padding-bottom: 20px;
       cursor: pointer;
+      color: white;
     }
 
     .speaker-controls-time .reset-button {

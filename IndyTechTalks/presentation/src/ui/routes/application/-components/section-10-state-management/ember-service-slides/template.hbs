@@ -1,0 +1,58 @@
+<Slide as |s|>
+  <h3>What about <span class='ember-color'>Ember</span>?</h3>
+
+  <s.Notes data-markdown>
+    - Ember doesn't have the Context provider/consumer pattern
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <h3><span class='ember-color'>Ember</span> has <em>Services</em>!</h3>
+</Slide>
+
+<BulletSlide @text='and dependency injection!' as |s|>
+  <s.Notes data-markdown>
+    - if you've used C#, or any dependency injection library, this'll be niiice
+  </s.Notes>
+</BulletSlide>
+
+<Slide as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+
+  {{code-snippet name='ember-service-definition.ts'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='state-management/ember/src/services/todos.ts'>
+    src/services/todos.ts
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    Differences compared with context:
+    - services are singletons
+    - live for the entire life of the application (only clears between refreshes)
+    - there is no ancestor / descendant relationship requirement to use
+    - can inject other services
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle><Title /></s.ContextTitle>
+
+  {{code-snippet name='ember-service-usage.ts'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='state-management/ember/src/ui/components/footer/component.ts'>
+    src/ui/components/footer/component.ts
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    - ember is a component/service framework
+    - a ton of functionality can be encapsulated in services
+      - the todo manager, the router, the data store, etc
+  </s.Notes>
+</Slide>
+
+

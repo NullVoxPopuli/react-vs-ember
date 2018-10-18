@@ -68,7 +68,7 @@ export default class Slides extends Component {
       height: 720,
       transitionSpeed: 'fast',
       slideNumber: true,
-      showSlideNumber: 'notes',
+      showSlideNumber: 'speaker',
     };
 
     if (this.width) {

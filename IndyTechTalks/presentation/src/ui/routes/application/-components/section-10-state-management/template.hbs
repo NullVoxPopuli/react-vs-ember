@@ -1,4 +1,30 @@
-
 <SectionTitleSlide as |s|>
   <s.Title>State Management</s.Title>
+  <s.Notes data-markdown>
+    This is kind of a big topic -- especially in the react community.
+  </s.Notes>
 </SectionTitleSlide>
+
+<BulletSlide @text='Where does business logic go?' />
+<BulletSlide @text='Local State?' />
+<BulletSlide @text='Redux?' />
+<BulletSlide @text='Non-Redux? (React Context or other)' />
+<BulletSlide @text='... Dependency Injection?!!?' />
+<BulletSlide @text='¯\_(ツ)_/¯' as |s|>
+  <s.Notes data-markdown>
+    It kinda depends -- lets take a look at what each looks like, after a demo!
+  </s.Notes>
+</BulletSlide>
+
+<DemoSlide as |s|>
+  <TodoMvc />
+
+  <s.Notes data-markdown>
+    The following code is from various implementations
+    of the classic TodoMVC app.
+  </s.Notes>
+</DemoSlide>
+
+<ReduxSlides />
+<ReactContextSlides />
+<EmberServiceSlides />

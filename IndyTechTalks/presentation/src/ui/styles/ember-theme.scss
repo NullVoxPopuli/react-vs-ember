@@ -79,7 +79,8 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: rgb(242, 56, 24);
+  // color: rgb(242, 56, 24);
+  color: white;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -88,7 +89,8 @@ body {
   transition: color .15s ease; }
 
 .reveal a:not(.image):hover {
-  color: rgb(242, 56, 24);
+  // color: rgb(242, 56, 24);
+  color: white;
   font-weight: 700;
   text-shadow: none;
   border: none; }
