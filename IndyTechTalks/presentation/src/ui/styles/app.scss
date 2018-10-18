@@ -42,10 +42,16 @@ a.icon-link {
     section {
       @import './spacing';
       @import './demos/todomvc';
+      @import './demos/tree';
 
       &.align-top {
         top: 0 !important;
         min-height: 100% !important;
+
+        .contextual-title {
+          position: static;
+          text-align: left;
+        }
       }
 
       &.present {
@@ -67,6 +73,7 @@ a.icon-link {
       .circle {
         border-radius: 50%;
       }
+
 
       table {
         th {
@@ -98,12 +105,12 @@ a.icon-link {
 
   }
 
-  .react-color, .react-color h3, .react-color h4 {
+  .react-color, .react-color h3, .react-color h4, .react-color a:not(.image) {
     color: #61dafb;
     // text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
   }
 
-  .ember-color, .ember-color h3, .ember-color h4 {
+  .ember-color, .ember-color h3, .ember-color h4, .ember-color a:not(.image) {
     color: #f23819;
     // text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
   }

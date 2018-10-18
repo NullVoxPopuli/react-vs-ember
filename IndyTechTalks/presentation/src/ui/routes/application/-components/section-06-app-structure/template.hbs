@@ -1,0 +1,132 @@
+<SectionTitleSlide as |s|>
+  <s.Title>Project Structure</s.Title>
+</SectionTitleSlide>
+
+<Slide as |s|>
+  <s.ContextTitle><span class='react-color'>React</span> Project Structure</s.ContextTitle>
+  <h3>move files around until it feels right</h3>
+  <span class='is-size-7'>
+    this is
+    <ExternalLink @to='https://mobile.twitter.com/dan_abramov/status/1027248875072114689'>
+      not a joke
+    </ExternalLink>
+  </span>
+
+  <ExternalLink
+    class='is-size-4'
+    style='position: fixed; bottom: 40px;'
+    @to='https://react-file-structure.surge.sh/'>
+    react-file-structure.surge.sh
+  </ExternalLink>
+
+  <s.Notes data-markdown>
+    - This sounds great.
+    - Though, for any project lasting longer than a day, it may be naiive
+    - But this much flexibility can be a rather large footgun until a person has built several large react apps.
+    - Hard to enforce across multiple team members, because there is nothing to enforce.
+  </s.Notes>
+</Slide>
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle><span class='ember-color'>Ember</span> Project Structure</s.ContextTitle>
+
+  <div class='flex-row justify-content-start'>
+    <div class='flex-column flex-width-50'>
+      <h4>"Classic"</h4>
+
+      <div class='tree-container start-expanded'>
+        <ProjectStructureRenderer @tree={{this.classicTree}} />
+      </div>
+    </div>
+    <div class='flex-column flex-width-50'>
+      <h4>Module Unification</h4>
+
+      <div class='tree-container start-expanded'>
+        <ProjectStructureRenderer @tree={{this.muTree}} />
+      </div>
+    </div>
+  </div>
+
+  <s.Notes data-markdown>
+    In Ember, project structure is programatically enforced.
+     - no one on any teams needs to decide where things need to go, there is a place.
+     - structure enforcement is handled by the ember-resolver
+
+    NOTE: Module Unification is not yet released, and is considered experimental for now
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>Project Stricture for All</s.ContextTitle>
+
+  <div class='tree-container start-expanded'>
+    <ProjectStructureRenderer @tree={{this.genericTree}} />
+  </div>
+
+  <s.Notes data-markdown>
+    Can be used in all ecosystems,
+    React, Ember, Vue, Angular, etc
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <span class='react-color'>React</span>
+    &amp;
+    <span class='ember-color'>Ember</span> - Redux
+  </s.ContextTitle>
+
+  <div class='flex-row justify-content-start'>
+    <div class='flex-column flex-width-50'>
+      <h4 class='react-color'>React</h4>
+
+      <div class='tree-container start-expanded'>
+        <ProjectStructureRenderer @tree={{this.reactReduxTree}} />
+      </div>
+    </div>
+    <div class='flex-column flex-width-50'>
+      <h4 class='ember-color'>Ember</h4>
+
+      <div class='tree-container start-expanded'>
+        <ProjectStructureRenderer @tree={{this.emberReduxTree}} />
+      </div>
+    </div>
+  </div>
+
+  <s.Notes data-markdown></s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <span class='react-color'>React</span>
+    &amp;
+    <span class='ember-color'>Ember</span> - Real Projects
+  </s.ContextTitle>
+
+  <div class='flex-row justify-content-start'>
+    <div class='flex-column flex-width-50'>
+      <h4 class='react-color'>
+        <ExternalLink @to='https://github.com/sillsdev/appbuilder-portal/'>
+          SIL App Builder
+        </ExternalLink>
+      </h4>
+
+      <div class='tree-container start-expanded'>
+        <ProjectStructureRenderer @tree={{this.silAppBuilderTree}} />
+      </div>
+    </div>
+    <div class='flex-column flex-width-50'>
+      <h4 class='ember-color'>
+        <ExternalLink @to='https://emberclear.io'>emberclear</ExternalLink>
+      </h4>
+
+      <div class='tree-container start-expanded'>
+        <ProjectStructureRenderer @tree={{this.emberclearTree}} />
+      </div>
+    </div>
+  </div>
+
+  <s.Notes data-markdown></s.Notes>
+</Slide>
