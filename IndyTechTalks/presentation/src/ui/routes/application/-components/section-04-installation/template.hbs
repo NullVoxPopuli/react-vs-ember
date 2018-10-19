@@ -7,8 +7,8 @@
 <ReactSlide />
 
 <Slide as |s|>
-  <s.ContextTitle class='contextual-title react-color'>
-    React - starting a new project
+  <s.ContextTitle>
+    <span class='react-color'>React</span> - starting a new project
   </s.ContextTitle>
 
   <h3>Webpack</h3>
@@ -22,8 +22,8 @@
 
 
 <Slide as |s|>
-  <s.ContextTitle class='contextual-title react-color'>
-    React - starting a new project
+  <s.ContextTitle>
+    <span class='react-color'>React</span> - starting a new project
   </s.ContextTitle>
 
   <div class='has-text-left'>
@@ -45,8 +45,8 @@
 
 
 <Slide as |s|>
-  <s.ContextTitle class='contextual-title ember-color'>
-    Ember - starting a new project
+  <s.ContextTitle>
+    <span class='ember-color'>Ember</span> - starting a new project
   </s.ContextTitle>
 
   <h4 class='w-50 margin-center force-large'>{{code-snippet name='ember-new.bash'}}</h4>
@@ -54,5 +54,35 @@
   <s.Notes data-markdown>
     Core to ember
     - never going to fall behind, as the ember-cli is required for building ember apps
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <span class='ember-color'>Ember</span> - starting a new project
+  </s.ContextTitle>
+
+  <ul>
+    <li>ember-cli is core to ember</li>
+    <li>sets up for you:
+      <ul>
+        <li>Bundling</li>
+        <li>Acceptance, integration, and unit testing</li>
+        <li>Routing</li>
+        <li>Travis CI config</li>
+        <li>Linting</li>
+        <li>Build Environments</li>
+        <li>Asset fingerprinting</li>
+      </ul>
+    </li>
+    <li>configuration is not hidden</li>
+  </ul>
+
+  <s.Notes data-markdown>
+    Core to ember
+    - never going to fall behind, as the ember-cli is required for building ember apps
+    - tests are against a real browser
+    - configuration is well documented
   </s.Notes>
 </Slide>

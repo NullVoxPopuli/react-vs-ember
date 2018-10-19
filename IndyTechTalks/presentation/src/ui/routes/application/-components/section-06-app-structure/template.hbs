@@ -30,7 +30,7 @@
 <Slide class='align-top' as |s|>
   <s.ContextTitle><span class='ember-color'>Ember</span> Project Structure</s.ContextTitle>
 
-  <div class='flex-row justify-content-start'>
+  <div class='flex-row justify-content-start height-100'>
     <div class='flex-column flex-width-50'>
       <h4>"Classic"</h4>
 
@@ -57,11 +57,13 @@
 </Slide>
 
 
-<Slide as |s|>
+<Slide class='align-top' as |s|>
   <s.ContextTitle>Project Stricture for All</s.ContextTitle>
 
-  <div class='tree-container start-expanded'>
-    <ProjectStructureRenderer @tree={{this.genericTree}} />
+  <div class='flex-row justify-content-start height-100 w-100'>
+    <div class='tree-container start-expanded flex-grow'>
+      <ProjectStructureRenderer @tree={{this.genericTree}} />
+    </div>
   </div>
 
   <s.Notes data-markdown>
@@ -70,14 +72,14 @@
   </s.Notes>
 </Slide>
 
-<Slide as |s|>
+<Slide class='align-top' as |s|>
   <s.ContextTitle>
     <span class='react-color'>React</span>
     &amp;
     <span class='ember-color'>Ember</span> - Redux
   </s.ContextTitle>
 
-  <div class='flex-row justify-content-start'>
+  <div class='flex-row justify-content-start height-100'>
     <div class='flex-column flex-width-50'>
       <h4 class='react-color'>React</h4>
 
@@ -105,7 +107,7 @@
     <span class='ember-color'>Ember</span> - Real Projects
   </s.ContextTitle>
 
-  <div class='flex-row justify-content-start'>
+  <div class='flex-row justify-content-start height-100'>
     <div class='flex-column flex-width-50'>
       <h4 class='react-color'>
         <ExternalLink @to='https://github.com/sillsdev/appbuilder-portal/'>
