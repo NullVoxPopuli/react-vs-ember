@@ -1,0 +1,18 @@
+{{#if this.containsTree}}
+  <ul id={{this.clickId}} class='tree'>
+    <li class='{{if this.isFile 'file' 'folder'}}'>
+      <a
+        class='{{if this.isFile 'file' 'folder'}}'
+        {{action this.onClick}}
+      >
+        {{@tree.name}}
+      </a>
+
+      {{#if @tree.children}}
+        {{#each @tree.children as |branch|}}
+          <ProjectStructureRenderer @tree={{branch}} />
+        {{/each}}
+      {{/if}}
+    </li>
+  </ul>
+{{/if}}
