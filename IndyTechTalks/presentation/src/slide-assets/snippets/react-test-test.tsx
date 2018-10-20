@@ -2,45 +2,56 @@ import { describe } from '@bigtest/mocha';
 import { visit } from '@bigtest/react';
 import { expect } from 'chai';
 
-import { setupApplicationTest } from 'tests/helpers/index';
-import app from 'tests/helpers/pages/app';
+import { setupApplicationTest } from 'tests/helpers';
+import firstTodo from 'tests/helpers/pages/first-todo';
 
-describe('Acceptance | list filtering', function() {
-  setupApplicationTest({
-    todos: { all: [
-      { id: 1, text: 'not completed', completed: false },
-      { id: 2, text: 'also not completed', completed: false },
-      { id: 3, text: 'completed', completed: true }
-    ] }
-  });
+describe('Acceptance | todo editing', () => {
+  setupApplicationTest();
 
-  describe('listing all todos', () => {
+  describe('the initial todo', () => {
     beforeEach(async () => {
-      await app.clickAll();
+      await visit('/');
     });
 
-    it('displays everything', () => {
-      expect(app.allTodosCount).to.eq(3);
-    });
-  })
-
-  describe('listing active todos', () => {
-    beforeEach(async () => {
-      await app.clickActive();
+    it('starts in display mode', () => {
+      expect(firstTodo.isEditing).to.be.false;
     });
 
-    it('displays only the active todos', () => {
-      expect(app.allTodosCount).to.eq(2);
-    });
-  });
+    describe('the label is clicked', () => {
+      beforeEach(async () => {
+        await firstTodo.clickLabel();
+      });
 
-  describe('listing only completed todos', () => {
-    beforeEach(async () => {
-      await app.clickCompleted();
+      it('is in editing mode', () => {
+        expect(firstTodo.isEditing).to.be.true;
+      });
+
+      describe('changing the text', () => {
+        const newText = 'Some new text or something';
+
+        beforeEach(async () => {
+          expect(firstTodo.label).not.contain(newText);
+
+          await firstTodo.fill(newText);
+          await firstTodo.blur();
+        });
+
+        it('is updated', () => {
+          expect(firstTodo.label).to.contain(newText);
+        });
+      });
     });
 
-    it('displays only the completed todo', () => {
-      expect(app.allTodosCount).to.eq(1);
+    describe('completion', () => {
+      beforeEach(async () => {
+        expect(firstTodo.isCompleted).to.be.false;
+
+        await firstTodo.toggle();
+      });
+
+      it('is completed', () => {
+        expect(firstTodo.isCompleted).to.be.true;
+      });
     });
   });
 });

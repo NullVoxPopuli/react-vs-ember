@@ -142,30 +142,44 @@
 
   <SupportingCodeLink
     class='is-size-4'
-    @to='testing/react/tests/acceptance/list-filtering-test.tsx'
+    @to='testing/react/tests/acceptance/todo-editing-test.ts'
   >
-    tests/acceptance/list-filtering-test.tsx
+    tests/acceptance/todo-editing-test.ts
   </SupportingCodeLink>
 </Slide>
-
 
 <Slide class='align-top' as |s|>
   <s.ContextTitle>
     <ReactWord /> - Testing
   </s.ContextTitle>
 
-  <div class='scrollable-code'>
-    {{code-snippet name='react-test-page.ts'}}
+  <div class='flex-row'>
+    <div class='flex-column flex-width-50'>
+      {{code-snippet name='react-test-page2.ts'}}
+
+      <SupportingCodeLink
+        class='is-size-4'
+        @to='testing/react/tests/helpers/pages/app.ts'
+      >
+        tests/helpers/pages/app.ts
+      </SupportingCodeLink>
+    </div>
+
+    <div class='flex-column flex-width-50 p-l-lg'>
+      <div class='scrollable-code'>
+        {{code-snippet name='react-test-page.ts'}}
+      </div>
+
+      <SupportingCodeLink
+        class='is-size-4'
+        @to='testing/react/tests/helpers/pages/first-todo.ts'
+      >
+        tests/helpers/pages/first-todo.ts
+      </SupportingCodeLink>
+    </div>
   </div>
 
-  <SupportingCodeLink
-    class='is-size-4'
-    @to='testing/react/tests/helpers/pages/first-todo.ts'
-  >
-    tests/helpers/pages/first-todo.ts
-  </SupportingCodeLink>
 </Slide>
-
 
 <Slide as |s|>
   <s.ContextTitle>
@@ -211,7 +225,7 @@
         class='is-size-4'
         @to='testing/ember/tests/helpers/pages/app.ts'
       >
-        tests/helpers/pages/first-todo.ts
+        tests/helpers/pages/app.ts
       </SupportingCodeLink>
     </div>
 
