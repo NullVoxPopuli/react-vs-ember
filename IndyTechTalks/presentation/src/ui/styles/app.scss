@@ -43,6 +43,8 @@ a.icon-link {
       @import './spacing';
       @import './demos/todomvc';
       @import './demos/tree';
+      @import './utilities/shadows';
+      @import './utilities/code';
 
       &.align-top {
         top: 0 !important;

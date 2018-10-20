@@ -1,6 +1,8 @@
-<Slide ...attributes>
+<Slide ...attributes as |s|>
   {{#if @title}}
     <h3>{{@title}}</h3>
   {{/if}}
   {{code-snippet name=@name}}
+
+  {{yield s}}
 </Slide>

@@ -43,7 +43,12 @@ body {
   line-height: 0.9em;
   letter-spacing: 0.02em;
   text-transform: none;
-  text-shadow: none; }
+  text-shadow: none;
+
+  strong {
+    color: white;
+  }
+}
 
 .reveal h3 {
   font-weight: 600; }

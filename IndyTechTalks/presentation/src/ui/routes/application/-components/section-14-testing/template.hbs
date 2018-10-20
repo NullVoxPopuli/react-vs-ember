@@ -1,5 +1,13 @@
 <SectionTitleSlide as |s|>
   <s.Title>Testing</s.Title>
+
+  <s.Notes data-markdown>
+    - nearly all of the testing libraries can essentially do the same thing
+    - it's more a question of configuration, and DX
+    - over the next few slides, I'll be more focused on Integration or Acceptance
+      testing, because that's harder, and nearly always ignored in SPA apps.
+      Unit testing is trivial by comparison.
+  </s.Notes>
 </SectionTitleSlide>
 
 <Slide as |s|>
@@ -12,11 +20,17 @@
     <ReactWord /> - Testing
   </s.ContextTitle>
 
-  <h3>Jest, Enzyme</h3>
+  <h3>Jest & Enzyme</h3>
 
   <s.Notes data-markdown>
-    - No matter the toolset, hooking up the testing tools
+    - The most common / recommended way to test react mocks everything by default, including the browser.
+    - what are you testing against? when you use Jest and Enzyme?
+    - React guides say nothing about testing, but they do have a TestRenderer class with documentation
+      - somewhat recommends using Jest by mentioning it's worst feature. Snapshotting.
+
+      - No matter the toolset, hooking up the testing tools
       to your project will be a manual process
+
   </s.Notes>
 </Slide>
 
@@ -25,9 +39,193 @@
     <EmberWord /> - Testing
   </s.ContextTitle>
 
+  <Image @of='ember.png' class='w-50' />
+
   <s.Notes data-markdown>
     - Everything needed for testing is bundeled with ember
     - 0 setup
     - 0 config
+    - lots of documentation and guides for how to use.
+    - uses a real browser, and has very good DX for simulating users
   </s.Notes>
 </Slide>
+
+<Slide as |s|>
+  <s.ContextTitle>Testing</s.ContextTitle>
+
+  <Image @of='bigtest.svg' class='w-60' />
+
+  <h4 class='w-70 margin-center'>
+    A Suite of JavaScript libraries and framework extensions to help you answer the question:
+    <br><br>
+    <strong><em>Does my application work in real life?</em></strong>
+  </h4>
+
+  <s.Notes data-markdown>
+    - BigTest is interesting because the approach they're using is framework agnostic,
+      - can work with React, Angular, Vue, Ember, etc
+    - After discovering BigTest, I personally refuse to ever work with the jest+enzyme ever again.
+      - This includes all the React projects done at developertown.
+      - Like with the ember tests, you can test user interaction very easily, and that is more important
+        than anything else when it comes down to knowing if your app works or not.
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - Testing
+  </s.ContextTitle>
+
+  {{code-snippet name='react-test-app.tsx'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='testing/react/src/ui/application.tsx'
+  >
+    src/ui/application.tsx
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    - Given a application's "main" file
+    - How do you tell your testing tools to mount this with enough flexibility to stub the route and state?
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - Testing
+  </s.ContextTitle>
+
+  {{code-snippet name='react-test-helpers-mounting.tsx'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='testing/react/tests/helpers/index.tsx'
+  >
+    tests/helpers/index.tsx
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    - mount the whole app by default, allowing testing of individual components
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - Testing
+  </s.ContextTitle>
+
+  {{code-snippet name='react-test-helpers-mounting2.tsx'}}
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='testing/react/tests/helpers/index.tsx'
+  >
+    tests/helpers/index.tsx
+  </SupportingCodeLink>
+
+  <s.Notes data-markdown>
+    - now, setupApplicationTest can be used throughout tests that look like this:
+  </s.Notes>
+</Slide>
+
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - Testing
+  </s.ContextTitle>
+
+  <div class='scrollable-code'>
+    {{code-snippet name='react-test-test.tsx'}}
+  </div>
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='testing/react/tests/acceptance/list-filtering-test.tsx'
+  >
+    tests/acceptance/list-filtering-test.tsx
+  </SupportingCodeLink>
+</Slide>
+
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - Testing
+  </s.ContextTitle>
+
+  <div class='scrollable-code'>
+    {{code-snippet name='react-test-page.ts'}}
+  </div>
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='testing/react/tests/helpers/pages/first-todo.ts'
+  >
+    tests/helpers/pages/first-todo.ts
+  </SupportingCodeLink>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <EmberWord /> - Testing
+  </s.ContextTitle>
+
+  <Image @of='ember.png' class='w-50' />
+
+  <s.Notes data-markdown>
+    - back to ember, what does the same look like?
+  </s.Notes>
+</Slide>
+
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    <EmberWord /> - Testing
+  </s.ContextTitle>
+
+  <div class='scrollable-code'>
+    {{code-snippet name='ember-test-test.ts'}}
+  </div>
+
+  <SupportingCodeLink
+    class='is-size-4'
+    @to='testing/ember/tests/acceptance/todo-editing-test.ts'
+  >
+    tests/acceptance/todo-editing-test.ts
+  </SupportingCodeLink>
+</Slide>
+
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    <EmberWord /> - Testing
+  </s.ContextTitle>
+
+  <div class='flex-row'>
+    <div class='flex-column flex-width-50'>
+      {{code-snippet name='ember-test-page.ts'}}
+
+      <SupportingCodeLink
+        class='is-size-4'
+        @to='testing/ember/tests/helpers/pages/app.ts'
+      >
+        tests/helpers/pages/first-todo.ts
+      </SupportingCodeLink>
+    </div>
+
+    <div class='flex-column flex-width-50 p-l-lg'>
+      {{code-snippet name='ember-test-page2.ts'}}
+
+      <SupportingCodeLink
+        class='is-size-4'
+        @to='testing/ember/tests/helpers/pages/first-todo.ts'
+      >
+        tests/helpers/pages/first-todo.ts
+      </SupportingCodeLink>
+    </div>
+  </div>
+
+</Slide>
+
