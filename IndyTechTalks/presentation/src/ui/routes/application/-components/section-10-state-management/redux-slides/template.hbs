@@ -45,14 +45,16 @@
   <s.Notes data-markdown>
     - data-down, action-up (DDAU)
     - if you've been doing react and/or ember for a while, you may already be doing this but just not know it
+    - this is kind of the standard way of breaking apart functionality from more business logic type things and display / templates
   </s.Notes>
 </Slide>
 
 <BulletSlide @text='DDAU' as |s|>
   <s.Notes data-markdown>
     - Data Down, Actions Up
-    - Some people have taken this too far,
+    - Some people have taken this too far (resulting in prop drilling),
       as have people adhering to container and presentational components.
+    - prop drilling is where you pass the same props through many layers (components, or whatever)
     - Passing giant masses of props is not ok.
   </s.Notes>
 </BulletSlide>

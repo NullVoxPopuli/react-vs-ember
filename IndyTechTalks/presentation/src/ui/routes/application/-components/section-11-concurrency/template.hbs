@@ -10,5 +10,16 @@
   </s.Notes>
 </DemoSlide>
 
-<CodeSlide class='ember-color' @title='Ember' @name='ember-async-button.ts' />
-<CodeSlide class='ember-color' @title='Ember' @name='ember-async-button-template.hbs' />
+<Slide as |s|>
+  <h3><EmberWord /></h3>
+
+  <div class='flex-row'>
+    <s.LeftCode @name='ember-async-button.ts' />
+    <s.RightCode @name='ember-async-button-template.hbs' />
+  </div>
+
+  <s.Notes data-markdown>
+    - the addon Ember concurrency powers most of this
+    - uses generator function to implement cancel-able promises
+  </s.Notes>
+</Slide>

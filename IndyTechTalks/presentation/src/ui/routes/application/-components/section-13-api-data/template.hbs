@@ -67,7 +67,7 @@
   </div>
 
   <s.Notes data-markdown>
-    -
+    - this is more of a real-world example of how using fetch with an external app-level state-store would be used together
   </s.Notes>
 </Slide>
 
@@ -100,4 +100,13 @@
       {{code-snippet name='ember-api-data-fetch-person-template.hbs'}}
     </s.RightCode>
   </div>
+
+  <s.Notes data-markdown>
+    - cache is handled for me
+    - because the routes are managed at the service layer,
+      there is no need to worry about a higher up the tree component
+      causing a re-render and a refetch.
+    - the there are also before and after model hooks that can be used
+      for authorization checks or setting up additional services
+  </s.Notes>
 </Slide>

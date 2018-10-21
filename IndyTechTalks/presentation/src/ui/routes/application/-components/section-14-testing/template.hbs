@@ -12,6 +12,16 @@
 
 <Slide as |s|>
   <Image @of='testing-quote.png' class='w-75' />
+
+  <s.Notes data-markdown>
+    - It's baffling to me that all of these component libraries only test with a fake DOM.
+
+    You're testing against something fake.
+
+    You're punchinga  hole in reality to make testing 'easier'.
+
+    Same reason I never really cared for PhantomJS. Users don't use Phantom.
+  </s.Notes>
 </Slide>
 
 
@@ -64,6 +74,7 @@
   <s.Notes data-markdown>
     - BigTest is interesting because the approach they're using is framework agnostic,
       - can work with React, Angular, Vue, Ember, etc
+
     - After discovering BigTest, I personally refuse to ever work with the jest+enzyme ever again.
       - This includes all the React projects done at developertown.
       - Like with the ember tests, you can test user interaction very easily, and that is more important
@@ -209,6 +220,11 @@
   >
     tests/acceptance/todo-editing-test.ts
   </SupportingCodeLink>
+
+
+  <s.Notes data-markdown>
+    no need to set anything up, so we can just jump right to the test
+  </s.Notes>
 </Slide>
 
 
