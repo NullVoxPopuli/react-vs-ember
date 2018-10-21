@@ -2,16 +2,76 @@
   <s.Title>Concurrency</s.Title>
 </Slide>
 
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>What can concurrency do for you?</s.ContextTitle>
+  <ConcurrencyExamples />
+</Slide>
+
 <DemoSlide as |s|>
   <AsyncButton />
 
   <s.Notes data-markdown>
     This is the canonical way
+
+    Pretty simple, yeah? so what problems does proper concurrency-handling solve?
   </s.Notes>
 </DemoSlide>
 
+
 <Slide as |s|>
-  <h3><EmberWord /></h3>
+  <s.ContextTitle><ReactWord /> - Concurrency</s.ContextTitle>
+
+  <Image @of='redux-saga.png' />
+
+  <s.Notes data-markdown>
+    - redux saga is the go-to way to handle concurrency in react-based projects,
+      especially since so many projects use redux as the state management
+
+    - lets see what it takes to implement the button from the demo
+  </s.Notes>
+</Slide>
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle><ReactWord /> - Concurrency</s.ContextTitle>
+  <div class='flex-column scrollable-code'>
+    {{code-snippet name='react-sagas-setup.ts'}}
+    <SupportingCodeLink
+      class='is-size-4'
+      @to='concurrency/react/src/redux-store/api-data/some-resource/click.ts'
+    >
+      src/redux-store/ ... /click.ts
+    </SupportingCodeLink>
+
+  </div>
+</Slide>
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle><ReactWord /> - Concurrency</s.ContextTitle>
+
+  <div class='flex-row'>
+    <s.LeftCode @name='react-sagas-container.tsx'>
+      <SupportingCodeLink
+        class='is-size-4'
+        @to='concurrency/react/src/ui/components/async-button/index.tsx'
+      >
+        src/ui/components/async-button/index.tsx
+      </SupportingCodeLink>
+    </s.LeftCode>
+
+    <s.RightCode @name='react-sagas-display.tsx'>
+      <SupportingCodeLink
+        class='is-size-4'
+        @to='concurrency/react/src/ui/components/async-button/display.tsx'
+      >
+        src/ui/components/async-button/display.tsx
+      </SupportingCodeLink>
+    </s.RightCode>
+  </div>
+
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle><EmberWord /> - Concurrency</s.ContextTitle>
 
   <div class='flex-row'>
     <s.LeftCode @name='ember-async-button.ts' />

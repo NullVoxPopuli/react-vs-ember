@@ -386,8 +386,6 @@ const emberclearTree = [
   ['translations']
 ];
 
-console.log(expand(classicTree));
-
 export default class extends Component {
   classicTree = expand(classicTree);
   muTree = expand(muTree);

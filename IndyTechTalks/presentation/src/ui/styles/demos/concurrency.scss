@@ -1,0 +1,18 @@
+.concurrency-demo {
+  font-size: 4rem;
+  height: 100%;
+
+  .concurrency-actions {
+    display: block;
+    height: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  svg {
+    background: white;
+    // transform: scale(1, 2) translateY(50%);
+    // position: absolute;
+    // bottom: 7rem;
+    // left: 0;
+  }
+}

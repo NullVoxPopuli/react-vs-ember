@@ -1,0 +1,38 @@
+<button onClick={{action 'setDemo' 'default'}}>
+  Concurrent
+</button>
+<button onClick={{action 'setDemo' 'restartable'}}>
+  Restartable
+</button>
+<button onClick={{action 'setDemo' 'enqueued'}}>
+  Enqueued
+</button>
+<button onClick={{action 'setDemo' 'drop'}}>
+  Droppable
+</button>
+<button onClick={{action 'setDemo' 'keepLatest'}}>
+  KeepLatest
+</button>
+
+
+<div class='concurrency-demo'>
+  {{#if (eq this.demo 'default')}}
+    {{concurrency-graph task=defaultTask}}
+  {{/if}}
+
+  {{#if (eq this.demo 'restartable')}}
+    {{concurrency-graph task=restartableTask}}
+  {{/if}}
+
+  {{#if (eq this.demo 'enqueued')}}
+    {{concurrency-graph task=enqueuedTask}}
+  {{/if}}
+
+  {{#if (eq this.demo 'drop')}}
+    {{concurrency-graph task=droppingTask}}
+  {{/if}}
+
+  {{#if (eq this.demo 'keepLatest')}}
+    {{concurrency-graph task=keepLatestTask}}
+  {{/if}}
+</div>

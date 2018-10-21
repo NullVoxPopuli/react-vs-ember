@@ -48,6 +48,7 @@ a.icon-link {
       @import './utilities/shadows';
       @import './utilities/code';
       @import './loader';
+      @import './demos/concurrency';
 
       &.align-top {
         top: 0 !important;
