@@ -4,22 +4,48 @@
   "license": "MIT",
   "main": "src/index.html",
   "scripts": {
+    "check-types": "./node_modules/.bin/tsc",
+    "check-types:watch": "./node_modules/.bin/tsc --watch",
     "parcel": "./node_modules/.bin/parcel",
-    "start": "yarn parcel src/index.html --hmr-port $HMR_PORT -p $PORT"
+    "start": "NODE_ENV=development webpack-dev-server"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.1.0",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^6.0.0",
+    "@types/redux-saga": "^0.10.5",
+    "babel-loader": "^8.0.4",
     "babel-plugin-module-resolver": "^3.1.1",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.0",
-    "parcel-bundler": "^1.6.2",
-    "typescript": "^2.7.2"
+    "react-hot-loader": "^4.3.11",
+    "sass-loader": "^7.1.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "typescript": "3.1.3",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   }
 }

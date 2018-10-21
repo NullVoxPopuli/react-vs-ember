@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 interface IProps {
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLElement>) => any;
   isRunning: boolean;
   clickCount: number;
   lastCoords: string;

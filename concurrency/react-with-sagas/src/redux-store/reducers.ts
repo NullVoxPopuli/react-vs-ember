@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 
 import {
-  State as TodoState,
-  reducer as todosReducer
-} from './todos';
+  State as AsyncButtonState,
+  reducer as asyncButtonReducer
+} from './api-data/some-resource';
 
 export interface State{
-  todos: TodoState
+  asyncButton: AsyncButtonState
 }
 
 export const reducers = combineReducers({
-  todos: todosReducer
+  asyncButton: asyncButtonReducer
 });

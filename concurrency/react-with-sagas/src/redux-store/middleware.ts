@@ -1,21 +1,25 @@
 import { Store, Middleware } from "redux";
+import createSagaMiddleware from 'redux-saga'
+import { all } from 'redux-saga/effects';
 
-// This project does not need sagas, as
-// as async behavior will be covered in a subsequent blog post
+import { saga as asyncButtonSaga } from './api-data/some-resource';
 
-
-// import createSagaMiddleWare from 'redux-saga';
-
-// const createSaga = createSagaMiddleWare.default ?
+// const createSaga = createSagaMiddleware.default ?
 //   createSagaMiddleWare.default :
 //   createSagaMiddleWare;
 
-// const sagaMiddleware = createSaga();
+const sagaMiddleware = createSagaMiddleware();
+
+function * rootSaga() {
+  yield all([
+    asyncButtonSaga()
+  ]);
+}
 
 export const setup = (store: Store<any>) => {
-  // sagaMiddleware.run(addAsync);
+  sagaMiddleware.run(rootSaga);
 };
 
 export const middleware: Middleware[] =  [
-  // sagaMiddleware
+  sagaMiddleware
 ]
