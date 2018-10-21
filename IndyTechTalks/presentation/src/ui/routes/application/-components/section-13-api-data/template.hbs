@@ -1,4 +1,103 @@
+<BulletSlide @text='What is routing really used for?' as |s|>
+  <s.Notes data-markdown>
+    - mananging data presented to the user
+    - getting data from an api
+    - or displaying different static pre-defined data
+    - or displaying data that was previously fetched from elsewhere in your application
+    - or allowing the user to create or edit data
+  </s.Notes>
+</BulletSlide>
+
 <SectionTitleSlide as |s|>
   <s.Title>API Data</s.Title>
 </SectionTitleSlide>
 
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    Demo: Fetching StarWars People
+  </s.ContextTitle>
+
+  <FetchingDemo />
+
+  {{outlet}}
+</Slide>
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - API Data
+  </s.ContextTitle>
+
+  <div class='flex-row'>
+    <s.LeftCode @name='react-api-data-fetch.tsx' />
+    <s.RightCode @name='react-api-data-fetch-usage.tsx' />
+  </div>
+
+  <s.Notes data-markdown>
+    - higher order components
+    - this is just a simple way of interacting with an api
+    - typically you'd want to sync fetched data with an app-level state store, such as redux or orbit.js, or apollo
+    - if you want to know what dealing with full `{ json:api }` compilant requests takes to deal with...
+  </s.Notes>
+</Slide>
+
+
+<Slide class='align-top' as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - API Data
+  </s.ContextTitle>
+
+  <div class='flex-row'>
+    <s.LeftCode @name='react-api-data-query-orbit.tsx'>
+      <ExternalLink
+        class='is-size-4'
+        @to='https://github.com/sillsdev/appbuilder-portal/blob/9aeecd044ea788e34856fbb7678d1d7dfda1b233/source/SIL.AppBuilder.Portal.Frontend/src/data/query.tsx'
+      >
+        @sillsdev/appbuilder-portal - src/data/query.tsx
+      </ExternalLink>
+    </s.LeftCode>
+
+    <s.RightCode @name='react-api-data-query-orbit-hoc.tsx'>
+      <ExternalLink
+        class='is-size-4'
+        @to='https://github.com/sillsdev/appbuilder-portal/blob/9aeecd044ea788e34856fbb7678d1d7dfda1b233/source/SIL.AppBuilder.Portal.Frontend/src/ui/routes/projects/show/with-data.tsx'
+      >
+        @sillsdev/appbuilder-portal - src/ui/routes/projects/show/with-data.tsx
+      </ExternalLink>
+    </s.RightCode>
+  </div>
+
+  <s.Notes data-markdown>
+    -
+  </s.Notes>
+</Slide>
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <EmberWord /> - API Data
+  </s.ContextTitle>
+
+  {{code-snippet name='ember-api-data-ember-data.ts'}}
+  <s.Notes data-markdown>
+    - This is how you'd typically get structured data
+    - there is an adapter and serializer layer you can use for normalizing your json.
+    - I however, didn't have time for that, so, in the demo I used the raw json via fetch:
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <EmberWord /> - API Data
+  </s.ContextTitle>
+
+  <div class='flex-row'>
+    <s.LeftCode>
+      {{code-snippet name='ember-api-data-fetch-people.ts'}}
+      {{code-snippet name='ember-api-data-fetch-people-template.hbs'}}
+    </s.LeftCode>
+    <s.RightCode>
+      {{code-snippet name='ember-api-data-fetch-person.ts'}}
+      {{code-snippet name='ember-api-data-fetch-person-template.hbs'}}
+    </s.RightCode>
+  </div>
+</Slide>

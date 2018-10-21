@@ -1,0 +1,13 @@
+<div class='flex-row'>
+{{!-- BEGIN-SNIPPET ember-api-data-fetch-people-template.hbs --}}
+  <div class='p-r-lg'>
+    {{#each model.people as |person|}}
+      {{#link-to 'starwars.person' person.id class='flex-row is-size-4'}}
+        id: {{person.id}} - {{person.name}}
+      {{/link-to}}
+    {{/each}}
+  </div>
+
+  <div class='p-l-lg'>{{outlet}}</div>
+{{!-- END-SNIPPET --}}
+</div>

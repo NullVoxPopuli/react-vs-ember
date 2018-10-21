@@ -7,8 +7,14 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('route-a');
-  this.route('route-b');
+  this.route('krusty-krab', function() {
+    this.route('call-one');
+    this.route('call-two');
+  });
+
+  this.route('starwars', function() {
+    this.route('person', { path: ':id'});
+  });
 });
 
 export default Router;

@@ -15,6 +15,7 @@
 @import 'node_modules/bulma/sass/elements/button';
 @import 'node_modules/bulma/sass/elements/form';
 @import 'node_modules/bulma/sass/elements/title';
+@import 'node_modules/bulma/sass/components/navbar';
 
 @import './flex';
 @import './width';
@@ -43,8 +44,10 @@ a.icon-link {
       @import './spacing';
       @import './demos/todomvc';
       @import './demos/tree';
+      @import './demos/routing';
       @import './utilities/shadows';
       @import './utilities/code';
+      @import './loader';
 
       &.align-top {
         top: 0 !important;
