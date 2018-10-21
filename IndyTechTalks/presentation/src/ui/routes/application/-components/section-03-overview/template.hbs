@@ -41,16 +41,21 @@
   @text='Few recommended ways of doing things'
   @subtext='but with options, just in case'
 />
-<BulletSlide class='ember-color' @text='Supported by a Community' />
+<BulletSlide class='ember-color' @text='Supported by a Community' as |s|>
+  <s.Notes data-markdown>
+    Truely open source
+  </s.Notes>
+</BulletSlide>
 
 
 <Slide as |s|>
   <h2>How do we compare these?</h2>
   <s.Notes data-markdown>
-    They have nothing in common
-
     - Ember provides most functionality you need to build an app
-    - React will need a lot of decisions made in order to build an app. The decisions made throughout will use a combination of community favorites, and tools less common to the community at large, but have overall very good DX (developer experience), comparable to ember's suite of tools.
+
+    - React will need a lot of decisions made in order to build an app.
+
+    The decisions made throughout this presentation for the react examples will use a combination of community favorites, and tools less common to the community at large, but have overall very good DX (developer experience) -- somewhat comparable to ember's suite of tools.
 
   </s.Notes>
 </Slide>

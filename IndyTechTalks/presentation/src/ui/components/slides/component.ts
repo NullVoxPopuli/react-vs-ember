@@ -4,6 +4,8 @@ import { action, observes } from '@ember-decorators/object';
 import { alias } from '@ember-decorators/object/computed';
 import { isPresent, isBlank } from '@ember/utils';
 import { instrument, subscribe } from '@ember/instrumentation';
+import { timeout } from 'ember-concurrency';
+import { task } from 'ember-concurrency-decorators';
 
 import RevealService, { IPresentationState } from 'react-vs-ember/services/reveal-service';
 
@@ -19,6 +21,7 @@ export default class Slides extends Component {
   backgroundTransition = 'none'; // none/fade/slide/convex/concave/zoom
   progress = true;
   center = true;
+  childWindow: any;
 
   didInsertElement() {
     this.initializeReveal();
@@ -99,7 +102,27 @@ export default class Slides extends Component {
       return;
     }
 
-    window.open(this.speakerNotesUrl(), 'reveal.js - Notes', 'width=1100,height=700');
+    // do not open another one...
+    if (this.childWindow) {
+      return;
+    }
+
+
+    const childWindow = window.open(this.speakerNotesUrl(), 'reveal.js - Notes', 'width=1100,height=700');
+
+    this.set('childWindow', childWindow);
+    this.checkForChildWindow.perform();
+  }
+
+  @task * checkForChildWindow() {
+    while(true) {
+      yield timeout(1000);
+
+      if (this.childWindow && this.childWindow.closed) {
+        this.set('childWindow', undefined);
+        return;
+      }
+    }
   }
 
 

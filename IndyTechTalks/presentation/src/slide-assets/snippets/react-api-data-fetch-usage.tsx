@@ -12,5 +12,5 @@ class StarWarsPerson extends React.Component {
 
 export default compose(
   withPerson(1),
-  withLoader(({ person }) => person)
-(StarWarsPerson)
+  withLoader(({ person }) => !person)
+)(StarWarsPerson);

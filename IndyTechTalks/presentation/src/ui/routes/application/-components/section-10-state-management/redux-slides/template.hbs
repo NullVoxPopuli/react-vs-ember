@@ -1,5 +1,11 @@
-<Slide>
+<Slide as |s|>
   <h3><Title /></h3>
+
+  <s.Notes data-markdown>
+    - for those not familiar with redux, redux provides an app-level immutable state that you can _connect_ to (via `connect`).
+
+    - details of setting up redux are outside the scope of this project (also, everyone does it differently)
+  </s.Notes>
 </Slide>
 
 <Slide as |s|>
@@ -43,9 +49,13 @@
   </p>
 
   <s.Notes data-markdown>
-    - data-down, action-up (DDAU)
     - if you've been doing react and/or ember for a while, you may already be doing this but just not know it
+
+    - data-down, action-up (DDAU)
+
     - this is kind of the standard way of breaking apart functionality from more business logic type things and display / templates
+
+    (maybe don't read the table, as people can kind of read it as I'm talking)
   </s.Notes>
 </Slide>
 
@@ -98,8 +108,6 @@
   </div>
 
   <s.Notes data-markdown>
-    - for those not familiar with redux, redux provides an app-level immutable state that you can _connect_ to (via `connect`).
-    - details of setting up redux are outside the scope of this project (also, everyone does it differently)
     - this is how data is pulled out of the state
     - pretty much the same
     - (explain more about what is going on with the code)

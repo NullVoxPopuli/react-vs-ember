@@ -1,5 +1,9 @@
 <SectionTitleSlide as |s|>
   <s.Title>Project Structure</s.Title>
+
+  <s.Notes data-markdown>
+    How do you organize all your components?
+  </s.Notes>
 </SectionTitleSlide>
 
 <Slide as |s|>
@@ -24,27 +28,31 @@
     - Though, for any project lasting longer than a day, it may be naiive
     - But this much flexibility can be a rather large footgun until a person has built several large react apps.
     - Hard to enforce across multiple team members, because there is nothing to enforce.
+
+
+    "eliminating the trivial differences between our apps",
   </s.Notes>
 </Slide>
 
 <Slide class='align-top' as |s|>
   <s.ContextTitle><span class='ember-color'>Ember</span> Project Structure</s.ContextTitle>
 
-  <div class='flex-row justify-content-start height-100'>
-    <div class='flex-column flex-width-50'>
+  <div class='flex-row'>
+    <s.LeftCode>
       <h4>"Classic"</h4>
 
       <div class='tree-container start-expanded'>
         <ProjectStructureRenderer @tree={{this.classicTree}} />
       </div>
-    </div>
-    <div class='flex-column flex-width-50'>
+    </s.LeftCode>
+
+    <s.RightCode>
       <h4>Module Unification</h4>
 
       <div class='tree-container start-expanded'>
         <ProjectStructureRenderer @tree={{this.muTree}} />
       </div>
-    </div>
+    </s.RightCode>
   </div>
 
   <s.Notes data-markdown>
@@ -69,6 +77,8 @@
   <s.Notes data-markdown>
     Can be used in all ecosystems,
     React, Ember, Vue, Angular, etc
+
+    Mental Model of code matches the model used for interacting with the app
   </s.Notes>
 </Slide>
 
@@ -96,11 +106,13 @@
     </div>
   </div>
 
-  <s.Notes data-markdown></s.Notes>
+  <s.Notes data-markdown>
+    redux is independent of framework, so you can simply copy-paste your redux folder between technologies as I've done here.
+  </s.Notes>
 </Slide>
 
 
-<Slide as |s|>
+<Slide class='align-top' as |s|>
   <s.ContextTitle>
     <span class='react-color'>React</span>
     &amp;

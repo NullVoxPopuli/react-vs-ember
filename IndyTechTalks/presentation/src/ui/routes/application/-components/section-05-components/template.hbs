@@ -1,11 +1,19 @@
-<BulletSlide @text='Components and Local State'/>
+<SectionTitleSlide>
+  <s.Title>Components and Local State</s.Title>
+</SectionTitleSlide>
 
 <DemoSlide>
   <EmberComponent />
 </DemoSlide>
 
 <CodeSlide class='react-color' @title='React' @name='react-component.tsx' />
-<CodeSlide class='ember-color' @title='Ember' @name='ember-component.ts' />
+<CodeSlide class='ember-color' @title='Ember' @name='ember-component.ts' as |s|>
+  <s.Notes data-markdown>
+    Be sure to mention computed property render optimization
+
+    @action is currently a semantic differentiator for an action that is exposed to the template
+  </s.Notes>
+</CodeSlide>
 
 <CodeSlide class='react-color' @title='React' @name='react-component-template.tsx' />
 <CodeSlide class='ember-color' @title='Ember' @name='ember-component-template.hbs' />
@@ -17,5 +25,16 @@
     <s.LeftCode @noScroll={{true}} @name='sparkles-component.ts' />
     <s.RightCode @name='sparkles-component-template.hbs' />
   </div>
+
+
+  <s.Notes data-markdown>
+    component manager -- allows for custom implementations of components
+
+    this particular implementation is native javascript/typescript, no need for this.set or this.setState from react.
+
+    the tracked decorator extracts the need to manage the component-level state asynchrony and batch-updating yourself
+
+
+  </s.Notes>
 </Slide>
 
