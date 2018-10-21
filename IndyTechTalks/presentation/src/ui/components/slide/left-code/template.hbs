@@ -1,4 +1,4 @@
-<div class='flex-column flex-width-50 w-50 scrollable-code'>
+<div class='flex-column flex-width-50 w-50 {{if @noScroll '' 'scrollable-code'}}'>
 
   {{#if @name}}
     {{code-snippet name=@name}}
