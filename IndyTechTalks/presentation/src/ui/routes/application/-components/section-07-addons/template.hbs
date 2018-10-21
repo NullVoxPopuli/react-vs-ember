@@ -8,7 +8,7 @@
 
 <Slide as |s|>
   <s.ContextTitle>
-    <span class='react-color'>React</span> - Adding Typescript
+    <ReactWord /> - Adding Typescript
   </s.ContextTitle>
 
   <div class='flex-row'>
@@ -61,3 +61,33 @@
     - The only thing it doesn't do is add typescript parsing to eslint
   </s.Notes>
 </Slide>
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <ReactWord /> - Addons
+  </s.ContextTitle>
+
+  <s.Title>just npm packages</s.Title>
+
+  <s.Notes data-markdown>
+    - super simple (most of the time)
+  </s.Notes>
+</Slide>
+
+
+<Slide as |s|>
+  <s.ContextTitle>
+    <EmberWord /> - Addons
+  </s.ContextTitle>
+
+  <s.Title>npm packages ... with conventions</s.Title>
+  <s.Notes data-markdown>
+    - addons in ember can...
+  </s.Notes>
+</Slide>
+
+<BulletSlide @text='hook in to the build pipeline' />
+<BulletSlide @text='install other addons' />
+<BulletSlide @text='provide additional cli functionality' />
+<BulletSlide @text='provide blueprints for generating files' />
+<BulletSlide @text='add files to build directories' @subtext='such as styles or other assets' />
