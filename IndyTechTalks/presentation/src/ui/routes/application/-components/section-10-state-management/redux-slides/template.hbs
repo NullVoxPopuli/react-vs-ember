@@ -64,6 +64,8 @@
     - Data Down, Actions Up
       - acronym used in ember, but the idea came from react
 
+    -------------------------
+
     - Some people have taken this too far (resulting in prop drilling),
       as have people adhering to container and presentational components.
     - prop drilling is where you pass the same props through many layers (components, or whatever)
@@ -113,6 +115,9 @@
     - this is how data is pulled out of the state
     - pretty much the same
     - (explain more about what is going on with the code)
+      - list is a function that selects a subset of data from a larger nested object (the app state)
+
+      - @args vs attrs in ember
   </s.Notes>
 </Slide>
 
@@ -159,6 +164,8 @@
     - this is how you setup things to send data back to the store
     - pretty much the same, kinda
       - because in React, components are more or less functions, React gets a clear win here as far as fewer lines of code
+
+    - you could make the argument here that the template of ember is the display/presentational component, but then it wouldn't be re-usage, so that's why the ember version of the container has a container template
   </s.Notes>
 
 </Slide>

@@ -1,9 +1,9 @@
 <TodoDisplay
   @todo={{todo}}
   @props={{hash
-    deleteTodo=(action "deleteTodo" todo.id)
-    completeTodo=(action "completeTodo" todo.id)
-    editTodo=(action "editTodo" todo.id)
+    deleteTodo=(action "deleteTodo")
+    completeTodo=(action "completeTodo")
+    editTodo=(action "editTodo")
     startEditing=(action "startEditing")
     doneEditing=(action "doneEditing")
   }}

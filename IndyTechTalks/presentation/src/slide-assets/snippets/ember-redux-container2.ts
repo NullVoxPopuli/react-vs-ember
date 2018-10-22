@@ -2,11 +2,11 @@ import Component from '@ember/component';
 import { connect } from 'ember-redux';
 import { edit, destroy, toggle } from 'example-app/src/redux-store/todos';
 
-const dispatchToActions = {
-  deleteTodo: destroy,
-  completeTodo: toggle,
-  editTodo: edit
-}
+const dispatchToActions = (dispatch) => ({
+  deleteTodo: (id: number) => dispatch(destroy(id)),
+  completeTodo: (id: number) => dispatch(toggle(id)),
+  editTodo: (id: number, text: string) => dispatch(edit(id, text))
+});
 
-@connect(null, dispatchToActions)
-export default class TodoItemContainer extends Component {}
+class TodoItemContainer extends Component {}
+export default connect(null, dispatchToActions)(TodoItemsContainer);
