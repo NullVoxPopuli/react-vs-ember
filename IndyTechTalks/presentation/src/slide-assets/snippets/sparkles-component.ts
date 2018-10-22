@@ -1,16 +1,16 @@
 import Component, { tracked } from 'sparkles-component';
 
 export default class SparklesComponent extends Component {
-  @tracked clickCount = 0;
+  @tracked baseNumber = 0;
   @tracked multiplier = 2;
 
-  @tracked('clickCount', 'multiplier')
-  get double() {
-    return this.clickCount * this.multiplier;
+  @tracked('baseNumber', 'multiplier')
+  get result() {
+    return this.baseNumber * this.multiplier;
   }
 
-  increment() { this.clickCount += 1; }
-  decrement() { this.clickCount -= 1; }
+  increment() { this.baseNumber += 1; }
+  decrement() { this.baseNumber -= 1; }
 
   changeMultiplier(e: KeyboardEvent) {
     const element = e.currentTarget as HTMLInputElement;

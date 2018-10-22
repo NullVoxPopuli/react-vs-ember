@@ -6,7 +6,7 @@ export default class EmberComponent extends Component {
   baseNumber = 0;
   multiplier = 2;
 
-  @computed('clickCount', 'multiplier')
+  @computed('baseNumber', 'multiplier')
   get result() {
     return this.baseNumber * this.multiplier;
   }

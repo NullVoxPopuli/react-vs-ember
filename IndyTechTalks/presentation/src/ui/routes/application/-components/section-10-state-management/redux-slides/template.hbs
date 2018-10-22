@@ -10,7 +10,7 @@
 
 <Slide as |s|>
   <s.ContextTitle><Title /></s.ContextTitle>
-  <table class='is-size-3'>
+  <table class='is-size-3 redux-table'>
     <thead>
       <tr>
         <th>&nbsp;</th>
@@ -62,6 +62,8 @@
 <BulletSlide @text='DDAU' as |s|>
   <s.Notes data-markdown>
     - Data Down, Actions Up
+      - acronym used in ember, but the idea came from react
+
     - Some people have taken this too far (resulting in prop drilling),
       as have people adhering to container and presentational components.
     - prop drilling is where you pass the same props through many layers (components, or whatever)
