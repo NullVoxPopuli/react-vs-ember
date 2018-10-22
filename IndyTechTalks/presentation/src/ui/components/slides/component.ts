@@ -70,8 +70,6 @@ export default class Slides extends Component {
       width: this.width || 1280,
       height: this.height || 720,
       transitionSpeed: 'fast',
-      slideNumber: 'c/t',
-      // showSlideNumber: 'speaker',
     };
 
     if (this.width) {

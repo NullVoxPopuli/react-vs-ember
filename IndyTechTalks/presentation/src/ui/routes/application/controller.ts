@@ -14,7 +14,6 @@ export default class extends Controller {
   queryParams = ['h', 'v', 'r', 'p', 'o', 'c', 't', 'ct', 'pw', 'ph', 'print-pdf'];
   @alias('revealService.indexh') h!: number;
   @alias('revealService.indexv') v!: number;
-  @alias('revealService.isSpeakerNotes') r!: boolean;
   @alias('revealService.paused') p!: boolean;
   @alias('revealService.overview') o!: boolean;
   @alias('revealService.controls') c!: boolean;
@@ -25,6 +24,7 @@ export default class extends Controller {
   @alias('revealService.printPdf') printPdf!: boolean;
 
 
+  @alias('revealService.isSpeakerNotes') r!: boolean;
   @alias('revealService.isSpeakerNotes') isSpeakerNotes!: boolean;
 
 

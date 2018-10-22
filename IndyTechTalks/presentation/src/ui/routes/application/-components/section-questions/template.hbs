@@ -1,19 +1,24 @@
-<SectionTitleSlide as |s|>
-  <s.Title>Questions?</s.Title>
-
-  <hr class='m-t-xl m-b-xxl'>
-
-  <div>
+{{!-- BEGIN-SNIPPET made-with-ember.hbs --}}
+<Slide class='align-top' as |s|>
+  <s.ContextTitle class='flex-row align-items-center justify-content-center'>
     This presentation made with
-    <br />
+    <Image @of='ember.png' class='p-l-md w-20' />
+  </s.ContextTitle>
 
-    <Image @of='ember.png' class='w-25' />
-  </div>
-  <br>
-  <br>
+  {{code-snippet name='made-with-ember.hbs'}}
+
   <div class='is-size-6'>
     and Reveal.JS <br>
     with a lot of help from https://github.com/chrislopresto/ember-reveal-js
   </div>
+
+  <s.Notes data-markdown>
+    yay
+  </s.Notes>
+</Slide>
+{{!-- END-SNIPPET --}}
+
+<SectionTitleSlide as |s|>
+  <s.Title>Questions?</s.Title>
 </SectionTitleSlide>
 

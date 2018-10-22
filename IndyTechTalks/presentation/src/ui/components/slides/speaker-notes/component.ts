@@ -61,12 +61,10 @@ export default class extends Component {
   }
 
   private handleConnectMessage() {
-    // BEGIN-MONKEYPATCH handleConnectMessage
     this.setupIframes();
     this.setupKeyboard();
     this.setupNotes();
     this.setupTimer();
-    // END-MONKEYPATCH handleConnectMessage
   }
 
 
@@ -168,33 +166,25 @@ export default class extends Component {
   }
 
   private setupIframes( /* data */ ) {
-    // BEGIN-MONKEYPATCH setupIframes-properties
     const currentIframe = document.querySelector('#current-slide iframe');
     const upcomingIframe = document.querySelector('#upcoming-slide iframe');
 
     this.set('currentSlide', currentIframe);
     this.set('upcomingSlide', upcomingIframe);
-    // END-MONKEYPATCH setupIframes-properties
   }
 
   private setupNotes() {
-    // BEGIN-MONKEYPATCH setupNotes-locals
     var notes, notesValue;
-    // END-MONKEYPATCH setupNotes-locals
 
     notes = document.querySelector( '.speaker-controls-notes' );
     notesValue = document.querySelector( '.speaker-controls-notes .value' );
 
-    // BEGIN-MONKEYPATCH setupNotes-properties
     set(this, 'notes', notes);
     set(this, 'notesValue', notesValue);
-    // END-MONKEYPATCH setupNotes-properties
   }
 
   private setupTimer() {
-    // BEGIN-MONKEYPATCH setupTimer-locals
     var zeroPadInteger = this.zeroPadInteger;
-    // END-MONKEYPATCH setupTimer-locals
 
     var start = new Date(),
       timeEl = document.querySelector( '.speaker-controls-time' ),
