@@ -20,7 +20,28 @@
 </CodeSlide>
 
 <CodeSlide class='react-color' @title='React' @name='react-component-template.tsx' />
+<CodeSlide class='ember-color' @title='Ember' @name='ember-component-template.hbs' as |s|>
+  <s.Notes data-markdown>
+    interrupt self to show handlebars place
+  </s.Notes>
+</CodeSlide>
+
+<Slide as |s|>
+  <Image @of='handlebars.png' />
+  <s.Notes data-markdown>
+    - noticed this yesterday
+  </s.Notes>
+</Slide>
 <CodeSlide class='ember-color' @title='Ember' @name='ember-component-template.hbs' />
+
+<Slide as |s|>
+  <h3 class='ember-color'>Sparkles</h3>
+  <Image @of='robin-sparkles.gif' />
+
+  <s.Notes data-markdown>
+    component manager -- allows for custom implementations of components
+  </s.Notes>
+</Slide>
 
 <Slide as |s|>
   <h3 class='ember-color'>Ember Sparkles</h3>
@@ -32,8 +53,6 @@
 
 
   <s.Notes data-markdown>
-    component manager -- allows for custom implementations of components
-
     this particular implementation is native javascript/typescript, no need for this.set or this.setState from react.
 
     the tracked decorator extracts the need to manage the component-level state asynchrony and batch-updating yourself
