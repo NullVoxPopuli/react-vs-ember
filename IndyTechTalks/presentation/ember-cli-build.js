@@ -5,6 +5,9 @@ const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
+  let environment = EmberApp.env();
+  let isProduction = environment === 'production';
+
   let app = new EmberApp(defaults, {
     // Add options here
     hinting: false,
@@ -15,7 +18,18 @@ module.exports = function(defaults) {
     snippetPaths: [
       'src/slide-assets/snippets',
       'slide-assets/snippets'
-    ]
+    ],
+    fingerprint: {
+      // enabled: false,
+      enabled: isProduction,
+      generateAssetMap: true,
+      prepend: 'https://nullvoxpopuli.github.io/react-vs-ember-indy-tech-talks-presentation/',
+      // exclude: ['png', 'jpg', 'gif', 'svg']
+    },
+    ifa: {
+      enabled: true,
+      inline: false,
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

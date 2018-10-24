@@ -50,7 +50,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    // ENV.rootURL = 'react-vs-ember-indy-tech-talks-presentation/';
+    ENV.routerRootURL = '/react-vs-ember-indy-tech-talks-presentation/';
   }
 
   return ENV;

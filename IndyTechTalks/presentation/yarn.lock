@@ -3148,6 +3148,12 @@ ember-cli-htmlbars@^3.0.0:
     json-stable-stringify "^1.0.0"
     strip-bom "^3.0.0"
 
+"ember-cli-ifa@github:NullVoxPopuli/ember-cli-ifa#b6f5b716869c9ca6ae5b91fa01e7ab03144ede99":
+  version "0.7.0"
+  resolved "https://codeload.github.com/NullVoxPopuli/ember-cli-ifa/tar.gz/b6f5b716869c9ca6ae5b91fa01e7ab03144ede99"
+  dependencies:
+    ember-cli-babel "^6.11.0"
+
 ember-cli-import-polyfill@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-import-polyfill/-/ember-cli-import-polyfill-0.2.0.tgz#c1a08a8affb45c97b675926272fe78cf4ca166f2"
