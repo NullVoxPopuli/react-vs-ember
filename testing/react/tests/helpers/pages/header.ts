@@ -1,6 +1,7 @@
 import {
   interactor, text, isPresent, fillable,
-  triggerable
+  triggerable,
+  value
 } from '@bigtest/interactor';
 
 const header = '[data-test-header]';
@@ -9,6 +10,7 @@ const header = '[data-test-header]';
 export class HeaderPage {
   constructor(selector: string) {}
 
+  fieldText = value('[data-test-header-input]');
   fill = fillable(`[data-test-header-input]`);
   submit = triggerable(`[data-test-form]`, 'submit');
 }

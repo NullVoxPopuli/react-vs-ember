@@ -8,15 +8,23 @@ let nextTodoId = 0;
 // Action Creator
 export const add = (text: string): AddAction => ({ type: ADD, text, id: nextTodoId++ });
 
+const theForbiddenTodo = 'make another TodoMVC App';
+
 // Reducer
-export const reducer = (state: State, action: AddAction) => ({
-  ...state,
-  all: [
-    ...state.all,
-    {
-      id: action.id,
-      text: action.text,
-      completed: false
-    }
-  ]
-});
+export const reducer = (state: State, action: AddAction) => {
+  if (action.text === theForbiddenTodo) {
+    return state;
+  }
+
+  return {
+    ...state,
+    all: [
+      ...state.all,
+      {
+        id: action.id,
+        text: action.text,
+        completed: false
+      }
+   ]
+  }
+};

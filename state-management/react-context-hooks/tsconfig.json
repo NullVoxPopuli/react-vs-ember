@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ES2017",
+
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "paths": {
+      "example-app/*": [
+        "src/*"
+      ],
+      "example-app/src/*": [
+        "src/*"
+      ],
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
+      "@ui/*": [
+        "src/ui/*"
+      ],
+      "*": [
+        "types/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "types"
+  ]
+}

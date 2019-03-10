@@ -1,6 +1,7 @@
 import {
   interactor, text,
-  count, clickable, isPresent
+  count, clickable, isPresent,
+  collection
 } from '@bigtest/interactor';
 
 @interactor
@@ -17,6 +18,9 @@ export class TodoMVCPage {
   clickActive = clickable('[data-test-filter-active]');
   clickCompleted = clickable('[data-test-filter-completed]');
 
+  todos = collection('[data-test-todo]', {
+    text: text('label'),
+  });
 }
 
 export default new TodoMVCPage('[data-test-todo-mvc]');
