@@ -14,7 +14,7 @@ export interface ITodos {
   toggle: (id: number) => void;
 }
 
-const defaultValue: ITodos = {
+export const defaultValue: ITodos = {
   todos: [],
   showCompletedFilter: undefined,
   add: () => {},

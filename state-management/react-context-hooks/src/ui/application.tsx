@@ -1,112 +1,124 @@
-import * as React from 'react';
+import React, { useReducer, Reducer } from "react";
+import uuid from "uuid";
+import { TodosContext, ITodos, defaultValue } from "@contexts/todos";
 
-import { TodosContext, ITodos } from '@contexts/todos';
+import TodoMVC from "./components/todo-mvc";
 
-import TodoMVC from './components/todo-mvc';
+import "./styles/app.scss";
 
-import './styles/app.scss';
+const CLEAR_COMPLETED = "clear-compuleted";
+const COMPLETE = "complete";
+const DESTROY = "destroy";
+const ADD = "add";
+const EDIT = "edit";
+const TOGGLE = "toggle";
+const SET_FILTER = "set-filter";
+const OTHER = undefined;
 
-type State = ITodos
+const actions = {
+  [CLEAR_COMPLETED](state) {
+    return {
+      ...state,
+      todos: state.todos.filter(todo => todo.completed === false)
+    };
+  },
+  [COMPLETE](state, { id }) {
+    return {
+      ...state,
+      todos: state.todos.map(todo => {
+        if (todo.id === id) {
+          return { ...todo, completed: true };
+        }
 
-// heavily based off of
-// https://reactjs.org/docs/context.html#updating-context-from-a-nested-component
-export default class Application extends React.Component<{}, State> {
-  constructor(props) {
-    super(props);
+        return todo;
+      })
+    };
+  },
+  [ADD](state, { text }) {
+    return {
+      ...state,
+      todos: [...state.todos, { text, id: uuid(), completed: false }]
+    };
+  },
+  [DESTROY](state, { id }) {
+    return {
+      ...state,
+      todos: state.todos.filter(todo => todo.id !== id)
+    };
+  },
+  [EDIT](state, { id, text }) {
+    return {
+      ...state,
+      todos: state.todos.map(todo => {
+        if (todo.id === id) {
+          return { ...todo, text };
+        }
 
-    this.state = {
-      todos: [{
-        id: 0, text: 'Todo from context', completed: false
-      }],
-      showCompletedFilter: undefined,
-      add: this.addTodo,
-      clearCompleted: this.clearCompleted,
-      complete: this.complete,
-      destroy: this.destroyTodo,
-      edit: this.edit,
-      showAll: this.showAll,
-      showActive: this.showActive,
-      showCompleted: this.showCompleted,
-      toggle: this.toggleTodo
-    }
-  }
+        return todo;
+      })
+    };
+  },
+  [TOGGLE](state, { id }) {
+    return {
+      ...state,
+      todos: state.todos.map(todo => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
 
-  addTodo = (text: string) => {
-    const todos = this.state.todos;
+        return todo;
+      })
+    };
+  },
+  [SET_FILTER](state, { value }) {
+    return {
+      ...state,
+      showCompletedFilter: value
+    };
+  },
+  [OTHER]: (state, action) => state,
+};
 
-    this.setState({
-      todos: [
-        ...todos,
-        { id: todos.length, text, completed: false }
-      ]
-    });
-  }
+function reducer(state, action) {
+  return actions[action.type](state, action);
+}
 
-  clearCompleted = () => {
-    const todos = this.state.todos.filter(t => !t.completed);
-
-    this.setState({ todos });
-  }
-
-  complete = (id: number) => {
-    const todos = this.state.todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, completed: true };
+function TodosProvider({ children }) {
+  const [state, dispatch] = useReducer<Reducer<ITodos, any>>(reducer, {
+    ...defaultValue,
+    todos: [
+      {
+        id: uuid(),
+        text: "Todo from context",
+        completed: false
       }
+    ]
+  });
 
-      return todo;
-    });
+  return (
+    <TodosContext.Provider
+      value={{
+        ...state,
+        add: (text: string) => dispatch({ type: ADD, text }),
+        clearCompleted: () => dispatch({ type: CLEAR_COMPLETED }),
+        complete: (id: number) => dispatch({ type: COMPLETE, id }),
+        destroy: (id: number) => dispatch({ type: DESTROY, id }),
+        edit: (id: number, text: string) => dispatch({ type: EDIT, id, text }),
+        showAll: () => dispatch({ type: SET_FILTER, value: undefined }),
+        showActive: () => dispatch({ type: SET_FILTER, value: false }),
+        showCompleted: () => dispatch({ type: SET_FILTER, value: true }),
+        toggle: (id: number) => dispatch({ type: TOGGLE, id })
+      }}
+    >
+      {children}
+    </TodosContext.Provider>
+  );
+}
 
-    this.setState({ todos });
-  }
-
-  destroyTodo = (id: number) => {
-    const todos = this.state.todos.filter(t => t.id !== id);
-
-    this.setState({ todos });
-  }
-
-  edit = (id: number, text: string) => {
-    const todos = this.state.todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, text };
-      }
-
-      return todo;
-    });
-
-    this.setState({ todos });
-  }
-
-  showAll = () => {
-    this.setState({ showCompletedFilter: undefined });
-  }
-
-  showActive = () => {
-    this.setState({ showCompletedFilter: true });
-  }
-
-  showCompleted = () => {
-    this.setState({ showCompletedFilter: false });
-  }
-
-  toggleTodo = (id: number) => {
-    const todos = this.state.todos.map(todo => {
-      if (todo.id === id) {
-        return { ...todo, completed: !todo.completed };
-      }
-
-      return todo;
-    });
-
-    this.setState({ todos });
-  }
-
-  render() {
-    return (
-      <TodosContext.Provider value={this.state}>
-        <TodoMVC />
-      </TodosContext.Provider>
-    );
-  }
+export default function Application() {
+  return (
+    <TodosProvider>
+      <TodoMVC />
+    </TodosProvider>
+  );
 }
