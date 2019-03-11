@@ -1,0 +1,53 @@
+{
+  "name": "example-app",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Small description for example-app goes here",
+  "license": "MIT",
+  "author": "NullVoxPopuli",
+  "scripts": {
+    "start": "yarn ember serve"
+  },
+  "devDependencies": {
+    "@ember-decorators/babel-transforms": "^2.1.2",
+    "@ember/optional-features": "^0.7.0",
+    "@ember/render-modifiers": "^1.0.0",
+    "@glimmer/component": "^0.14.0-alpha.3",
+    "@types/ember": "^3.0.5",
+    "@types/ember-qunit": "^3.0.2",
+    "@types/ember-test-helpers": "^1.0.4",
+    "@types/ember-testing-helpers": "^0.0.3",
+    "@types/ember__test-helpers": "^0.7.6",
+    "@types/libsodium-wrappers": "^0.7.0",
+    "@types/qunit": "^2.5.1",
+    "@types/rsvp": "^4.0.1",
+    "@types/uuid": "^3.4.4",
+    "babel-eslint": "^8.0.2",
+    "broccoli-asset-rev": "^3.0.0",
+    "ember-auto-import": "^1.2.20",
+    "ember-cli": "github:ember-cli/ember-cli#c97dee84155f05061868e34c44b250991127eba2",
+    "ember-cli-app-version": "^3.0.0",
+    "ember-cli-babel": "^7.3.0-beta.1",
+    "ember-cli-dependency-checker": "^2.0.0",
+    "ember-cli-htmlbars": "^3.0.1",
+    "ember-cli-htmlbars-inline-precompile": "^2.1.0",
+    "ember-cli-inject-live-reload": "^2.0.1",
+    "ember-cli-qunit": "^4.4.0",
+    "ember-cli-sri": "^2.1.0",
+    "ember-cli-typescript": "^2.0.0-rc.1",
+    "ember-cli-uglify": "^2.0.0",
+    "ember-load-initializers": "^2.0.0",
+    "ember-resolver": "^4.0.0",
+    "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/57371db316602920350c204b5731755dc9b1e7a2.tgz",
+    "ember-symbol-observable": "1.0.1",
+    "loader.js": "^4.2.3",
+    "qunit-dom": "^0.8.4",
+    "typescript": "^3.2.0"
+  },
+  "engines": {
+    "node": "6.* || >= 8.*"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
+}

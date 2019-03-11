@@ -1,0 +1,21 @@
+<div class="view">
+  <input
+    type="checkbox"
+    checked={{todo.completed}}
+    class="toggle"
+    onchange={{action (mut todo.completed) value='target.checked'}} />
+
+  <label {{action this.didClickLabel on='doubleClick'}}>
+    {{todo.text}}
+  </label>
+
+  <button class="destroy" {{action this.destroyTodo}}></button>
+</div>
+
+{{input
+  type='text'
+  class='edit'
+  value=todo.text
+  blur=(action this.didFinishEditing)
+  keyDown=(action this.handleKeydown)
+}}
