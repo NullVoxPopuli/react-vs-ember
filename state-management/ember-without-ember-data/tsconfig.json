@@ -1,14 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "es2017",
     "allowJs": true,
-    "experimentalDecorators": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "noEmitOnError": false,
-    "noEmit": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
@@ -18,25 +13,27 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "noEmitOnError": false,
+    "noEmit": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "baseUrl": ".",
     "module": "es6",
     "paths": {
-      "example-app/*": [
-        "src/*"
+      "example-app/tests/*": [
+        "tests/*"
       ],
       "example-app/src/*": [
         "src/*"
       ],
-      "@ember": ["node_modules/@types/ember/index.d.ts"],
-      "ember-redux": ["node_modules/ember-redux/index.d.ts"],
       "*": [
         "types/*"
       ]
     }
   },
   "include": [
-    "src",
-    "tests",
-    "types"
+    "src/**/*",
+    "tests/**/*",
+    "types/**/*"
   ]
 }
